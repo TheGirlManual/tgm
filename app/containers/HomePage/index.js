@@ -38,7 +38,8 @@ export default function HomePage() {
             <FormattedMessage {...messages.headline} />
           </Text>
         </Box>
-        <Button mt={4} py={3} width={0.3} maxWidth={200}>
+
+        <Button mt={4} py={3} width={0.4} maxWidth={200}>
           <FormattedMessage {...messages.listenCta} />
         </Button>
       </Flex>

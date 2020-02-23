@@ -16,6 +16,13 @@ import { appLocales } from '../../i18n';
 import { changeLocale } from '../LanguageProvider/actions';
 import { makeSelectLocale } from '../LanguageProvider/selectors';
 
+const Option = props => <option value={props.locale}>{props.value}</option>;
+
+Option.propTypes = {
+  locale: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+};
+
 export function LocalePicker(props) {
   return (
     <Box>
@@ -23,10 +30,13 @@ export function LocalePicker(props) {
         id="country"
         name="country"
         value={props.locale}
+        sx={{
+          fontFamiliy: 'monospace',
+        }}
         onChange={props.onLocaleChange}
       >
-        {Object.entries(appLocales).map(([key, locale]) => (
-          <option key={key}>{locale}</option>
+        {appLocales.map(locale => (
+          <Option key={locale} locale={locale} value={locale.toUpperCase()} />
         ))}
       </Select>
     </Box>

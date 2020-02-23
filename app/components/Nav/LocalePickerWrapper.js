@@ -1,6 +1,13 @@
+import React from 'react';
 import LocalePicker from 'containers/LocalePicker';
 import styled from '@emotion/styled';
 
-const LocalePickerWrapper = styled(LocalePicker);
+const Wrapper = styled.div`
+  width: 60px;
+`;
 
-export default LocalePickerWrapper;
+export default () => (
+  <Wrapper>
+    <LocalePicker />
+  </Wrapper>
+);

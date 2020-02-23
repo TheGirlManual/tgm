@@ -29,7 +29,7 @@ import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 // Import styling theme
-import { ThemeProvider } from 'theme-ui';
+import { ThemeProvider } from 'emotion-theming';
 import rebassTheme from '@rebass/preset';
 
 import configureStore from './configureStore';
