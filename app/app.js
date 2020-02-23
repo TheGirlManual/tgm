@@ -28,10 +28,27 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
+// Import styling theme
+import { ThemeProvider } from 'theme-ui';
+import rebassTheme from '@rebass/preset';
+
 import configureStore from './configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
+
+const theme = {
+  ...rebassTheme,
+  fonts: {
+    heading: 'Cormorant',
+    body: 'Montserrat',
+  },
+  colors: {
+    primary: '#EE8375',
+    secondary: '#DB5054',
+    background: '#F0DBD8',
+  },
+};
 
 // Create redux store with history
 const initialState = {};
@@ -43,7 +60,9 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

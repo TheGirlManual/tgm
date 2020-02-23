@@ -10,6 +10,15 @@ export const scope = 'app.containers.HomePage';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'This is the HomePage container!',
+    defaultMessage: 'Girl Talk',
+  },
+  headline: {
+    id: `${scope}.headline`,
+    defaultMessage:
+      'Thinking out loud about feminism, misogyny, and gender equality.',
+  },
+  listenCta: {
+    id: `${scope}.listenCta`,
+    defaultMessage: 'Listen now',
   },
 });

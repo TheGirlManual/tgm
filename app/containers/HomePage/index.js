@@ -7,12 +7,41 @@
 
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import { Button, Text, Flex, Box } from 'rebass';
+import Nav from 'components/Nav';
 import messages from './messages';
+
+const img =
+  'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fshutterstock%2Fwomen.jpg?alt=media&token=4a4fba44-9122-4321-9015-2cb612429436';
 
 export default function HomePage() {
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <Flex
+      flexDirection="column"
+      height="100vh"
+      sx={{
+        backgroundImage: `linear-gradient(to bottom, #FDF0E6D9, #FDF0E6D9), url(${img})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      }}
+    >
+      <Nav />
+
+      <Flex
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        flex="1 1 auto"
+      >
+        <Box px={3}>
+          <Text sx={{ textAlign: 'center' }} fontSize={5} variant="primary">
+            <FormattedMessage {...messages.headline} />
+          </Text>
+        </Box>
+        <Button mt={4} py={3} width={0.3} maxWidth={200}>
+          <FormattedMessage {...messages.listenCta} />
+        </Button>
+      </Flex>
+    </Flex>
   );
 }
