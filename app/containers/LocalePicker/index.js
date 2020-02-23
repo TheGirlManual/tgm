@@ -7,44 +7,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Box } from 'rebass';
-import { Select } from '@rebass/forms';
 import { createSelector } from 'reselect';
 import { compose } from 'redux';
+import Picker from 'components/Picker';
 
 import { appLocales } from '../../i18n';
 import { changeLocale } from '../LanguageProvider/actions';
 import { makeSelectLocale } from '../LanguageProvider/selectors';
-
-const Option = props => <option value={props.locale}>{props.value}</option>;
-
-Option.propTypes = {
-  locale: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-};
+import messages from './messages';
 
 export function LocalePicker(props) {
   return (
-    <Box>
-      <Select
-        id="country"
-        name="country"
-        value={props.locale}
-        sx={{
-          fontFamiliy: 'monospace',
-        }}
-        onChange={props.onLocaleChange}
-      >
-        {appLocales.map(locale => (
-          <Option key={locale} locale={locale} value={locale.toUpperCase()} />
-        ))}
-      </Select>
-    </Box>
+    <Picker
+      id="locale"
+      name="locale"
+      value={props.locale}
+      onChange={props.onChange}
+      values={appLocales}
+      messages={messages}
+    />
   );
 }
 
 LocalePicker.propTypes = {
-  onLocaleChange: PropTypes.func,
+  onChange: PropTypes.func,
   locale: PropTypes.string,
 };
 
@@ -57,7 +43,7 @@ const mapStateToProps = createSelector(
 
 function mapDispatchToProps(dispatch) {
   return {
-    onLocaleChange: e => dispatch(changeLocale(e.target.value)),
+    onChange: e => dispatch(changeLocale(e.target.value)),
     dispatch,
   };
 }

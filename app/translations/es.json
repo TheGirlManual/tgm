@@ -1,7 +1,10 @@
 {
   "app.components.Nav.header": "",
+  "app.containers.AboutPage.about": "",
   "app.containers.HomePage.header": "Girl Talk",
   "app.containers.HomePage.headline": "Pensando en voz alta sobre feminismo, misoginia e igualdad de género.",
   "app.containers.HomePage.listenCta": "Escucha ahora",
+  "app.containers.LocalePicker.en": "English",
+  "app.containers.LocalePicker.es": "Español",
   "app.containers.NotFoundPage.header": ""
 }
