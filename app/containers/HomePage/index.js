@@ -85,7 +85,14 @@ export default function HomePage() {
           }}
         />
 
-        <Image width={[null, 1, 0.5]} p={5} pb={0} maxWidth="350px" src={fer} />
+        <Image
+          width={[null, 1, 0.5]}
+          px={5}
+          py={4}
+          pb={[0, null]}
+          maxWidth="350px"
+          src={fer}
+        />
 
         <Text
           lineHeight={1.6}
@@ -115,8 +122,9 @@ export default function HomePage() {
 
         <Image
           width={[null, 1, 0.5]}
-          p={5}
-          pb={0}
+          px={5}
+          py={4}
+          pb={[0, null]}
           maxWidth="350px"
           src={essi}
         />
