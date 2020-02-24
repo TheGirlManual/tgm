@@ -21,4 +21,9 @@ export default defineMessages({
     id: `${scope}.listenCta`,
     defaultMessage: 'Listen now',
   },
+  hostsHeadline: {
+    id: `${scope}.hostsHeadline`,
+    defaultMessage:
+      '“Girl Talk” podcast is hosted by Fernanda Zamora and Essi Kiiski.',
+  },
 });
