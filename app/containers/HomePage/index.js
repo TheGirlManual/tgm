@@ -60,7 +60,7 @@ export default function HomePage() {
       </SectionWrapper>
 
       <Heading
-        mt={5}
+        my={5}
         px={3}
         sx={{ textAlign: 'center' }}
         fontSize={5}
@@ -77,11 +77,19 @@ export default function HomePage() {
         px={4}
         mx="auto"
       >
-        <Image width={[1, 0.5]} p={5} pb={0} maxWidth="350px" src={fer} />
+        <hr
+          style={{
+            backgroundColor: 'black',
+            width: '100%',
+            margin: 'auto auto 0 0',
+          }}
+        />
+
+        <Image width={[null, 1, 0.5]} p={5} pb={0} maxWidth="350px" src={fer} />
 
         <Text
           lineHeight={1.6}
-          width={[1, 0.5]}
+          width={[null, 1, 0.5]}
           fontSize={[null, null, 3]}
           py={4}
           my="auto"
@@ -105,11 +113,17 @@ export default function HomePage() {
           }}
         />
 
-        <Image width={[1, 0.5]} p={5} pb={0} maxWidth="350px" src={essi} />
+        <Image
+          width={[null, 1, 0.5]}
+          p={5}
+          pb={0}
+          maxWidth="350px"
+          src={essi}
+        />
 
         <Text
           lineHeight={1.6}
-          width={[1, 0.5]}
+          width={[null, 1, 0.5]}
           fontSize={[null, null, 3]}
           py={4}
           my="auto"
