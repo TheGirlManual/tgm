@@ -8,7 +8,7 @@ const img =
 function IntroSectionWrapper({ children }) {
   return (
     <Flex
-      height="40%"
+      height="70vh"
       flexDirection="column"
       justifyContent="center"
       alignItems="center"

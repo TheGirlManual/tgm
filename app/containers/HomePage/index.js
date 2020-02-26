@@ -24,26 +24,27 @@ const fer =
 
 export default function HomePage() {
   return (
-    <Box height="100%">
+    <Box>
       <IntroSectionWrapper>
         <Text
           px={3}
           sx={{ textAlign: 'center' }}
-          fontSize={5}
+          fontSize={[5, 6]}
           variant="primary"
         >
           <FormattedMessage {...messages.headline} />
         </Text>
 
-        <Button mt={3} py={3} width={0.4} maxWidth={200}>
+        <Button color="white" mt={4} py={3} width={0.4} maxWidth={200}>
           <FormattedMessage {...messages.listenCta} />
         </Button>
       </IntroSectionWrapper>
 
       <ProfileSectionWrapper>
         <Flex
+          mt={3}
           flexDirection="column"
-          height="50vh"
+          height="30vh"
           justifyContent="center"
           alignItems="center"
         >
@@ -69,7 +70,7 @@ export default function HomePage() {
           </Box>
 
           <Box
-            flex="2"
+            flex="1"
             fontSize={[3, 4]}
             sx={{ display: 'flex', alignItems: 'flex-start' }}
           >
