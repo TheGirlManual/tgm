@@ -11,7 +11,7 @@ import messages from './messages';
 
 export default function AboutPage() {
   return (
-    <Box flex="1 1 auto">
+    <Box flex="1 1 auto" height="80vh">
       <Flex
         flexDirection="column"
         justifyContent="center"
@@ -24,7 +24,7 @@ export default function AboutPage() {
           px={3}
           my={3}
           sx={{ textAlign: 'right' }}
-          fontSize={6}
+          fontSize={[5, 6]}
           color="secondary"
           width={1}
           textAlign={['center', 'left']}
@@ -37,7 +37,7 @@ export default function AboutPage() {
             lineHeight: 1.6,
           }}
           pb={5}
-          fontSize={3}
+          fontSize={[2, 3]}
           textAlign="center"
         >
           <FormattedMessage {...messages.mission} />

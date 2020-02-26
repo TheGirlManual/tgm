@@ -18,7 +18,7 @@ function ProfileSectionWrapper({ children }) {
 }
 
 ProfileSectionWrapper.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default ProfileSectionWrapper;

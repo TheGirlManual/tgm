@@ -5,9 +5,10 @@
  */
 
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { Text, Flex, Box, Heading } from 'rebass';
+import { Link } from 'react-router-dom';
+import { Flex, Box, Heading } from 'rebass';
 import { FormattedMessage } from 'react-intl';
+import NavItem from 'components/NavItem';
 import LocalePickerWrapper from './LocalePickerWrapper';
 import messages from './messages';
 
@@ -25,32 +26,6 @@ function PageTitle() {
     >
       <FormattedMessage {...messages.header} />
     </Heading>
-  );
-}
-
-function NavItem() {
-  return (
-    <Box
-      sx={{
-        textDecoration: 'none',
-      }}
-      as={NavLink}
-      to="/about"
-    >
-      <Text
-        as="span"
-        sx={{
-          color: 'black',
-          '.active &': { textDecoration: 'underline' },
-          '* > :not(.active) > &:hover': {
-            textDecoration: 'underline',
-          },
-        }}
-        fontSize={[2, 3]}
-      >
-        About
-      </Text>
-    </Box>
   );
 }
 
@@ -75,12 +50,16 @@ function Nav() {
       }}
     >
       <Flex alignItems="center" justifyContent="space-between">
-        <Box width={1 / 3} mr="auto">
+        <Box width={[2 / 3, 1 / 3]} mr="auto">
           <PageTitle />
         </Box>
 
-        <Box width={1 / 3} textAlign="center">
-          <NavItem />
+        <Box
+          width={1 / 3}
+          display={['none', 'inline-block']}
+          textAlign="center"
+        >
+          <NavItem to="/about" title="About" />
         </Box>
 
         <Box width={1 / 3}>

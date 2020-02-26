@@ -26,14 +26,14 @@ export default function HomePage() {
   return (
     <Box>
       <IntroSectionWrapper>
-        <Text
+        <Heading
           px={3}
           sx={{ textAlign: 'center' }}
           fontSize={[5, 6]}
           variant="primary"
         >
           <FormattedMessage {...messages.headline} />
-        </Text>
+        </Heading>
 
         <Button color="white" mt={4} py={3} width={0.4} maxWidth={200}>
           <FormattedMessage {...messages.listenCta} />
