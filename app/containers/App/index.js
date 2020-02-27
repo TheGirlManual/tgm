@@ -8,6 +8,9 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
 import { Switch, Route } from 'react-router-dom';
 import { Box, Flex } from 'rebass';
 import { Global, css } from '@emotion/core';
@@ -18,6 +21,11 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
 import FloatingButton from 'components/FloatingButton';
+import { useInjectReducer } from 'utils/injectReducer';
+
+import { showModal, hideModal } from './actions';
+import { makeSelectModalState } from './selectors';
+import reducer from './reducer';
 
 const ModalOverlayStyles = css`
   .ReactModal__Overlay {
@@ -52,22 +60,50 @@ const ModalContentStyles = css`
   }
 `;
 
-export default function App() {
-  const [modalIsOpen, toggleModal] = React.useState(false);
+function App(props) {
+  useInjectReducer({ key: 'modal', reducer });
 
   return (
-    <Flex flexDirection="column">
+    <Flex minHeight="100vh" flexDirection="column">
       <Global styles={ModalOverlayStyles} />
       <Global styles={ModalContentStyles} />
-      <NavModal modalIsOpen={modalIsOpen} toggleModal={toggleModal} />
-      <FloatingButton toggleModal={toggleModal} />
+      <NavModal
+        modalIsOpen={props.modalIsOpen}
+        hideModal={() => props.dispatch(hideModal())}
+      />
+      <FloatingButton showModal={() => props.dispatch(showModal())} />
       <Nav />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/about" component={AboutPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Flex flex="1">
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route component={NotFoundPage} />
+        </Switch>
+      </Flex>
       <Box height="70px" width="100%" />
     </Flex>
   );
 }
+
+App.propTypes = {
+  modalIsOpen: PropTypes.bool,
+  dispatch: PropTypes.func,
+};
+
+const mapStateToProps = createSelector(
+  makeSelectModalState(),
+  modalIsOpen => ({
+    modalIsOpen,
+  }),
+);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(App);

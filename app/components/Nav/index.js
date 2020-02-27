@@ -22,7 +22,7 @@ function PageTitle() {
       as={Link}
       to="/"
       px={[0, 3]}
-      fontSize={[4, 5]}
+      fontSize={[4, 6]}
     >
       <FormattedMessage {...messages.header} />
     </Heading>
@@ -34,7 +34,7 @@ function Nav() {
     <Box
       as="nav"
       px={3}
-      py={3}
+      py={[3, 4]}
       bg="white"
       style={{
         top: 0,
@@ -42,11 +42,6 @@ function Nav() {
       }}
       sx={{
         position: 'sticky',
-        boxShadow: `
-          -webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
-          -moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
-          box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.3);
-        `,
       }}
     >
       <Flex alignItems="center" justifyContent="space-between">

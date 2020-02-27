@@ -7,9 +7,9 @@ const theme = {
     body: 'Montserrat',
   },
   colors: {
-    primary: '#EE8375',
-    secondary: '#DB5054',
-    background: '#F0DBD8',
+    primary: '#ffffff',
+    secondary: '#CE1A5D',
+    background: '#ffffff',
   },
 };
 

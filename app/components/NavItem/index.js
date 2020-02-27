@@ -29,7 +29,7 @@ function NavItem({ to, title, onClick }) {
           },
         }}
         fontSize={3}
-        fontFamily="serif"
+        fontFamily="sans-serif"
       >
         {title}
       </Text>

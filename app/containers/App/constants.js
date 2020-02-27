@@ -8,3 +8,7 @@
  * Follow this format:
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
+
+export const SHOW_MODAL = 'app/App/SHOW_MODAL';
+export const HIDE_MODAL = 'app/App/HIDE_MODAL';
+export const TOGGLE_MODAL = 'app/App/TOGGLE_MODAL';

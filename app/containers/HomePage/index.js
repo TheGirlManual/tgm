@@ -24,7 +24,7 @@ const fer =
 
 export default function HomePage() {
   return (
-    <Box>
+    <Flex flexDirection="column">
       <IntroSectionWrapper>
         <Heading
           px={3}
@@ -35,7 +35,14 @@ export default function HomePage() {
           <FormattedMessage {...messages.headline} />
         </Heading>
 
-        <Button color="white" mt={4} py={3} width={0.4} maxWidth={200}>
+        <Button
+          color="primary"
+          bg="secondary"
+          mt={4}
+          py={3}
+          width={0.4}
+          maxWidth={200}
+        >
           <FormattedMessage {...messages.listenCta} />
         </Button>
       </IntroSectionWrapper>
@@ -97,6 +104,6 @@ export default function HomePage() {
           <Profile name="Essi Kiiski" image={essi} profile={messages.essi} />
         </Flex>
       </ProfileSectionWrapper>
-    </Box>
+    </Flex>
   );
 }

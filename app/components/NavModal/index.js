@@ -37,12 +37,12 @@ const modalStyle = {
   },
 };
 
-function NavModal({ modalIsOpen, toggleModal }) {
+function NavModal({ modalIsOpen, hideModal }) {
   return (
     <Modal
       closeTimeoutMS={200}
       shouldCloseOnOverlayClick
-      onRequestClose={() => toggleModal(false)}
+      onRequestClose={hideModal}
       style={modalStyle}
       isOpen={modalIsOpen}
     >
@@ -53,12 +53,8 @@ function NavModal({ modalIsOpen, toggleModal }) {
         justifyContent="space-between"
       >
         <Box width={1} textAlign="center">
-          <NavItem to="/" title="Home" onClick={() => toggleModal(false)} />
-          <NavItem
-            to="/about"
-            title="About"
-            onClick={() => toggleModal(false)}
-          />
+          <NavItem to="/" title="Home" onClick={hideModal} />
+          <NavItem to="/about" title="About" onClick={hideModal} />
         </Box>
       </Flex>
     </Modal>
@@ -67,7 +63,7 @@ function NavModal({ modalIsOpen, toggleModal }) {
 
 NavModal.propTypes = {
   modalIsOpen: PropTypes.bool.isRequired,
-  toggleModal: PropTypes.func.isRequired,
+  hideModal: PropTypes.func.isRequired,
 };
 
 export default NavModal;

@@ -11,14 +11,21 @@ function Profile({ name, image, profile }) {
       justifyContent="center"
       alignItems="flex-start"
     >
-      <Image
+      <Box
         width={[1, 1, 0.5]}
         px={[4, 5]}
         py={4}
         pb={[0, null]}
         maxWidth="300px"
-        src={image}
-      />
+        sx={{}}
+      >
+        <Image
+          sx={{
+            filter: 'grayscale(1) sepia(1) hue-rotate(-35deg) saturate(0.5)',
+          }}
+          src={image}
+        />
+      </Box>
 
       <Box
         lineHeight={1.8}

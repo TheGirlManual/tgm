@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect';
+import { initialState } from './reducer';
 
 const selectRouter = state => state.router;
+const selectModalState = state => state.modal || initialState;
 
 const makeSelectLocation = () =>
   createSelector(
@@ -8,4 +10,10 @@ const makeSelectLocation = () =>
     routerState => routerState.location,
   );
 
-export { makeSelectLocation };
+const makeSelectModalState = () =>
+  createSelector(
+    selectModalState,
+    modalState => modalState.modalIsOpen,
+  );
+
+export { makeSelectLocation, makeSelectModalState };

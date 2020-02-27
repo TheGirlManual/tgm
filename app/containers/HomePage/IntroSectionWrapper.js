@@ -13,9 +13,19 @@ function IntroSectionWrapper({ children }) {
       justifyContent="center"
       alignItems="center"
       sx={{
-        backgroundImage: `linear-gradient(to bottom, #FDF0E6D9, #FDF0E6D9), url(${img})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
+        ':before': {
+          position: 'absolute',
+          top: 'inherit',
+          left: 'inherit',
+          width: '100%',
+          height: 'inherit',
+          backgroundImage: `linear-gradient(to bottom, #ffffffdd, #ffffffdd), url(${img})`,
+          backgroundSize: 'cover',
+          filter: 'hue-rotate(-35deg)',
+          zIndex: -1,
+          backgroundPosition: 'center',
+          content: '""',
+        },
       }}
     >
       {children}

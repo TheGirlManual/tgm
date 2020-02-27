@@ -10,7 +10,7 @@ import { Box } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars as Bars } from '@fortawesome/free-solid-svg-icons';
 
-function FloatingButton({ toggleModal }) {
+function FloatingButton({ showModal }) {
   return (
     <Box
       width="4rem"
@@ -20,7 +20,7 @@ function FloatingButton({ toggleModal }) {
       display={['flex', 'none']}
       alignItems="center"
       justifyContent="center"
-      onClick={() => toggleModal(true)}
+      onClick={showModal}
       sx={{
         borderRadius: '50%',
         position: 'fixed',
@@ -36,7 +36,7 @@ function FloatingButton({ toggleModal }) {
 }
 
 FloatingButton.propTypes = {
-  toggleModal: PropTypes.func.isRequired,
+  showModal: PropTypes.func.isRequired,
 };
 
 export default FloatingButton;
