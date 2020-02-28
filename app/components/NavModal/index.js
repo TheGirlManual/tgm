@@ -26,7 +26,7 @@ const modalStyle = {
     backgroundColor: '#3d3d3d99',
   },
   content: {
-    top: '55%',
+    top: '50%',
     left: '0',
     right: '0',
     bottom: '30%',
@@ -36,6 +36,8 @@ const modalStyle = {
     marginLeft: -50,
     borderRadius: 0,
     border: 'none',
+    boxShadow: '#3737378c 10px 10px 10px 4px',
+    backgroundColor: '#ffffffee',
   },
 };
 
@@ -48,12 +50,18 @@ function NavModal({ modalIsOpen, hideModal }) {
       style={modalStyle}
       isOpen={modalIsOpen}
     >
-      <Heading color="black" position="absolute" textAlign="center">
+      <Heading
+        mt={2}
+        fontFamily="serif"
+        fontStyle="italic"
+        color="black"
+        textAlign="center"
+      >
         Pages
       </Heading>
       <Flex
         width="100%"
-        mt={3}
+        mt={4}
         alignItems="center"
         justifyContent="space-between"
       >
@@ -62,7 +70,7 @@ function NavModal({ modalIsOpen, hideModal }) {
             to="/"
             title={
               <span>
-                <FontAwesomeIcon style={{ marginRight: 4 }} icon={Home} />
+                <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
                 Home
               </span>
             }
