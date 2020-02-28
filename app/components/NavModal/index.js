@@ -6,7 +6,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from 'rebass';
+import { Heading, Flex, Box } from 'rebass';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome as Home } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 
 import NavItem from 'components/NavItem';
@@ -46,14 +48,26 @@ function NavModal({ modalIsOpen, hideModal }) {
       style={modalStyle}
       isOpen={modalIsOpen}
     >
+      <Heading color="black" position="absolute" textAlign="center">
+        Pages
+      </Heading>
       <Flex
         width="100%"
-        height="100%"
+        mt={3}
         alignItems="center"
         justifyContent="space-between"
       >
         <Box width={1} textAlign="center">
-          <NavItem to="/" title="Home" onClick={hideModal} />
+          <NavItem
+            to="/"
+            title={
+              <span>
+                <FontAwesomeIcon style={{ marginRight: 4 }} icon={Home} />
+                Home
+              </span>
+            }
+            onClick={hideModal}
+          />
           <NavItem to="/about" title="About" onClick={hideModal} />
         </Box>
       </Flex>

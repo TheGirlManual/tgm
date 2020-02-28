@@ -39,7 +39,7 @@ function NavItem({ to, title, onClick }) {
 
 NavItem.propTypes = {
   to: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.element.isRequired,
   onClick: PropTypes.func,
 };
 
