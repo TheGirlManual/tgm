@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Text, Box } from 'rebass';
 
-function NavItem({ to, title, onClick }) {
+function NavItem({ to, title, onClick, sx, textColor }) {
   return (
     <Box
-      sx={{ textDecoration: 'none' }}
+      sx={{ textDecoration: 'none', ...sx }}
       mx={3}
       as={NavLink}
       to={to}
@@ -22,13 +22,13 @@ function NavItem({ to, title, onClick }) {
       <Text
         as="span"
         sx={{
-          color: 'black',
+          color: textColor,
           '.active &': { textDecoration: 'underline' },
           '* > :not(.active) > &:hover': {
             textDecoration: 'underline',
           },
         }}
-        fontSize={3}
+        fontSize={[4, 3]}
         fontFamily="sans-serif"
       >
         {title}
@@ -41,6 +41,13 @@ NavItem.propTypes = {
   to: PropTypes.string.isRequired,
   title: PropTypes.element.isRequired,
   onClick: PropTypes.func,
+  sx: PropTypes.object,
+  textColor: PropTypes.string,
+};
+
+NavItem.defaultProps = {
+  sx: {},
+  textColor: 'black',
 };
 
 export default NavItem;

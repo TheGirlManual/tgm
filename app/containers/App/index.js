@@ -44,19 +44,22 @@ const ModalOverlayStyles = css`
 
 const ModalContentStyles = css`
   .ReactModal__Content {
-    opacity: 0;
-    transition: all 200ms ease-in-out;
-    transform: translateX(-50px);
+    width: 120vh;
+    height: 40vh;
+    bottom: 50px;
+    left: 50px;
+    transform: translate(calc(-50%), calc(50%));
+    transition: all 150ms ease-in-out;
   }
 
   .ReactModal__Content--after-open {
-    opacity: 1;
-    transform: translateX(0);
+    width: 150vh;
+    height: 50vh;
   }
 
   .ReactModal__Content--before-close {
-    opacity: 0;
-    transform: translateX(50px);
+    width: 120vh;
+    height: 40vh;
   }
 `;
 

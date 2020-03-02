@@ -6,7 +6,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Heading, Flex, Box } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome as Home } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
@@ -26,18 +25,13 @@ const modalStyle = {
     backgroundColor: '#3d3d3d99',
   },
   content: {
-    top: '50%',
-    left: '0',
-    right: '0',
-    bottom: '30%',
-    minHeight: 100,
+    top: 'auto',
+    right: 'auto',
+    position: 'fixed',
     padding: 6,
-    marginRight: -50,
-    marginLeft: -50,
-    borderRadius: 0,
+    borderRadius: '50%',
     border: 'none',
-    boxShadow: '#3737378c 10px 10px 10px 4px',
-    backgroundColor: '#ffffffee',
+    backgroundColor: '#CE1A5D',
   },
 };
 
@@ -50,35 +44,34 @@ function NavModal({ modalIsOpen, hideModal }) {
       style={modalStyle}
       isOpen={modalIsOpen}
     >
-      <Heading
-        mt={2}
-        fontFamily="serif"
-        fontStyle="italic"
-        color="black"
-        textAlign="center"
-      >
-        Pages
-      </Heading>
-      <Flex
-        width="100%"
-        mt={4}
-        alignItems="center"
-        justifyContent="space-between"
-      >
-        <Box width={1} textAlign="center">
-          <NavItem
-            to="/"
-            title={
-              <span>
-                <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
-                Home
-              </span>
-            }
-            onClick={hideModal}
-          />
-          <NavItem to="/about" title="About" onClick={hideModal} />
-        </Box>
-      </Flex>
+      <NavItem
+        textColor="white"
+        sx={{
+          position: 'fixed',
+          top: '25%',
+          left: '50%',
+        }}
+        to="/"
+        title={
+          <span>
+            <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
+            Home
+          </span>
+        }
+        onClick={hideModal}
+      />
+      <NavItem
+        textColor="white"
+        sx={{
+          position: 'fixed',
+          top: '25%',
+          left: '50%',
+          transform: 'translate(calc(200%), calc(200%))',
+        }}
+        to="/about"
+        title="About"
+        onClick={hideModal}
+      />
     </Modal>
   );
 }

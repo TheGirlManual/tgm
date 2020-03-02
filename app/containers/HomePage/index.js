@@ -8,8 +8,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Heading, Button, Text, Flex, Box } from 'rebass';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown as Arrow } from '@fortawesome/free-solid-svg-icons';
 import IntroSectionWrapper from './IntroSectionWrapper';
 import ProfileSectionWrapper from './ProfileSectionWrapper';
 import Profile from './Profile';
@@ -74,14 +72,6 @@ export default function HomePage() {
             <Text as="em">
               <FormattedMessage {...messages.meetTheHosts} />
             </Text>
-          </Box>
-
-          <Box
-            flex="1"
-            fontSize={[3, 4]}
-            sx={{ display: 'flex', alignItems: 'flex-start' }}
-          >
-            <FontAwesomeIcon icon={Arrow} />
           </Box>
         </Flex>
 
