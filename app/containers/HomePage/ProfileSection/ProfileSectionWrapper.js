@@ -6,11 +6,10 @@ function ProfileSectionWrapper({ children }) {
   return (
     <Flex
       height="auto"
-      flexDirection="column"
-      justifyContent="center"
+      width={1}
+      justifyContent="space-evenly"
       alignItems="center"
-      width={0.8}
-      mx="auto"
+      flexWrap="wrap"
     >
       {children}
     </Flex>

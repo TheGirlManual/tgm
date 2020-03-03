@@ -11,6 +11,15 @@ module.exports = {
   plugins: [
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
+    [
+      'transform-imports',
+      {
+        lodash: {
+          transform: 'lodash/${member}', // eslint-disable-line no-template-curly-in-string
+          preventFullImport: true,
+        },
+      },
+    ],
   ],
   env: {
     production: {

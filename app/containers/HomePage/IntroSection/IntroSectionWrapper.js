@@ -9,6 +9,7 @@ function IntroSectionWrapper({ children }) {
   return (
     <Flex
       height="70vh"
+      width={1}
       flexDirection="column"
       justifyContent="center"
       alignItems="center"

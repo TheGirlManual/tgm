@@ -16,13 +16,16 @@ function FloatingButton({ showModal }) {
       width="4rem"
       height="4rem"
       bg="secondary"
-      color="white"
+      color="primary"
       display={['flex', 'none']}
       alignItems="center"
       justifyContent="center"
       onClick={showModal}
       sx={{
         borderRadius: '50%',
+        borderColor: 'secondaryLight',
+        borderWidth: 2,
+        borderStyle: 'solid',
         position: 'fixed',
         bottom: 25,
         left: 25,

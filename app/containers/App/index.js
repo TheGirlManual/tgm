@@ -67,7 +67,12 @@ function App(props) {
   useInjectReducer({ key: 'modal', reducer });
 
   return (
-    <Flex minHeight="100vh" flexDirection="column">
+    <Flex
+      minHeight="100vh"
+      flexDirection="column"
+      justifyContent="center"
+      alignContent="center"
+    >
       <Global styles={ModalOverlayStyles} />
       <Global styles={ModalContentStyles} />
       <NavModal

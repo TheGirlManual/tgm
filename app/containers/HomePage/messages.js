@@ -10,12 +10,12 @@ export const scope = 'app.containers.HomePage';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'Girl Talk',
+    defaultMessage: 'The Girl Manual',
   },
   headline: {
     id: `${scope}.headline`,
     defaultMessage:
-      'Thinking out loud about feminism, misogyny, and gender equality.',
+      'Feminism, friendship, equality and other girl stuff. Breaking down the patriarchy one conversation at a time.',
   },
   listenCta: {
     id: `${scope}.listenCta`,
@@ -24,18 +24,18 @@ export default defineMessages({
   hostsHeadline: {
     id: `${scope}.hostsHeadline`,
     defaultMessage:
-      '“Girl Talk” podcast is hosted by Fernanda Zamora and Essi Kiiski.',
+      '“The Girl Manual” podcast is hosted by Fernanda Zamora and Essi Kiiski.',
   },
   meetTheHosts: {
     id: `${scope}.meetTheHosts`,
     defaultMessage: 'Meet the hosts',
   },
-  essi: {
-    id: `${scope}.essi`,
-    defaultMessage: `Essi Kiiski is a Bachelor of Political Science and Master in Violin Performance. She is currently working as an APA at the European parliament for a Finnish MEP (views in this website represent her own opinion). Always looking for growth, and ways to contribute positively to the society. Passionate in equality, human rights, sustainable development, education, and wellbeing. Music lover, runner, addicted to puzzles. Supports: Feminism, equality, and sustainability. Against: Prejudice.`,
+  essiTitle: {
+    id: `${scope}.essi.title`,
+    defaultMessage: `Political Scientist`,
   },
-  fernanda: {
-    id: `${scope}.fernanda`,
-    defaultMessage: `Fernanda Zamora is a Master in Public Policy and has worked doing research in innovation policies, social policies, restorative justice, amongst other topics. As a consultant of communication she has participad in the design and implementation of communication strategies for NGOs, public and private sector. Passionate in gender equality, social innovation and development. Voracious reader, frustrated ballerina, addicted to podcasts. Supports: Feminism, empowerment and innovation. Against: Injustice, intolerance.`,
+  fernandaTitle: {
+    id: `${scope}.fernanda.title`,
+    defaultMessage: `Researcher`,
   },
 });
