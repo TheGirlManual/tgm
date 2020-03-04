@@ -94,6 +94,7 @@
     "polished": "^3.4.4",
     "prop-types": "15.7.2",
     "react": "16.8.6",
+    "react-cookie-banner": "^4.1.0",
     "react-dom": "16.8.6",
     "react-helmet": "6.0.0-beta",
     "react-intl": "2.8.0",

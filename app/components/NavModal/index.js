@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome as Home } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 
-import NavItem from 'components/NavItem';
+import NavItem, { navItems } from 'components/NavItem';
 
 Modal.setAppElement('#app');
 
@@ -37,6 +37,8 @@ const modalStyle = {
 };
 
 function NavModal({ modalIsOpen, hideModal }) {
+  const [home, ...rest] = navItems;
+
   return (
     <Modal
       closeTimeoutMS={200}
@@ -53,8 +55,8 @@ function NavModal({ modalIsOpen, hideModal }) {
         }}
       >
         <NavItem
+          {...home}
           textColor="white"
-          to="/"
           title={
             <span>
               <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
@@ -63,12 +65,15 @@ function NavModal({ modalIsOpen, hideModal }) {
           }
           onClick={hideModal}
         />
-        <NavItem
-          textColor="white"
-          to="/about"
-          title="About"
-          onClick={hideModal}
-        />
+
+        {rest.map(values => (
+          <NavItem
+            {...values}
+            key={values.to}
+            textColor="white"
+            onClick={hideModal}
+          />
+        ))}
       </Box>
     </Modal>
   );

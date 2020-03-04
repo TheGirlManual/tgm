@@ -21,23 +21,15 @@ const c = css`
   .back {
     background: #fff;
     color: #ce1a5d;
-    border-color: #ce1a5d;
+    box-shadow: inset 0px 0px 0px 3px #ce1a5d;
     transform: rotateY(-180deg);
     font-size: 1.618rem;
     font-weight: 600;
     overflow: hidden;
-    font-family: Roboto, sans-serif;
+    font-family: sans-serif;
   }
   .card.flipped > .back {
     transform: rotateY(0deg);
-  }
-
-  .back .text {
-    -webkit-transform: rotate(-7deg) skew(-10deg, 0);
-    -moz-transform: rotate(-7deg) skew(-10deg, 0);
-    -ms-transform: rotate(-7deg) skew(-10deg, 0);
-    -o-transform: rotate(-7deg) skew(-10deg, 0);
-    transform: rotate(-7deg) skew(-10deg, 0);
   }
 `;
 
@@ -134,7 +126,6 @@ function Profile({ name, image, title }) {
         maxWidth={900}
         className={`card${flipped ? ' flipped' : ''}`}
         onClick={() => setFlip(!flipped)}
-        on
         my={3}
         mx="auto"
       >

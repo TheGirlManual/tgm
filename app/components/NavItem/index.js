@@ -9,6 +9,21 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Text, Box } from 'rebass';
 
+export const navItems = [
+  {
+    to: '/',
+    title: 'Home',
+  },
+  {
+    to: 'about',
+    title: 'About',
+  },
+  {
+    to: 'meet',
+    title: 'Meet Us',
+  },
+];
+
 function NavItem({ to, title, onClick, sx, textColor }) {
   return (
     <Box

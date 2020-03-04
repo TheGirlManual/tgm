@@ -14,9 +14,11 @@ import { createSelector } from 'reselect';
 import { Switch, Route } from 'react-router-dom';
 import { Box, Flex } from 'rebass';
 import { Global, css } from '@emotion/core';
+import CookieBanner from 'react-cookie-banner';
 
 import HomePage from 'containers/HomePage/Loadable';
 import AboutPage from 'containers/AboutPage/Loadable';
+import ProfilePage from 'containers/ProfilePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
@@ -73,6 +75,18 @@ function App(props) {
       justifyContent="center"
       alignContent="center"
     >
+      <CookieBanner
+        styles={{
+          banner: {
+            backgroundColor: 'black',
+          },
+          button: {
+            display: 'none',
+          },
+        }}
+        message="We need to use cookies, so if you stay, you consent. Thanks!"
+        cookie="user-has-accepted-cookies"
+      />
       <Global styles={ModalOverlayStyles} />
       <Global styles={ModalContentStyles} />
       <NavModal
@@ -85,6 +99,7 @@ function App(props) {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/meet" component={ProfilePage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>

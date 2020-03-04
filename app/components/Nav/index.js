@@ -8,7 +8,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Flex, Box, Heading } from 'rebass';
 import { FormattedMessage } from 'react-intl';
-import NavItem from 'components/NavItem';
+import NavItem, { navItems } from 'components/NavItem';
 import LocalePickerWrapper from './LocalePickerWrapper';
 import messages from './messages';
 
@@ -30,6 +30,8 @@ function PageTitle() {
 }
 
 function Nav() {
+  const [, ...rest] = navItems;
+
   return (
     <Box
       as="nav"
@@ -54,7 +56,9 @@ function Nav() {
           display={['none', 'inline-block']}
           textAlign="center"
         >
-          <NavItem to="/about" title="About" />
+          {rest.map(values => (
+            <NavItem {...values} />
+          ))}
         </Box>
 
         <Box width={1 / 3}>
