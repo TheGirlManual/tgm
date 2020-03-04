@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome as Home } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
@@ -44,34 +45,31 @@ function NavModal({ modalIsOpen, hideModal }) {
       style={modalStyle}
       isOpen={modalIsOpen}
     >
-      <NavItem
-        textColor="white"
+      <Box
         sx={{
           position: 'fixed',
-          top: '25%',
+          top: '33%',
           left: '50%',
         }}
-        to="/"
-        title={
-          <span>
-            <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
-            Home
-          </span>
-        }
-        onClick={hideModal}
-      />
-      <NavItem
-        textColor="white"
-        sx={{
-          position: 'fixed',
-          top: '25%',
-          left: '50%',
-          transform: 'translate(calc(200%), calc(200%))',
-        }}
-        to="/about"
-        title="About"
-        onClick={hideModal}
-      />
+      >
+        <NavItem
+          textColor="white"
+          to="/"
+          title={
+            <span>
+              <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
+              Home
+            </span>
+          }
+          onClick={hideModal}
+        />
+        <NavItem
+          textColor="white"
+          to="/about"
+          title="About"
+          onClick={hideModal}
+        />
+      </Box>
     </Modal>
   );
 }

@@ -14,7 +14,7 @@ const fer =
 export default function ProfileSection() {
   return (
     <ProfileSectionWrapper>
-      <Heading my={4} textAlign="center" fontSize={[4, 5]}>
+      <Heading mt={4} textAlign="center" fontSize={[4, 5]}>
         <FormattedMessage {...messages.hostsHeadline} />
       </Heading>
 

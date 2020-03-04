@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUndo as Reverse } from '@fortawesome/free-solid-svg-icons';
-import { Text, Box, Flex, Image } from 'rebass';
+import { Heading, Text, Box, Flex, Image } from 'rebass';
 import { FormattedMessage, intlShape } from 'react-intl';
 import { css } from '@emotion/core';
 
@@ -95,14 +95,16 @@ function CardFace({ front, image, name, title }) {
         p={4}
         height={['60%', '100%']}
       >
-        <h2>{name}</h2>
+        <Heading fontSize={6} mb={2}>
+          {name}
+        </Heading>
         <Text as="em" sx={{ fontFamily: 'Didot, serif' }}>
           <FormattedMessage {...title} />
         </Text>
         <br />
-        <small>
+        <Text as="small" sx={{ fontFamily: 'sans-serif' }}>
           Powers: Bachelor in Political Science + Master in Violin Performance
-        </small>
+        </Text>
       </Flex>
     </Flex>
   );
