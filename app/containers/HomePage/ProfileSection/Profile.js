@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUndo as Reverse } from '@fortawesome/free-solid-svg-icons';
 import { Text, Box, Flex, Image } from 'rebass';
 import { FormattedMessage, intlShape } from 'react-intl';
 import { css } from '@emotion/core';
@@ -12,7 +14,7 @@ const c = css`
     overflow: hidden;
     font-family: serif;
   }
-  .card:hover > .front {
+  .card.flipped > .front {
     transform: rotateY(180deg);
   }
 
@@ -26,7 +28,7 @@ const c = css`
     overflow: hidden;
     font-family: Roboto, sans-serif;
   }
-  .card:hover > .back {
+  .card.flipped > .back {
     transform: rotateY(0deg);
   }
 
@@ -65,21 +67,33 @@ function CardFace({ front, image, name, title }) {
       className={className}
       sx={cardFaceStyle}
     >
+      <Box
+        m={3}
+        fontSize={3}
+        sx={{
+          position: 'absolute',
+          top: ['unset', 0],
+          bottom: [0, 'unset'],
+          right: 0,
+        }}
+      >
+        <FontAwesomeIcon icon={Reverse} />
+      </Box>
       <Image
-        flex="1 1 50%"
+        flex="1 1 40%"
         sx={{ objectFit: 'cover' }}
         src={image}
         width="100%"
-        height={['50%', '100%']}
+        height={['40%', '100%']}
       />
 
       <Flex
         className="text"
-        flex="1 1 50%"
+        flex="1 1 60%"
         flexDirection="column"
         justifyContent="center"
         p={4}
-        height={['50%', '100%']}
+        height={['60%', '100%']}
       >
         <h2>{name}</h2>
         <Text as="em" sx={{ fontFamily: 'Didot, serif' }}>
@@ -102,6 +116,8 @@ CardFace.propTypes = {
 };
 
 function Profile({ name, image, title }) {
+  const [flipped, setFlip] = useState(false);
+
   return (
     <Box width={1} css={c}>
       <Flex
@@ -109,16 +125,19 @@ function Profile({ name, image, title }) {
           position: 'relative',
           cursor: 'pointer',
           perspective: 4000,
-          margin: '1rem',
         }}
         height={['70vh', 400]}
+        minHeight={[600, 400]}
+        width={1}
         maxWidth={900}
-        className="card"
+        className={`card${flipped ? ' flipped' : ''}`}
+        onClick={() => setFlip(!flipped)}
+        on
+        my={3}
         mx="auto"
-        my={4}
       >
         <CardFace name={name} title={title} image={image} front />
-        <CardFace name={name} title={title} />
+        <CardFace name={name} title={title} image={image} />
       </Flex>
     </Box>
   );

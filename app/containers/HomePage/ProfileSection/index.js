@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box } from 'rebass';
+import { Heading, Box } from 'rebass';
+import { FormattedMessage } from 'react-intl';
 import Profile from './Profile';
 import ProfileSectionWrapper from './ProfileSectionWrapper';
 import messages from '../messages';
@@ -13,10 +14,19 @@ const fer =
 export default function ProfileSection() {
   return (
     <ProfileSectionWrapper>
-      <Box width={[0.8, 0.8, 0.8]}>
+      <Heading my={4} textAlign="center" fontSize={[4, 5]}>
+        <FormattedMessage {...messages.hostsHeadline} />
+      </Heading>
+
+      <Box width={[1, 0.8]}>
         <Profile name="Essi Kiiski" image={essi} title={messages.essiTitle} />
       </Box>
-      <Box width={[0.8, 0.8, 0.8]}>
+
+      <Box width={[0, 0.2]} />
+
+      <Box width={[0, 0.2]} />
+
+      <Box width={[1, 0.8]}>
         <Profile
           name="Fernanda Zamora"
           image={fer}
