@@ -10,7 +10,7 @@ export default function IntroSection() {
       <Heading
         px={3}
         sx={{ textAlign: 'center' }}
-        fontSize={[5, 6]}
+        fontSize={[5, 7]}
         variant="primary"
       >
         <FormattedMessage {...messages.headline} />
@@ -20,9 +20,10 @@ export default function IntroSection() {
         color="primary"
         bg="secondary"
         mt={4}
-        py={3}
+        fontSize={[3, 4]}
         width={0.4}
         maxWidth={200}
+        p={3}
       >
         <FormattedMessage {...messages.listenCta} />
       </Button>

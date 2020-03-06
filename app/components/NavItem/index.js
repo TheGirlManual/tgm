@@ -8,19 +8,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Text, Box } from 'rebass';
+import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 export const navItems = [
   {
     to: '/',
-    title: 'Home',
+    title: 'home',
   },
   {
     to: 'about',
-    title: 'About',
+    title: 'about',
   },
   {
     to: 'meet',
-    title: 'Meet Us',
+    title: 'meet',
   },
 ];
 
@@ -43,10 +45,9 @@ function NavItem({ to, title, onClick, sx, textColor }) {
             textDecoration: 'underline',
           },
         }}
-        fontSize={[4, 3]}
         fontFamily="sans-serif"
       >
-        {title}
+        <FormattedMessage {...messages[title]} />
       </Text>
     </Box>
   );

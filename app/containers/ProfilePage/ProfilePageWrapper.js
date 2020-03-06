@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from 'rebass';
 
-function ProfileSectionWrapper({ children }) {
+function ProfilePageWrapper({ children }) {
   return (
     <Flex
       height="auto"
@@ -10,7 +10,6 @@ function ProfileSectionWrapper({ children }) {
       justifyContent="space-evenly"
       alignItems="center"
       flexWrap="wrap"
-      mt={5}
       px={4}
     >
       {children}
@@ -18,8 +17,8 @@ function ProfileSectionWrapper({ children }) {
   );
 }
 
-ProfileSectionWrapper.propTypes = {
+ProfilePageWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
 };
 
-export default ProfileSectionWrapper;
+export default ProfilePageWrapper;

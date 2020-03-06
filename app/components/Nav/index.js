@@ -22,7 +22,7 @@ function PageTitle() {
       as={Link}
       to="/"
       px={[0, 3]}
-      fontSize={[3, 4, 5, 6]}
+      fontSize={[3, 4, 5, 5]}
     >
       <FormattedMessage {...messages.header} />
     </Heading>
@@ -38,11 +38,10 @@ function Nav() {
       px={3}
       py={[3, 4]}
       bg="white"
-      style={{
-        top: 0,
-        zIndex: 100,
-      }}
       sx={{
+        top: 0,
+        boxShadow: '6px 4px 10px 0px #33333311',
+        zIndex: 100,
         position: 'sticky',
       }}
     >
@@ -57,7 +56,7 @@ function Nav() {
           textAlign="center"
         >
           {rest.map(values => (
-            <NavItem {...values} />
+            <NavItem sx={{ fontSize: [3, 3, 4] }} {...values} />
           ))}
         </Box>
 

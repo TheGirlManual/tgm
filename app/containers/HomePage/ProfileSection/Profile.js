@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUndo as Reverse } from '@fortawesome/free-solid-svg-icons';
+import { faMouse as CornerIcon } from '@fortawesome/free-solid-svg-icons';
 import { Heading, Text, Box, Flex, Image } from 'rebass';
 import { FormattedMessage, intlShape } from 'react-intl';
 import { css } from '@emotion/core';
@@ -49,32 +49,41 @@ const cardFaceStyle = {
   transition: 'ease-in 400ms',
 };
 
-function CardFace({ front, image, name, title }) {
-  const className = front ? 'front' : 'back';
+function CardFace({ front, name, title, powers, type, loves, image }) {
+  const side = front ? 'front' : 'back';
+
+  const headingProps = front ? {} : { sx: { fontFamily: 'sans-serif' } };
+  const middleTextProps = front
+    ? { as: 'em', sx: { fontFamily: 'serif' } }
+    : {};
+
+  const middleTextContent = front ? title : type;
+  const bottomTextContent = front ? powers : loves;
 
   return (
     <Flex
       flexDirection={['column', 'row']}
       bg="secondary"
-      className={className}
+      className={side}
       sx={cardFaceStyle}
     >
       <Box
         m={3}
         fontSize={3}
         sx={{
+          border: 'inherit',
           position: 'absolute',
           top: ['unset', 0],
           bottom: [0, 'unset'],
           right: 0,
         }}
       >
-        <FontAwesomeIcon icon={Reverse} />
+        <FontAwesomeIcon icon={CornerIcon} />
       </Box>
       <Image
         flex="1 1 40%"
         sx={{ objectFit: 'cover' }}
-        src={image}
+        src={image[side]}
         width="100%"
         height={['40%', '100%']}
       />
@@ -87,15 +96,18 @@ function CardFace({ front, image, name, title }) {
         p={4}
         height={['60%', '100%']}
       >
-        <Heading fontSize={6} mb={2}>
+        <Heading fontSize={6} mb={2} {...headingProps}>
           {name}
         </Heading>
-        <Text as="em" sx={{ fontFamily: 'Didot, serif' }}>
-          <FormattedMessage {...title} />
+
+        <Text {...middleTextProps}>
+          <FormattedMessage {...middleTextContent} />
         </Text>
+
         <br />
+
         <Text as="small" sx={{ fontFamily: 'sans-serif' }}>
-          Powers: Bachelor in Political Science + Master in Violin Performance
+          <FormattedMessage {...bottomTextContent} />
         </Text>
       </Flex>
     </Flex>
@@ -104,12 +116,15 @@ function CardFace({ front, image, name, title }) {
 
 CardFace.propTypes = {
   front: PropTypes.bool,
-  image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   title: intlShape.isRequired,
+  powers: intlShape.isRequired,
+  type: intlShape.isRequired,
+  loves: intlShape.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
-function Profile({ name, image, title }) {
+function Profile(props) {
   const [flipped, setFlip] = useState(false);
 
   return (
@@ -129,8 +144,8 @@ function Profile({ name, image, title }) {
         my={3}
         mx="auto"
       >
-        <CardFace name={name} title={title} image={image} front />
-        <CardFace name={name} title={title} image={image} />
+        <CardFace {...props} front />
+        <CardFace {...props} />
       </Flex>
     </Box>
   );
@@ -138,8 +153,11 @@ function Profile({ name, image, title }) {
 
 Profile.propTypes = {
   name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
   title: intlShape.isRequired,
+  powers: intlShape.isRequired,
+  type: intlShape.isRequired,
+  loves: intlShape.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
 export default Profile;

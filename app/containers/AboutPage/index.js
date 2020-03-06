@@ -21,8 +21,7 @@ export default function AboutPage() {
       <Heading
         px={3}
         my={3}
-        sx={{ textAlign: 'right' }}
-        fontSize={[5, 6]}
+        fontSize={[6, 7]}
         color="secondary"
         width={1}
         textAlign={['center', 'left']}
@@ -35,7 +34,7 @@ export default function AboutPage() {
           lineHeight: 1.6,
         }}
         pb={5}
-        fontSize={[2, 3]}
+        fontSize={[4, 5]}
         textAlign="center"
       >
         <FormattedMessage {...messages.mission} />
