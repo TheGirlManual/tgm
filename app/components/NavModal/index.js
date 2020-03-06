@@ -57,21 +57,22 @@ function NavModal({ modalIsOpen, hideModal }) {
       >
         <NavItem
           {...home}
-          sx={{ fontSize: [4, 5] }}
+          sx={{ fontSize: 3 }}
           textColor="white"
-          title={
+          title="home"
+          render={text => (
             <span>
               <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
-              Home
+              {text}
             </span>
-          }
+          )}
           onClick={hideModal}
         />
 
         {rest.map(values => (
           <NavItem
             {...values}
-            sx={{ fontSize: [4, 5] }}
+            sx={{ fontSize: 3 }}
             key={values.to}
             textColor="white"
             onClick={hideModal}

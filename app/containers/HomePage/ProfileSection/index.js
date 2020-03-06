@@ -28,12 +28,12 @@ export default function ProfileSection() {
 
       <Box width={[1, 0.8]}>
         <Profile
-          name="Essi Kiiski"
-          title={messages.essiTitle}
-          powers={messages.essiPowers}
-          type={messages.essiType}
-          loves={messages.essiLoves}
-          image={essi}
+          name="Fernanda Zamora"
+          title={messages.fernandaTitle}
+          powers={messages.fernandaPowers}
+          type={messages.fernandaType}
+          loves={messages.fernandaLoves}
+          image={fer}
         />
       </Box>
 
@@ -43,12 +43,12 @@ export default function ProfileSection() {
 
       <Box width={[1, 0.8]}>
         <Profile
-          name="Fernanda Zamora"
-          title={messages.fernandaTitle}
-          powers={messages.fernandaPowers}
-          type={messages.fernandaType}
-          loves={messages.fernandaLoves}
-          image={fer}
+          name="Essi Kiiski"
+          title={messages.essiTitle}
+          powers={messages.essiPowers}
+          type={messages.essiType}
+          loves={messages.essiLoves}
+          image={essi}
         />
       </Box>
     </ProfileSectionWrapper>

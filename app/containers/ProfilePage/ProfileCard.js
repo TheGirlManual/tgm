@@ -17,11 +17,11 @@ export function ProfileCard({ name, title, location, bio, photo }) {
       alignItems="center"
       flexDirection="column"
       height="80vh"
-      width="50%"
+      width="auto"
       maxHeight="140vw"
-      sx={{ zoom: 0.5 }}
       p={0}
       m="auto"
+      mt={3}
     >
       <Box
         sx={{

@@ -8,7 +8,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import { Box } from 'rebass';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectProfilePage from './selectors';
@@ -42,8 +41,6 @@ export function ProfilePage() {
   return (
     <ProfilePageWrapper>
       <ProfileCard {...fer} />
-      <Box width="50%" />
-      <Box width="50%" />
       <ProfileCard {...essi} />
     </ProfilePageWrapper>
   );

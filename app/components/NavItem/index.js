@@ -26,7 +26,7 @@ export const navItems = [
   },
 ];
 
-function NavItem({ to, title, onClick, sx, textColor }) {
+function NavItem({ to, title, render, onClick, sx, textColor }) {
   return (
     <Box
       sx={{ textDecoration: 'none', ...sx }}
@@ -47,7 +47,7 @@ function NavItem({ to, title, onClick, sx, textColor }) {
         }}
         fontFamily="sans-serif"
       >
-        <FormattedMessage {...messages[title]} />
+        {render(<FormattedMessage {...messages[title]} />)}
       </Text>
     </Box>
   );
@@ -55,7 +55,8 @@ function NavItem({ to, title, onClick, sx, textColor }) {
 
 NavItem.propTypes = {
   to: PropTypes.string.isRequired,
-  title: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
+  render: PropTypes.func,
   onClick: PropTypes.func,
   sx: PropTypes.object,
   textColor: PropTypes.string,
@@ -64,6 +65,7 @@ NavItem.propTypes = {
 NavItem.defaultProps = {
   sx: {},
   textColor: 'black',
+  render: text => text,
 };
 
 export default NavItem;
