@@ -15,6 +15,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Box, Flex } from 'rebass';
 import { Global, css } from '@emotion/core';
 import CookieBanner from 'react-cookie-banner';
+import { Howl } from 'howler';
 
 import HomePage from 'containers/HomePage/Loadable';
 import AboutPage from 'containers/AboutPage/Loadable';
@@ -67,6 +68,14 @@ const ModalContentStyles = css`
 
 function App(props) {
   useInjectReducer({ key: 'modal', reducer });
+  const sound = new Howl({
+    src: [
+      'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Faudio%2Fep1.wav?alt=media&token=7c1a8ab0-6e7c-4a78-88fa-d48dba992008',
+    ],
+    html5: true,
+  });
+
+  sound.play();
 
   return (
     <Flex
