@@ -8,18 +8,20 @@ const img =
 function IntroSectionWrapper({ children }) {
   return (
     <Flex
-      height="30vh"
+      minHeight="30vh"
       width={1}
       flexDirection="column"
       justifyContent="center"
       alignItems="center"
+      py={3}
       sx={{
+        position: 'relative',
         ':before': {
           position: 'absolute',
-          top: 'inherit',
-          left: 'inherit',
+          top: '0',
+          left: '0',
           width: '100%',
-          height: 'inherit',
+          height: '100%',
           backgroundImage: `linear-gradient(to bottom, #ffffffdd, #ffffffdd), url(${img})`,
           backgroundSize: 'cover',
           filter: 'hue-rotate(-35deg)',

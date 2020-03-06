@@ -22,7 +22,7 @@ function PageTitle() {
       as={Link}
       to="/"
       px={[0, 3]}
-      fontSize={[4, 6]}
+      fontSize={[3, 4, 5, 6]}
     >
       <FormattedMessage {...messages.header} />
     </Heading>
