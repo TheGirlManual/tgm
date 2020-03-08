@@ -6,26 +6,36 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Flex, Box, Heading } from 'rebass';
-import { FormattedMessage } from 'react-intl';
+import { Flex, Box, Image } from 'rebass';
 import NavItem, { navItems } from 'components/NavItem';
+import logo from 'images/logo.png';
+import logoStacked from 'images/logo-stacked.png';
 import LocalePickerWrapper from './LocalePickerWrapper';
-import messages from './messages';
 
 function PageTitle() {
   return (
-    <Heading
-      sx={{
-        color: 'secondary',
-        textDecoration: 'none',
-      }}
+    <Box
+      display="flex"
+      maxWidth={300}
+      height="100%"
       as={Link}
       to="/"
+      py={2}
       px={[0, 3]}
-      fontSize={[3, 4, 5, 5]}
     >
-      <FormattedMessage {...messages.header} />
-    </Heading>
+      <Image
+        display={['none', null, 'block']}
+        src={logo}
+        alt="the-girl-manual-logo"
+        sx={{ objectPosition: '0% 50%', objectFit: 'contain' }}
+      />
+      <Image
+        display={['block', null, 'none']}
+        src={logoStacked}
+        alt="the-girl-manual-logo"
+        sx={{ objectPosition: '0% 50%', objectFit: 'contain' }}
+      />
+    </Box>
   );
 }
 
@@ -33,38 +43,36 @@ function Nav() {
   const [, ...rest] = navItems;
 
   return (
-    <Box
+    <Flex
       as="nav"
-      px={3}
-      py={[3, 4]}
+      p={3}
       bg="white"
+      height="10vh"
+      maxHeight="200px"
+      alignItems="center"
+      justifyContent="space-between"
       sx={{
         top: 0,
         boxShadow: '6px 4px 10px 0px #33333311',
         zIndex: 100,
+        maxHeight: '120px',
         position: 'sticky',
       }}
     >
-      <Flex alignItems="center" justifyContent="space-between">
-        <Box width={[2 / 3, 1 / 3]} mr="auto">
-          <PageTitle />
-        </Box>
+      <Box height="100%" flex={1} mr="auto">
+        <PageTitle />
+      </Box>
 
-        <Box
-          width={1 / 3}
-          display={['none', 'inline-block']}
-          textAlign="center"
-        >
-          {rest.map(values => (
-            <NavItem sx={{ fontSize: [3, 3, 4] }} {...values} />
-          ))}
-        </Box>
+      <Box flex={2} display={['none', 'inline-block']} textAlign="center">
+        {rest.map(values => (
+          <NavItem sx={{ fontSize: [3, 3, 4] }} {...values} />
+        ))}
+      </Box>
 
-        <Box width={1 / 3}>
-          <LocalePickerWrapper />
-        </Box>
-      </Flex>
-    </Box>
+      <Box flex={1}>
+        <LocalePickerWrapper />
+      </Box>
+    </Flex>
   );
 }
 
