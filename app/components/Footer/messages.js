@@ -9,8 +9,13 @@ import { defineMessages } from 'react-intl';
 export const scope = 'app.components.Footer';
 
 export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'This is the Footer component!',
+  patreonCta: {
+    id: `${scope}.patreonCta`,
+    defaultMessage: 'Become a Patreon',
+  },
+  footerMessage: {
+    id: `${scope}.footerMessage`,
+    defaultMessage:
+      '2020 Interactive Coolture - The Girl Manual. All rights reserved.',
   },
 });

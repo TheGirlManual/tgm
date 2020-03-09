@@ -40,8 +40,8 @@ function NavItem({ to, title, render, onClick, sx, textColor }) {
         as="span"
         sx={{
           color: textColor,
-          '.active &': { textDecoration: 'underline' },
-          '* > :not(.active) > &:hover': {
+          '.active &': { textDecoration: 'none' },
+          '* > &:hover': {
             textDecoration: 'underline',
           },
         }}

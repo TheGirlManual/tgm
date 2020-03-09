@@ -1,4 +1,6 @@
 {
+  "app.components.Footer.footerMessage": "2020 Interactive Coolture - The Girl Manual. All rights reserved.",
+  "app.components.Footer.patreonCta": "Become a Patreon",
   "app.components.Nav.header": "The Girl Manual",
   "app.components.NavItem.about": "About",
   "app.components.NavItem.home": "Home",

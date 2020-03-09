@@ -24,15 +24,17 @@ function PageTitle() {
       px={[0, 3]}
     >
       <Image
-        display={['none', null, 'block']}
+        display={['block', 'none', 'block']}
         src={logo}
         alt="the-girl-manual-logo"
+        minHeight={20}
         sx={{ objectPosition: '0% 50%', objectFit: 'contain' }}
       />
       <Image
-        display={['block', null, 'none']}
+        display={['none', 'block', 'none']}
         src={logoStacked}
         alt="the-girl-manual-logo"
+        minHeight={20}
         sx={{ objectPosition: '0% 50%', objectFit: 'contain' }}
       />
     </Box>
@@ -40,8 +42,6 @@ function PageTitle() {
 }
 
 function Nav() {
-  const [, ...rest] = navItems;
-
   return (
     <Flex
       as="nav"
@@ -49,6 +49,7 @@ function Nav() {
       bg="white"
       height="10vh"
       maxHeight="200px"
+      minHeight="70px"
       alignItems="center"
       justifyContent="space-between"
       sx={{
@@ -64,7 +65,7 @@ function Nav() {
       </Box>
 
       <Box flex={2} display={['none', 'inline-block']} textAlign="center">
-        {rest.map(values => (
+        {navItems.map(values => (
           <NavItem sx={{ fontSize: [3, 3, 4] }} {...values} />
         ))}
       </Box>

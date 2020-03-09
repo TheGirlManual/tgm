@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { Switch, Route } from 'react-router-dom';
-import { Box, Flex } from 'rebass';
+import { Flex } from 'rebass';
 import { Global, css } from '@emotion/core';
 import CookieBanner from 'react-cookie-banner';
 
@@ -22,6 +22,7 @@ import ProfilePage from 'containers/ProfilePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
+import Footer from 'components/Footer';
 import FloatingButton from 'components/FloatingButton';
 import { useInjectReducer } from 'utils/injectReducer';
 
@@ -103,7 +104,7 @@ function App(props) {
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>
-      <Box height="70px" width="100%" />
+      <Footer />
     </Flex>
   );
 }
