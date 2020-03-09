@@ -37,7 +37,7 @@ function IntroSectionWrapper({ children }) {
 }
 
 IntroSectionWrapper.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.arrayOf(PropTypes.element),
 };
 
 export default IntroSectionWrapper;

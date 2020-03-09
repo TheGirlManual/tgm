@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMouse as CornerIcon } from '@fortawesome/free-solid-svg-icons';
 import { Heading, Text, Box, Flex, Image } from 'rebass';
-import { FormattedMessage, intlShape } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { css } from '@emotion/core';
 
 const c = css`
@@ -117,11 +117,11 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
 CardFace.propTypes = {
   front: PropTypes.bool,
   name: PropTypes.string.isRequired,
-  title: intlShape.isRequired,
-  powers: intlShape.isRequired,
-  type: intlShape.isRequired,
-  loves: intlShape.isRequired,
-  image: PropTypes.string.isRequired,
+  title: PropTypes.object.isRequired,
+  powers: PropTypes.object.isRequired,
+  type: PropTypes.object.isRequired,
+  loves: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 function Profile(props) {
@@ -153,11 +153,11 @@ function Profile(props) {
 
 Profile.propTypes = {
   name: PropTypes.string.isRequired,
-  title: intlShape.isRequired,
-  powers: intlShape.isRequired,
-  type: intlShape.isRequired,
-  loves: intlShape.isRequired,
-  image: PropTypes.string.isRequired,
+  title: PropTypes.object.isRequired,
+  powers: PropTypes.object.isRequired,
+  type: PropTypes.object.isRequired,
+  loves: PropTypes.object.isRequired,
+  image: PropTypes.object.isRequired,
 };
 
 export default Profile;

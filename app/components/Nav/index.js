@@ -66,7 +66,7 @@ function Nav() {
 
       <Box flex={2} display={['none', 'inline-block']} textAlign="center">
         {navItems.map(values => (
-          <NavItem sx={{ fontSize: [3, 3, 4] }} {...values} />
+          <NavItem key={values.to} sx={{ fontSize: [3, 3, 4] }} {...values} />
         ))}
       </Box>
 
