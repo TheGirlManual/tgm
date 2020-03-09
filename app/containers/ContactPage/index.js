@@ -7,7 +7,9 @@
 import React from 'react';
 import { Button, Text, Flex, Heading, Box } from 'rebass';
 import { Label, Input, Textarea } from '@rebass/forms';
+import { FormattedMessage } from 'react-intl';
 import ContactPageWrapper from './ContactPageWrapper';
+import messages from './messages';
 
 function NewsletterSignup() {
   return (
@@ -25,11 +27,10 @@ function NewsletterSignup() {
       fontSize={[3, 4]}
     >
       <Heading color="secondary" fontSize={[5, 6]}>
-        Subscribe to our newsletter
+        <FormattedMessage {...messages.subHeader} />
       </Heading>
       <Text mt={3} width={1}>
-        Sign up with your email address to receive monthly insights into “The
-        Girl Manual”
+        <FormattedMessage {...messages.subMessage} />
       </Text>
       <Box mt={4} width={1}>
         <Input
@@ -40,14 +41,10 @@ function NewsletterSignup() {
         />
       </Box>
       <Button width={1} mt={3} py={3} bg="secondary" color="primary">
-        Sign Up
+        <FormattedMessage {...messages.subButton} />
       </Button>
       <Text as="small" mt={4}>
-        We may use your Personal Information to contact you with newsletters and
-        other information that may be of interest to you. You may opt out of
-        receiving any, or all, of these communications from us by following the
-        unsubscribe link. We will never share your Personal Information with
-        Third Parties.
+        <FormattedMessage {...messages.subDisclaimer} />
       </Text>
     </Flex>
   );
@@ -69,26 +66,34 @@ function ContactForm() {
       minWidth="20vw"
     >
       <Heading color="secondary" fontSize={[5, 6]}>
-        Reach Out
+        <FormattedMessage {...messages.contactHeader} />
       </Heading>
       <Box mt={3} width={1}>
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="name">
+          <FormattedMessage {...messages.contactName} />
+        </Label>
         <Input type="text" id="name" name="name" />
       </Box>
       <Box mt={3} width={1}>
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="email">
+          <FormattedMessage {...messages.contactEmail} />
+        </Label>
         <Input type="email" id="email" name="email" />
       </Box>
       <Box mt={3} width={1}>
-        <Label htmlFor="subject">Subject</Label>
+        <Label htmlFor="subject">
+          <FormattedMessage {...messages.contactSubject} />
+        </Label>
         <Input type="text" id="subject" name="subject" />
       </Box>
       <Box mt={3} width={1}>
-        <Label htmlFor="message">Message</Label>
+        <Label htmlFor="message">
+          <FormattedMessage {...messages.contactMessage} />
+        </Label>
         <Textarea type="text" id="message" name="message" />
       </Box>
       <Button width={1} mt={4} py={3} bg="secondary" color="primary">
-        Send
+        <FormattedMessage {...messages.contactSend} />
       </Button>
     </Flex>
   );
