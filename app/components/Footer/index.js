@@ -26,7 +26,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const MadeWithLove = () => (
-  <Flex mt={3} alignItems="center" color="secondary" sx={{ fontSize: 10 }}>
+  <Flex alignItems="center" color="secondary" sx={{ fontSize: 10 }}>
     <Text mx={1}>Made with</Text>
     <FontAwesomeIcon icon={Love} />
     <Text mx={1}>by</Text>
@@ -53,15 +53,17 @@ function Footer() {
   return (
     <Flex
       flexDirection="column"
-      height="20vh"
-      justifyContent="center"
+      height="30vh"
+      justifyContent="space-evenly"
       alignItems="center"
       width="80vw"
       py={3}
       mx="auto"
     >
+      <Box />
+      <MadeWithLove />
       <Flex
-        width="50%"
+        width="60%"
         maxWidth={400}
         justifyContent="space-around"
         sx={{ fontSize: 32 }}
@@ -71,12 +73,7 @@ function Footer() {
         <FontAwesomeIcon color="#3b5998" icon={FB} />
         <FontAwesomeIcon color="#f96854" icon={Patreon} />
       </Flex>
-      <MadeWithLove />
-      <Text
-        mt={4}
-        as="b"
-        sx={{ textAlign: 'center', fontFamily: 'sans-serif' }}
-      >
+      <Text as="b" sx={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
         <FontAwesomeIcon
           style={{ marginRight: '0.5em' }}
           color="black"

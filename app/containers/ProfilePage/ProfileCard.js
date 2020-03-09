@@ -16,9 +16,9 @@ export function ProfileCard({ name, title, location, bio, photo }) {
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
-      height="80vh"
+      height="auto"
+      minHeight="80vh"
       width="auto"
-      maxHeight="140vw"
       p={0}
       m="auto"
       mt={3}
@@ -32,19 +32,20 @@ export function ProfileCard({ name, title, location, bio, photo }) {
         flex="1"
         bg="primary"
       >
-        <Heading color="black" sx={{ fontSize: ['8vw'] }}>
+        <Heading color="black" sx={{ fontSize: ['9vw', '7vw'] }}>
           {name}
         </Heading>
-        <Heading color="#444" sx={{ fontSize: ['3vw'] }}>
+        <Heading color="#444" sx={{ fontSize: ['4vw', '3vw'] }}>
           <FormattedMessage {...title} />
         </Heading>
-        <Heading color="#555" sx={{ fontSize: ['3vw'] }}>
+        <Heading color="#555" sx={{ fontSize: ['4vw', '3vw'] }}>
           <FormattedMessage {...location} />
         </Heading>
       </Box>
       <Flex
         width={1}
-        flex="1"
+        height="auto"
+        minHeight="50%"
         bg="secondary"
         alignItems="flex-end"
         sx={{ position: 'relative' }}
@@ -56,9 +57,9 @@ export function ProfileCard({ name, title, location, bio, photo }) {
           mb={3}
           ml={3}
           color="primary"
-          width="70%"
-          fontSize={['3vw', '2.5vw', '1.8vw']}
-          lineHeight={1.8}
+          width={[0.7, 0.7]}
+          fontSize={['4.5vw', '2.7vw', '1.8vw']}
+          lineHeight={[1.6, 1.8]}
         >
           <FormattedMessage {...bio} />
         </Text>
@@ -68,6 +69,7 @@ export function ProfileCard({ name, title, location, bio, photo }) {
             position: 'absolute',
             bottom: 0,
             right: 0,
+            height: ['30vh', 'auto'],
             maxHeight: '80vh',
             width: 'auto',
           }}
