@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Heading, Text, Box, Flex } from 'rebass';
-import { FormattedMessage, intlShape } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 export function ProfileCard({ name, title, location, bio, photo }) {
   return (
@@ -80,9 +80,9 @@ export function ProfileCard({ name, title, location, bio, photo }) {
 
 ProfileCard.propTypes = {
   name: PropTypes.string.isRequired,
-  title: intlShape.isRequired,
-  location: intlShape.isRequired,
-  bio: intlShape.isRequired,
+  title: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
+  bio: PropTypes.object.isRequired,
   photo: PropTypes.string.isRequired,
 };
 
