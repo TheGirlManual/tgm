@@ -51,13 +51,13 @@ function NavModal({ modalIsOpen, hideModal }) {
         sx={{
           position: 'fixed',
           top: '33%',
-          left: '50%',
+          left: '48%',
           fontSize: 12,
         }}
       >
         <NavItem
           {...home}
-          sx={{ fontSize: 3 }}
+          sx={{ fontSize: '4.4vw' }}
           textColor="white"
           title="home"
           render={text => (
@@ -72,7 +72,7 @@ function NavModal({ modalIsOpen, hideModal }) {
         {rest.map(values => (
           <NavItem
             {...values}
-            sx={{ fontSize: 3 }}
+            sx={{ fontSize: '4vw' }}
             key={values.to}
             textColor="white"
             onClick={hideModal}
