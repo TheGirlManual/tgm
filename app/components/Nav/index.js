@@ -64,9 +64,13 @@ function Nav() {
         <PageTitle />
       </Box>
 
-      <Box flex={2} display={['none', 'inline-block']} textAlign="center">
+      <Box flex={3} display={['none', 'inline-block']} textAlign="center">
         {navItems.map(values => (
-          <NavItem key={values.to} sx={{ fontSize: [3, 3, 4] }} {...values} />
+          <NavItem
+            key={values.to}
+            sx={{ fontSize: [2, 2, 2, 3] }}
+            {...values}
+          />
         ))}
       </Box>
 

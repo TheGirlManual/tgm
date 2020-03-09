@@ -21,4 +21,8 @@ export default defineMessages({
     id: `${scope}.meet`,
     defaultMessage: 'Meet Us',
   },
+  contact: {
+    id: `${scope}.contact`,
+    defaultMessage: 'Contact',
+  },
 });

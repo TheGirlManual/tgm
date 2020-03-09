@@ -19,6 +19,7 @@ import CookieBanner from 'react-cookie-banner';
 import HomePage from 'containers/HomePage/Loadable';
 import AboutPage from 'containers/AboutPage/Loadable';
 import ProfilePage from 'containers/ProfilePage/Loadable';
+import ContactPage from 'containers/ContactPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
@@ -101,6 +102,7 @@ function App(props) {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/meet" component={ProfilePage} />
+          <Route exact path="/contact" component={ContactPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>

@@ -5,14 +5,6 @@
  */
 
 import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
-
-import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectProfilePage from './selectors';
-import reducer from './reducer';
-
 import ProfileCard from './ProfileCard';
 import ProfilePageWrapper from './ProfilePageWrapper';
 import messages from '../HomePage/messages';
@@ -36,8 +28,6 @@ const fer = {
 };
 
 export function ProfilePage() {
-  useInjectReducer({ key: 'profilePage', reducer });
-
   return (
     <ProfilePageWrapper>
       <ProfileCard {...fer} />
@@ -46,19 +36,4 @@ export function ProfilePage() {
   );
 }
 
-const mapStateToProps = createStructuredSelector({
-  profilePage: makeSelectProfilePage(),
-});
-
-function mapDispatchToProps(dispatch) {
-  return {
-    dispatch,
-  };
-}
-
-const withConnect = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-);
-
-export default compose(withConnect)(ProfilePage);
+export default ProfilePage;

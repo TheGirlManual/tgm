@@ -24,6 +24,10 @@ export const navItems = [
     to: 'meet',
     title: 'meet',
   },
+  {
+    to: 'contact',
+    title: 'contact',
+  },
 ];
 
 function NavItem({ to, title, render, onClick, sx, textColor }) {

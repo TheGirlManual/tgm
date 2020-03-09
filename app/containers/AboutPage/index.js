@@ -7,25 +7,18 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Box, Button, Heading, Text, Flex, Image } from 'rebass';
+import AboutPageWrapper from './AboutPageWrapper';
 import messages from './messages';
 
 export default function AboutPage() {
   return (
-    <Flex
-      flexDirection="row"
-      justifyContent="space-evenly"
-      alignItems="flex-start"
-      m="auto"
-      width="90vw"
-      flexWrap="wrap"
-    >
+    <AboutPageWrapper>
       <Flex
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        px="2%"
-        mt={5}
-        width={[null, 1, 1 / 2]}
+        width={[null, 1, 0.4]}
+        mb={4}
       >
         <Heading px={3} my={3} fontSize={[5, 6]} color="secondary">
           <FormattedMessage {...messages.title} />
@@ -44,7 +37,7 @@ export default function AboutPage() {
           Listen now
         </Button>
       </Flex>
-      <Flex p="5%" flexDirection="column" width={[null, 1, 1 / 2]}>
+      <Flex flexDirection="column" width={[null, 1, 0.4]}>
         <Image
           height={250}
           width={700}
@@ -106,6 +99,6 @@ export default function AboutPage() {
           </Text>
         </Box>
       </Flex>
-    </Flex>
+    </AboutPageWrapper>
   );
 }
