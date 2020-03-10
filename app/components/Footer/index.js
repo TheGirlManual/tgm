@@ -68,10 +68,18 @@ function Footer() {
         justifyContent="space-around"
         sx={{ fontSize: 32 }}
       >
-        <FontAwesomeIcon color="#1da1f2" icon={Twitter} />
-        <FontAwesomeIcon color="#c13584" icon={IG} />
-        <FontAwesomeIcon color="#3b5998" icon={FB} />
-        <FontAwesomeIcon color="#f96854" icon={Patreon} />
+        <a href="https://twitter.com/Girlmanualpod">
+          <FontAwesomeIcon color="#1da1f2" icon={Twitter} />
+        </a>
+        <a href="https://www.instagram.com/thegirlmanualpodcast">
+          <FontAwesomeIcon color="#c13584" icon={IG} />
+        </a>
+        <a href="https://facebook.com/">
+          <FontAwesomeIcon color="#3b5998" icon={FB} />
+        </a>
+        <a href="https://www.patreon.com/bePatron?u=31577164">
+          <FontAwesomeIcon color="#f96854" icon={Patreon} />
+        </a>
       </Flex>
       <Text as="b" sx={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
         <FontAwesomeIcon

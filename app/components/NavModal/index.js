@@ -6,16 +6,17 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Box } from 'rebass';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome as Home } from '@fortawesome/free-solid-svg-icons';
+import { Flex } from 'rebass';
+import { useTheme } from 'emotion-theming';
 import Modal from 'react-modal';
 
 import NavItem, { navItems } from 'components/NavItem';
 
 Modal.setAppElement('#app');
 
-const modalStyle = {
+const modalStyle = theme => ({
   overlay: {
     top: 0,
     left: 0,
@@ -27,16 +28,21 @@ const modalStyle = {
   },
   content: {
     top: 'auto',
-    right: 'auto',
-    position: 'fixed',
-    padding: 6,
-    borderRadius: '50%',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    marginLeft: 'calc(-50%)',
+    marginBottom: 'calc(-70%)',
+    position: 'absolute',
     border: 'none',
-    backgroundColor: '#CE1A5D',
+    borderRadius: '50%',
+    backgroundColor: theme.colors.secondary,
   },
-};
+});
 
 function NavModal({ modalIsOpen, hideModal }) {
+  const style = modalStyle(useTheme());
+
   const [home, ...rest] = navItems;
 
   return (
@@ -44,41 +50,45 @@ function NavModal({ modalIsOpen, hideModal }) {
       closeTimeoutMS={200}
       shouldCloseOnOverlayClick
       onRequestClose={hideModal}
-      style={modalStyle}
+      style={style}
       isOpen={modalIsOpen}
     >
-      <Box
+      <Flex
+        flexWrap="wrap"
+        justifyContent="center"
+        alignItems="center"
+        textAlign="center"
+        px={3}
+        m="auto"
         sx={{
-          position: 'fixed',
-          top: '33%',
-          left: '48%',
+          width: '100vw',
+          height: 'calc(50%)',
           fontSize: 12,
         }}
       >
         <NavItem
           {...home}
-          sx={{ fontSize: '4.4vw' }}
+          sx={{ padding: 2, flex: '1 0 100%', fontSize: '6vw' }}
           textColor="white"
           title="home"
-          render={text => (
+          onClick={hideModal}
+          render={() => (
             <span>
-              <FontAwesomeIcon style={{ marginRight: 8 }} icon={Home} />
-              {text}
+              <FontAwesomeIcon icon={Home} />
             </span>
           )}
-          onClick={hideModal}
         />
 
         {rest.map(values => (
           <NavItem
             {...values}
-            sx={{ fontSize: '4vw' }}
+            sx={{ padding: 2, flex: '1 0 100%', fontSize: '5vw' }}
             key={values.to}
             textColor="white"
             onClick={hideModal}
           />
         ))}
-      </Box>
+      </Flex>
     </Modal>
   );
 }

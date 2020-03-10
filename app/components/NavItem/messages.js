@@ -25,4 +25,8 @@ export default defineMessages({
     id: `${scope}.contact`,
     defaultMessage: 'Contact',
   },
+  donate: {
+    id: `${scope}.donate`,
+    defaultMessage: 'Donate',
+  },
 });

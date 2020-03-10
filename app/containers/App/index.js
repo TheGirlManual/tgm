@@ -20,6 +20,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import AboutPage from 'containers/AboutPage/Loadable';
 import ProfilePage from 'containers/ProfilePage/Loadable';
 import ContactPage from 'containers/ContactPage/Loadable';
+import DonatePage from 'containers/DonatePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
@@ -48,22 +49,19 @@ const ModalOverlayStyles = css`
 
 const ModalContentStyles = css`
   .ReactModal__Content {
-    width: 120vh;
-    height: 40vh;
-    bottom: 50px;
-    left: 50px;
-    transform: translate(calc(-50%), calc(50%));
+    width: 200vw;
+    height: 80vh;
     transition: all 150ms ease-in-out;
   }
 
   .ReactModal__Content--after-open {
-    width: 150vh;
-    height: 50vh;
+    width: 200vw;
+    height: 90vh;
   }
 
   .ReactModal__Content--before-close {
-    width: 120vh;
-    height: 40vh;
+    width: 200vw;
+    height: 80vh;
   }
 `;
 
@@ -103,6 +101,7 @@ function App(props) {
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/meet" component={ProfilePage} />
           <Route exact path="/contact" component={ContactPage} />
+          <Route exact path="/donate" component={DonatePage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>

@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from 'rebass';
 
-function ContactPageWrapper({ children }) {
+function DonatePageWrapper({ children }) {
   return (
     <Flex
       height="auto"
       width="90vw"
-      justifyContent="space-evenly"
-      alignItems="flex-start"
+      maxWidth="600px"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
       flexWrap="wrap"
       m="auto"
       py={5}
@@ -18,8 +20,8 @@ function ContactPageWrapper({ children }) {
   );
 }
 
-ContactPageWrapper.propTypes = {
+DonatePageWrapper.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element),
 };
 
-export default ContactPageWrapper;
+export default DonatePageWrapper;

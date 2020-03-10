@@ -28,6 +28,10 @@ export const navItems = [
     to: 'contact',
     title: 'contact',
   },
+  {
+    to: 'donate',
+    title: 'donate',
+  },
 ];
 
 function NavItem({ to, title, render, onClick, sx, textColor }) {
