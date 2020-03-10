@@ -44,6 +44,7 @@
   "app.containers.HomePage.meetTheHosts": "Conoce a las presentadoras",
   "app.containers.LocalePicker.en": "English",
   "app.containers.LocalePicker.es": "Español",
+  "app.containers.LocalePicker.fi": "",
   "app.containers.NotFoundPage.header": "No pudimos encontrar esta página :(",
   "app.containers.ProfilePage.header": ""
 }

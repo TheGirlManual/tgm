@@ -16,4 +16,8 @@ export default defineMessages({
     id: `${scope}.es`,
     defaultMessage: 'Español',
   },
+  fi: {
+    id: `${scope}.fi`,
+    defaultMessage: 'Suomi',
+  },
 });

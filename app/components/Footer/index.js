@@ -12,6 +12,7 @@ import {
   faInstagram as IG,
   faFacebookSquare as FB,
   faPatreon as Patreon,
+  faSpotify as Spotify,
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faFemale as Woman,
@@ -65,6 +66,7 @@ function Footer() {
       <Flex
         width="60%"
         maxWidth={400}
+        minWidth={300}
         justifyContent="space-around"
         sx={{ fontSize: 32 }}
       >
@@ -79,6 +81,9 @@ function Footer() {
         </a>
         <a href="https://www.patreon.com/bePatron?u=31577164">
           <FontAwesomeIcon color="#f96854" icon={Patreon} />
+        </a>
+        <a href="https://open.spotify.com/show/7jwdjqGaFHQeQoly9ByCzP">
+          <FontAwesomeIcon color="#1db954" icon={Spotify} />
         </a>
       </Flex>
       <Text as="b" sx={{ textAlign: 'center', fontFamily: 'sans-serif' }}>

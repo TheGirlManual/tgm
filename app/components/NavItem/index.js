@@ -37,7 +37,7 @@ export const navItems = [
 function NavItem({ to, title, render, onClick, sx, textColor }) {
   return (
     <Box
-      sx={{ textDecoration: 'none', ...sx }}
+      sx={{ display: 'inline-block', textDecoration: 'none', ...sx }}
       mx={3}
       as={NavLink}
       to={to}

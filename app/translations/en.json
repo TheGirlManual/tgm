@@ -44,6 +44,7 @@
   "app.containers.HomePage.meetTheHosts": "Meet the hosts",
   "app.containers.LocalePicker.en": "English",
   "app.containers.LocalePicker.es": "Español",
+  "app.containers.LocalePicker.fi": "Suomi",
   "app.containers.NotFoundPage.header": "Page not found :(",
   "app.containers.ProfilePage.header": "This is the ProfilePage container!"
 }

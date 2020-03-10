@@ -7,6 +7,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Flex, Box, Image } from 'rebass';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpotify as Spotify } from '@fortawesome/free-brands-svg-icons';
 import NavItem, { navItems } from 'components/NavItem';
 import logo from 'images/logo.png';
 import logoStacked from 'images/logo-stacked.png';
@@ -68,14 +70,19 @@ function Nav() {
         {navItems.map(values => (
           <NavItem
             key={values.to}
-            sx={{ fontSize: [2, 2, 2, 3] }}
+            sx={{ fontSize: [1, 1, 2, 3] }}
             {...values}
           />
         ))}
       </Box>
 
-      <Box flex={1}>
+      <Box flex={1} mx={3} alignItems="center" justifyContent="center">
         <LocalePickerWrapper />
+      </Box>
+      <Box fontSize={5} mx={3} alignItems="center" justifyContent="center">
+        <a href="https://open.spotify.com/show/7jwdjqGaFHQeQoly9ByCzP">
+          <FontAwesomeIcon color="#1db954" icon={Spotify} />
+        </a>
       </Box>
     </Flex>
   );
