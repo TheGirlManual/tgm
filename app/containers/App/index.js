@@ -26,6 +26,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
 import Footer from 'components/Footer';
+import SpotifyPlayer from 'components/SpotifyPlayer/Loadable';
 import FloatingButton from 'components/FloatingButton';
 import { useInjectReducer } from 'utils/injectReducer';
 
@@ -107,6 +108,7 @@ function App(props) {
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>
+      <SpotifyPlayer type="show" spotifyId="7jwdjqGaFHQeQoly9ByCzP" />
       <Footer />
     </Flex>
   );

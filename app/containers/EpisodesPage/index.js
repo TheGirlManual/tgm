@@ -14,6 +14,8 @@ import { compose } from 'redux';
 import { Flex, Link, Box, Heading, Text } from 'rebass';
 import moment from 'moment';
 
+import { spotifyUrlBuilder } from 'components/SpotifyPlayer';
+
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { getEpisodes } from './actions';
@@ -26,6 +28,7 @@ export function EpisodeItem({ episode }) {
     episode.type === 'episode'
       ? `Ep. ${episode.episode}`
       : `Season ${episode.season}`;
+
   return (
     <Box
       sx={{ position: 'relative', border: '2px solid #666' }}
@@ -48,7 +51,7 @@ export function EpisodeItem({ episode }) {
       <Link
         sx={{ position: 'absolute', top: 0, right: 0 }}
         p={2}
-        href={episode.url}
+        href={spotifyUrlBuilder(episode.type, episode.spotifyId)}
       >
         <FontAwesomeIcon color="#1db954" icon={Spotify} />
       </Link>
