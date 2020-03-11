@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Heading, Button } from 'rebass';
+import { Heading, Link } from 'rebass';
 import IntroSectionWrapper from './IntroSectionWrapper';
 import messages from '../messages';
 
@@ -16,7 +16,9 @@ export default function IntroSection() {
         <FormattedMessage {...messages.headline} />
       </Heading>
 
-      <Button
+      <Link
+        href="https://open.spotify.com/show/7jwdjqGaFHQeQoly9ByCzP"
+        sx={{ textDecoration: 'none', textAlign: 'center' }}
         color="primary"
         bg="secondary"
         mt={4}
@@ -26,7 +28,7 @@ export default function IntroSection() {
         p={3}
       >
         <FormattedMessage {...messages.listenCta} />
-      </Button>
+      </Link>
     </IntroSectionWrapper>
   );
 }

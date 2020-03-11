@@ -25,6 +25,10 @@ export const navItems = [
     title: 'meet',
   },
   {
+    to: 'episodes',
+    title: 'episodes',
+  },
+  {
     to: 'contact',
     title: 'contact',
   },

@@ -21,6 +21,7 @@ import AboutPage from 'containers/AboutPage/Loadable';
 import ProfilePage from 'containers/ProfilePage/Loadable';
 import ContactPage from 'containers/ContactPage/Loadable';
 import DonatePage from 'containers/DonatePage/Loadable';
+import EpisodesPage from 'containers/EpisodesPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
@@ -102,6 +103,7 @@ function App(props) {
           <Route exact path="/meet" component={ProfilePage} />
           <Route exact path="/contact" component={ContactPage} />
           <Route exact path="/donate" component={DonatePage} />
+          <Route exact path="/episodes" component={EpisodesPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>

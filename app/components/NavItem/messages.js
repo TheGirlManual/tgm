@@ -29,4 +29,8 @@ export default defineMessages({
     id: `${scope}.donate`,
     defaultMessage: 'Donate',
   },
+  episodes: {
+    id: `${scope}.episodes`,
+    defaultMessage: 'Episodes',
+  },
 });
