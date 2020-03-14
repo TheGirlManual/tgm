@@ -12,16 +12,32 @@ const themeColors = {
   background: '#ffffff',
 };
 
+const fonts = {
+  serif: 'Cormorant',
+  'sans-serif': 'Roboto',
+};
+
 const theme = {
   ...rebassTheme,
   fonts: {
-    heading: 'Cormorant',
-    body: 'Montserrat',
+    heading: fonts.serif,
+    body: fonts['sans-serif'],
+    ...fonts,
   },
   colors: {
     ...themeColors,
     secondaryLight: lighten(0.2, themeColors.secondary),
+    secondaryLighter: lighten(0.1, themeColors.secondary),
+    secondaryDarker: darken(0.1, themeColors.secondary),
     secondaryDark: darken(0.2, themeColors.secondary),
+  },
+  buttons: {
+    primary: {
+      fontFamily: 'body',
+      bg: 'secondary',
+      color: 'primary',
+      ':active': { bg: 'secondaryLighter' },
+    },
   },
 };
 

@@ -47,13 +47,13 @@ export function EpisodeItem({ episode }) {
         <Text fontSize="0.5em" color="#666">
           {moment.unix(episode.releaseDate.seconds).format('MM/DD/YY')}
         </Text>
-        <Heading fontSize="1.5em" color="secondary">
+        <Heading fontFamily="sans-serif" fontSize="1.5em" color="secondary">
           {heading}: {episode.title}
         </Heading>
         <Text fontSize="0.4em" ml={3} mt={1} color="#666">
           by {episode.author.join(', ')}
         </Text>
-        <Text fontSize="0.6em" mt={3}>
+        <Text fontFamily="serif" fontSize="0.6em" mt={3}>
           {episode.description}
         </Text>
       </Box>

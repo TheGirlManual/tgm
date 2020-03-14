@@ -33,7 +33,7 @@ export default function AboutPage() {
         >
           <FormattedMessage {...messages.mission} />
         </Text>
-        <Button bg="secondary" color="primary" width={0.4} height={50} my={3}>
+        <Button width={0.4} height={50} my={3}>
           Listen now
         </Button>
       </Flex>
@@ -52,7 +52,6 @@ export default function AboutPage() {
           mt={4}
           sx={{
             position: 'relative',
-            fontFamily: 'sans-serif',
             lineHeight: 1.6,
             fontSize: 4,
           }}

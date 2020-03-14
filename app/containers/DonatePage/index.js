@@ -38,14 +38,7 @@ export function DonatePage() {
         <Text mt={2}>
           <FormattedHTMLMessage {...messages.donateText} />
         </Text>
-        <Button
-          mt={3}
-          mx="auto"
-          width={0.4}
-          maxWidth={400}
-          color="primary"
-          bg="secondary"
-        >
+        <Button mt={3} mx="auto" width={0.4} maxWidth={400}>
           <FormattedHTMLMessage {...messages.donateCta} />
         </Button>
         <Link href="https://www.patreon.com/bePatron?u=31577164">

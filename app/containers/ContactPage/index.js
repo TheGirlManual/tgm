@@ -40,7 +40,7 @@ function NewsletterSignup() {
           name="email"
         />
       </Box>
-      <Button width={1} mt={3} py={3} bg="secondary" color="primary">
+      <Button width={1} mt={3} py={3}>
         <FormattedMessage {...messages.subButton} />
       </Button>
       <Text as="small" mt={4}>

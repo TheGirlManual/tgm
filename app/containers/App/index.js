@@ -76,6 +76,7 @@ function App(props) {
       flexDirection="column"
       justifyContent="center"
       alignContent="center"
+      sx={{ fontFamily: 'body' }}
     >
       <CookieBanner
         styles={{
