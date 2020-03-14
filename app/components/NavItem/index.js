@@ -17,23 +17,23 @@ export const navItems = [
     title: 'home',
   },
   {
-    to: 'about',
+    to: '/about',
     title: 'about',
   },
   {
-    to: 'meet',
+    to: '/meet',
     title: 'meet',
   },
   {
-    to: 'episodes',
+    to: '/episodes',
     title: 'episodes',
   },
   {
-    to: 'contact',
+    to: '/contact',
     title: 'contact',
   },
   {
-    to: 'donate',
+    to: '/donate',
     title: 'donate',
   },
 ];

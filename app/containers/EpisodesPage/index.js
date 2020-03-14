@@ -5,6 +5,7 @@
  */
 
 import React, { useEffect } from 'react';
+import { useLocation, Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify as Spotify } from '@fortawesome/free-brands-svg-icons';
@@ -24,6 +25,8 @@ import reducer from './reducer';
 import saga from './saga';
 
 export function EpisodeItem({ episode }) {
+  const location = useLocation();
+
   const heading =
     episode.type === 'episode'
       ? `Ep. ${episode.episode}`
@@ -36,20 +39,32 @@ export function EpisodeItem({ episode }) {
       m={3}
       p={4}
     >
-      <Text fontSize="0.5em" color="#666">
-        {moment.unix(episode.releaseDate.seconds).format('MM/DD/YY')}
-      </Text>
-      <Heading fontSize="1.5em" color="secondary">
-        {heading}: {episode.title}
-      </Heading>
-      <Text fontSize="0.4em" ml={3} mt={1} color="#666">
-        by {episode.author.join(', ')}
-      </Text>
-      <Text fontSize="0.6em" mt={3}>
-        {episode.description}
-      </Text>
+      <Box
+        as={episode.transcriptId ? RouterLink : 'span'}
+        to={`${location.pathname}/${episode.transcriptId}/${episode.slug}`}
+        sx={{ textDecoration: 'inherit', color: 'inherit' }}
+      >
+        <Text fontSize="0.5em" color="#666">
+          {moment.unix(episode.releaseDate.seconds).format('MM/DD/YY')}
+        </Text>
+        <Heading fontSize="1.5em" color="secondary">
+          {heading}: {episode.title}
+        </Heading>
+        <Text fontSize="0.4em" ml={3} mt={1} color="#666">
+          by {episode.author.join(', ')}
+        </Text>
+        <Text fontSize="0.6em" mt={3}>
+          {episode.description}
+        </Text>
+      </Box>
       <Link
-        sx={{ position: 'absolute', top: 0, right: 0 }}
+        sx={{
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          transition: 'all 0.3s ease',
+          ':hover': { transform: 'scale(1.1)' },
+        }}
         p={2}
         href={spotifyUrlBuilder(episode.type, episode.spotifyId)}
       >
