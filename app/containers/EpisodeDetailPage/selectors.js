@@ -12,16 +12,22 @@ const selectEpisodeDetailPageDomain = state =>
  * Other specific selectors
  */
 
-const makeSelectTranscriptId = () =>
+const makeSelectContentId = () =>
   createSelector(
     selectEpisodeDetailPageDomain,
-    state => state.id,
+    state => state.contentId,
   );
 
 const makeSelectTranscriptData = () =>
   createSelector(
     selectEpisodeDetailPageDomain,
-    state => state.data,
+    state => state.transcriptData,
+  );
+
+const makeSelectEpisodeData = () =>
+  createSelector(
+    selectEpisodeDetailPageDomain,
+    state => state.episodeData,
   );
 
 /**
@@ -37,6 +43,7 @@ const makeSelectEpisodeDetailPage = () =>
 export default makeSelectEpisodeDetailPage;
 export {
   makeSelectTranscriptData,
-  makeSelectTranscriptId,
+  makeSelectEpisodeData,
+  makeSelectContentId,
   selectEpisodeDetailPageDomain,
 };

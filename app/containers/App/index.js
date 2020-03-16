@@ -107,7 +107,7 @@ function App(props) {
           <Route exact path="/donate" component={DonatePage} />
           <Route exact path="/episodes" component={EpisodesPage} />
           <Route
-            path="/episodes/:transcriptId/:slug"
+            path="/episodes/:contentId/:slug"
             component={EpisodeDetailPage}
           />
           <Route component={NotFoundPage} />

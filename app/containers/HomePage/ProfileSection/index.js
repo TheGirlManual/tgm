@@ -16,7 +16,7 @@ const fer = {
   front:
     'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-netural.webp?alt=media&token=37512215-27d1-4056-9e81-3090652b5ca8',
   back:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-nobg.webp?alt=media&token=bcb27d3d-8543-4a62-83c4-75843a664dff',
+    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-smile.webp?alt=media&token=ce56fe1c-620d-4db0-b1c7-2c4c6b6fa85e',
 };
 
 export default function ProfileSection() {

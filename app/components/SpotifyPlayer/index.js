@@ -25,22 +25,14 @@ export function spotifyUrlBuilder(type, spotifyId, embed = false) {
 
 function SpotifyPlayer({ type, spotifyId }) {
   return (
-    <Flex
-      sx={{
-        position: 'fixed',
-        bottom: 0,
-        right: 0,
-      }}
-      m={3}
-    >
+    <Flex m={3}>
       <iframe
         title="spotify-player"
-        src={spotifyUrlBuilder(type, spotifyId)}
-        width="250px"
-        height="150px"
+        src={spotifyUrlBuilder(type, spotifyId, true)}
+        height="232px"
+        width="100%"
         scrolling="no"
         frameBorder="0"
-        allowTransparency="true"
         allow="encrypted-media"
       />
     </Flex>

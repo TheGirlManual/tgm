@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { get } from 'lodash';
 import { initialState } from './reducer';
 
 /**
@@ -17,6 +18,12 @@ const makeSelectEpisodes = () =>
     pageState => pageState.episodes,
   );
 
+const makeSelectEpisode = contentId =>
+  createSelector(
+    selectEpisodesPageDomain,
+    pageState => get(pageState.episodes, contentId),
+  );
+
 /**
  * Default selector used by EpisodesPage
  */
@@ -28,4 +35,4 @@ const makeSelectEpisodesPage = () =>
   );
 
 export default makeSelectEpisodesPage;
-export { selectEpisodesPageDomain, makeSelectEpisodes };
+export { selectEpisodesPageDomain, makeSelectEpisodes, makeSelectEpisode };

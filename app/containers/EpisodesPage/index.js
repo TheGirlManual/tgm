@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Flex, Link, Box, Heading, Text } from 'rebass';
+import { values } from 'lodash';
 import moment from 'moment';
 
 import { spotifyUrlBuilder } from 'components/SpotifyPlayer';
@@ -41,19 +42,19 @@ export function EpisodeItem({ episode }) {
     >
       <Box
         as={episode.transcriptId ? RouterLink : 'span'}
-        to={`${location.pathname}/${episode.transcriptId}/${episode.slug}`}
+        to={`${location.pathname}/${episode.id}/${episode.slug}`}
         sx={{ textDecoration: 'inherit', color: 'inherit' }}
       >
         <Text fontSize="0.5em" color="#666">
           {moment.unix(episode.releaseDate.seconds).format('MM/DD/YY')}
         </Text>
-        <Heading fontFamily="sans-serif" fontSize="1.5em" color="secondary">
+        <Heading fontSize="1.5em" color="secondary">
           {heading}: {episode.title}
         </Heading>
-        <Text fontSize="0.4em" ml={3} mt={1} color="#666">
+        <Text fontSize="0.5em" ml={3} mt={1} color="#666">
           by {episode.author.join(', ')}
         </Text>
-        <Text fontFamily="serif" fontSize="0.6em" mt={3}>
+        <Text fontSize="0.6em" mt={3}>
           {episode.description}
         </Text>
       </Box>
@@ -88,7 +89,7 @@ export function EpisodesPage({ dispatch, episodes }) {
 
   return (
     <Flex mx="auto" width="90vw" justifyContent="center" flexDirection="column">
-      {episodes.map(episode => (
+      {values(episodes).map(episode => (
         <EpisodeItem key={episode.id} episode={episode} />
       ))}
     </Flex>

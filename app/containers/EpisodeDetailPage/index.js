@@ -14,25 +14,24 @@ import { useTheme } from 'emotion-theming';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import ReactMarkdown from 'react-markdown';
+import SpotifyPlayer from 'components/SpotifyPlayer';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
-import makeSelectEpisodeDetailPage, {
-  makeSelectTranscriptData,
-} from './selectors';
+import { makeSelectEpisodeData, makeSelectTranscriptData } from './selectors';
 import { getTranscript } from './actions';
 import reducer from './reducer';
 import saga from './saga';
 
-export function EpisodeDetailPage({ dispatch, transcript }) {
+export function EpisodeDetailPage({ dispatch, transcript, episode }) {
   useInjectReducer({ key: 'episodeDetailPage', reducer });
   useInjectSaga({ key: 'episodeDetailPage', saga });
-  const theme = useTheme();
 
-  const { transcriptId } = useParams();
+  const theme = useTheme();
+  const { contentId } = useParams();
 
   useEffect(() => {
-    dispatch(getTranscript(transcriptId));
+    dispatch(getTranscript(contentId));
   }, [dispatch]);
 
   return (
@@ -65,6 +64,9 @@ export function EpisodeDetailPage({ dispatch, transcript }) {
           }
         `}
       >
+        <Box mx="auto" width={0.8}>
+          <SpotifyPlayer type={episode.type} spotifyId={episode.spotifyId} />
+        </Box>
         <ReactMarkdown className="transcript" source={transcript.body} />
       </Box>
     </Flex>
@@ -74,13 +76,14 @@ export function EpisodeDetailPage({ dispatch, transcript }) {
 EpisodeDetailPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   transcript: PropTypes.object.isRequired,
+  episode: PropTypes.object.isRequired,
 };
 
 EpisodeDetailPage.defaultProps = {};
 
 const mapStateToProps = createStructuredSelector({
-  episodeDetailPage: makeSelectEpisodeDetailPage(),
   transcript: makeSelectTranscriptData(),
+  episode: makeSelectEpisodeData(),
 });
 
 function mapDispatchToProps(dispatch) {

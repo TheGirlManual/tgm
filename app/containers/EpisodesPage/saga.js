@@ -14,10 +14,10 @@ export function* getEpisodes() {
       .where('type', 'in', ['episode', 'trailer']),
   );
 
-  let items = [];
+  let items = {};
 
   snapshot.forEach(item => {
-    items = [...items, item.data()];
+    items = { ...items, [item.id]: item.data() };
   });
 
   yield put(gotEpisodes(items));
