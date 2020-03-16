@@ -7,16 +7,16 @@ import messages from '../messages';
 
 const essi = {
   front:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fkiiski-essi-neutral.jpg?alt=media&token=bbafc926-46ea-4d79-b25a-8c14f23699ec',
+    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fkiiski-essi-neutral.webp?alt=media&token=b4843854-ad1b-4ea8-a0fd-14d9eb0ad429',
   back:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fkiiski-essi-smile.jpg?alt=media&token=bd0b899b-c211-4eb7-828b-7beaab545201',
+    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fkiiski-essi-smile.webp?alt=media&token=f64e1aeb-a7ad-4480-8d28-016334d24f77',
 };
 
 const fer = {
   front:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-netural.jpg?alt=media&token=a7f737ce-4c17-442f-a0ca-8ebf59d7cbc2',
+    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-netural.webp?alt=media&token=37512215-27d1-4056-9e81-3090652b5ca8',
   back:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-smile.jpg?alt=media&token=b4f5f652-4b6e-4743-8039-2cd782e6cda0',
+    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-nobg.webp?alt=media&token=bcb27d3d-8543-4a62-83c4-75843a664dff',
 };
 
 export default function ProfileSection() {

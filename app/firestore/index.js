@@ -1,5 +1,4 @@
-import firebase from 'firebase';
-import '@firebase/firestore';
+import { initializeApp } from 'firebase/app';
 import ReduxSagaFirebase from 'redux-saga-firebase';
 
 const firebaseConfig = {
@@ -13,7 +12,7 @@ const firebaseConfig = {
   measurementId: 'G-0PH98FLPXJ',
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
 const rsf = new ReduxSagaFirebase(firebaseApp);
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Flex } from 'rebass';
 
 const img =
-  'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fshutterstock%2Fwomen.jpg?alt=media&token=4a4fba44-9122-4321-9015-2cb612429436';
+  'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fshutterstock%2Fwomen.webp?alt=media&token=6ec38f4f-448d-4330-98a1-1b5a7aa29385';
 
 function IntroSectionWrapper({ children }) {
   return (

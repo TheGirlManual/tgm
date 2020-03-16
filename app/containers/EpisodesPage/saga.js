@@ -1,6 +1,7 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 import rsf from 'firestore';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import '@firebase/firestore';
 import { GET_EPISODES } from './constants';
 import { gotEpisodes } from './actions';
 
