@@ -41,7 +41,7 @@ export function EpisodeDetailPage({ dispatch, transcript, episode }) {
       px={3}
       justifyContent="center"
       alignItems="center"
-      textAlign="justify"
+      textAlign={['left', 'justify']}
       lineHeight="1.4"
     >
       <Box
@@ -64,7 +64,7 @@ export function EpisodeDetailPage({ dispatch, transcript, episode }) {
           }
         `}
       >
-        <Box mx="auto" width={0.8}>
+        <Box mx="auto" my={4} width={0.8}>
           <SpotifyPlayer type={episode.type} spotifyId={episode.spotifyId} />
         </Box>
         <ReactMarkdown className="transcript" source={transcript.body} />
