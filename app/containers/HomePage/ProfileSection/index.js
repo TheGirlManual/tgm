@@ -1,22 +1,31 @@
 import React from 'react';
 import { Heading, Box } from 'rebass';
 import { FormattedMessage } from 'react-intl';
+import { imagePathForFile } from 'utils/image';
 import Profile from './Profile';
 import ProfileSectionWrapper from './ProfileSectionWrapper';
 import messages from '../messages';
 
 const essi = {
-  front:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fkiiski-essi-neutral.webp?alt=media&token=b4843854-ad1b-4ea8-a0fd-14d9eb0ad429',
-  back:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fkiiski-essi-smile.webp?alt=media&token=f64e1aeb-a7ad-4480-8d28-016334d24f77',
+  front: imagePathForFile({
+    path: ['profile-photos', 'kiiski-essi-neutral'],
+    token: 'b4843854-ad1b-4ea8-a0fd-14d9eb0ad429',
+  }),
+  back: imagePathForFile({
+    path: ['profile-photos', 'kiiski-essi-smile'],
+    token: 'f64e1aeb-a7ad-4480-8d28-016334d24f77',
+  }),
 };
 
 const fer = {
-  front:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-netural.webp?alt=media&token=37512215-27d1-4056-9e81-3090652b5ca8',
-  back:
-    'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fprofile-photos%2Fzamora-fernanda-smile.webp?alt=media&token=ce56fe1c-620d-4db0-b1c7-2c4c6b6fa85e',
+  front: imagePathForFile({
+    path: ['profile-photos', 'zamora-fernanda-neutral'],
+    token: '37512215-27d1-4056-9e81-3090652b5ca8',
+  }),
+  back: imagePathForFile({
+    path: ['profile-photos', 'zamora-fernanda-smile'],
+    token: 'ce56fe1c-620d-4db0-b1c7-2c4c6b6fa85e',
+  }),
 };
 
 export default function ProfileSection() {

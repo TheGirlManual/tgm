@@ -36,7 +36,6 @@ const modalStyle = theme => ({
     marginBottom: 'calc(-70%)',
     position: 'fixed',
     border: 'none',
-    borderRadius: '50%',
     backgroundColor: theme.colors.secondary,
   },
 });

@@ -11,6 +11,9 @@ import '@babel/polyfill';
 // Import fetch polyfill
 import 'whatwg-fetch';
 
+// Import Modernizr
+import './modernizr';
+
 // Import all the third party stuff
 import React from 'react';
 import ReactDOM from 'react-dom';

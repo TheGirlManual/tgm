@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from 'rebass';
+import { imagePathForFile } from 'utils/image';
 
-const img =
-  'https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Fshutterstock%2Fwomen.webp?alt=media&token=6ec38f4f-448d-4330-98a1-1b5a7aa29385';
+const img = imagePathForFile({ path: ['shutterstock', 'women'] });
 
 function IntroSectionWrapper({ children }) {
   return (

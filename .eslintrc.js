@@ -23,6 +23,9 @@ module.exports = {
       jsx: true,
     },
   },
+  globals: {
+    'Modernizr': 'readonly'
+  },
   rules: {
     'prettier/prettier': ['error', prettierOptions],
     'arrow-body-style': [2, 'as-needed'],
