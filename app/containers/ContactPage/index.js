@@ -8,14 +8,22 @@ import React from 'react';
 import { Button, Text, Flex, Heading, Box } from 'rebass';
 import { Label, Input, Textarea } from '@rebass/forms';
 import { FormattedMessage } from 'react-intl';
+import api from 'utils/api';
 import ContactPageWrapper from './ContactPageWrapper';
 import messages from './messages';
+
+function handleSubscribe(event) {
+  event.preventDefault();
+  const data = new FormData(event.target);
+
+  api(`handleSendConfirmation`, { email: data.get('email') }, 'POST');
+}
 
 function NewsletterSignup() {
   return (
     <Flex
       as="form"
-      onSubmit={e => e.preventDefault()}
+      onSubmit={handleSubscribe}
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
@@ -40,7 +48,7 @@ function NewsletterSignup() {
           name="email"
         />
       </Box>
-      <Button width={1} mt={3} py={3}>
+      <Button type="submit" width={1} mt={3} py={3}>
         <FormattedMessage {...messages.subButton} />
       </Button>
       <Text as="small" mt={4}>

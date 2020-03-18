@@ -6,7 +6,7 @@ stats.json
 
 # Cruft
 .DS_Store
-npm-debug.log
+*.log
 .idea
 *.sw*
 *.cache

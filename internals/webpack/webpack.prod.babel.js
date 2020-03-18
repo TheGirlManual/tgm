@@ -143,7 +143,7 @@ module.exports = require('./webpack.base.babel')({
       hashDigestLength: 20,
     }),
 
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({ analyzerMode: 'static', analyzerPort: 8889 }),
   ],
 
   performance: {
