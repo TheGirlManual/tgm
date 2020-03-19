@@ -24,6 +24,7 @@ import DonatePage from 'containers/DonatePage/Loadable';
 import EpisodesPage from 'containers/EpisodesPage/Loadable';
 import EpisodeDetailPage from 'containers/EpisodeDetailPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import ConfirmationPage from 'containers/ConfirmationPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
 import Footer from 'components/Footer';
@@ -110,6 +111,7 @@ function App(props) {
             path="/episodes/:contentId/:slug"
             component={EpisodeDetailPage}
           />
+          <Route exact path="/confirmation" component={ConfirmationPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>

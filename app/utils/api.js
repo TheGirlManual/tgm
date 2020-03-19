@@ -4,7 +4,7 @@ const apiUrl =
     : 'http://localhost:5000/interactive-coolture/us-central1';
 
 export default function api(cloudFunction, body = {}, method = 'GET') {
-  fetch(`${apiUrl}/${cloudFunction}`, {
+  return fetch(`${apiUrl}/${cloudFunction}`, {
     body: JSON.stringify(body),
     method,
   });

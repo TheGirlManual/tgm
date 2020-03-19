@@ -5,25 +5,40 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Button, Text, Flex, Heading, Box } from 'rebass';
 import { Label, Input, Textarea } from '@rebass/forms';
 import { FormattedMessage } from 'react-intl';
-import api from 'utils/api';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
+
+import { useInjectSaga } from 'utils/injectSaga';
+import { useInjectReducer } from 'utils/injectReducer';
 import ContactPageWrapper from './ContactPageWrapper';
+import makeSelectContactPage, {
+  makeSelectSubRequest,
+  makeSelectContactRequest,
+} from './selectors';
+import { requestSub } from './actions';
+import reducer from './reducer';
+import saga from './saga';
 import messages from './messages';
 
-function handleSubscribe(event) {
-  event.preventDefault();
-  const data = new FormData(event.target);
+function NewsletterSignup({ success, loading, handleRequestSub }) {
+  const handleSubmit = event => {
+    event.preventDefault();
+    const data = new FormData(event.target);
 
-  api(`handleSendConfirmation`, { email: data.get('email') }, 'POST');
-}
+    handleRequestSub(data.get('email'));
+  };
 
-function NewsletterSignup() {
+  console.log(success, loading);
+
   return (
     <Flex
       as="form"
-      onSubmit={handleSubscribe}
+      onSubmit={handleSubmit}
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
@@ -57,6 +72,12 @@ function NewsletterSignup() {
     </Flex>
   );
 }
+
+NewsletterSignup.propTypes = {
+  handleRequestSub: PropTypes.func.isRequired,
+  success: PropTypes.bool,
+  loading: PropTypes.bool,
+};
 
 function ContactForm() {
   return (
@@ -107,17 +128,44 @@ function ContactForm() {
   );
 }
 
-export function ContactPage() {
+export function ContactPage({ subRequest, contactRequest, handleRequestSub }) {
+  useInjectReducer({ key: 'contactPage', reducer });
+  useInjectSaga({ key: 'contactPage', saga });
+
   return (
     <ContactPageWrapper>
       <Flex mb={4} width={[1, 1, 1, 'max-content']}>
-        <NewsletterSignup />
+        <NewsletterSignup {...subRequest} handleRequestSub={handleRequestSub} />
       </Flex>
       <Flex width={[1, 1, 1, 'max-content']}>
-        <ContactForm />
+        <ContactForm {...contactRequest} />
       </Flex>
     </ContactPageWrapper>
   );
 }
 
-export default ContactPage;
+ContactPage.propTypes = {
+  handleRequestSub: PropTypes.func.isRequired,
+  subRequest: PropTypes.object.isRequired,
+  contactRequest: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = createStructuredSelector({
+  contactPage: makeSelectContactPage(),
+  subRequest: makeSelectSubRequest(),
+  contactRequest: makeSelectContactRequest(),
+});
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+    handleRequestSub: email => dispatch(requestSub(email)),
+  };
+}
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default compose(withConnect)(ContactPage);

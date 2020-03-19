@@ -22,10 +22,19 @@ const subscriberSchema = yup.object().shape({
 });
 
 const createEmailFor = ({email, token}) => ({
-  from: 'no-reply@thegirlmanual.com',
-  to: email,
-  subject: 'Confirm your sub',
-  html: `<a href="https://interactive-coolture.firebaseapp.com/confirm?token=${token}">Confirm your subscription to The Girl Manual :)</a>`  ,
+  personalizations: [{
+    to: [{ email: email }],
+    dynamic_template_data: { token: token },
+  }],
+  from: {
+    email: 'no-reply@thegirlmanual.com',
+    name: 'Essi'
+  },
+  reply_to: {
+    email: 'no-reply@thegirlmanual.com',
+    name: 'Essi'
+  },
+  template_id: 'd-f281431782f54701a7ea64404ec08ea8',
 });
 
 /**
@@ -85,7 +94,7 @@ const acceptConfirmation = async (request, response) => {
     
     console.log(result.body);
 
-    response.status(result.statusCode).end();
+    response.status(301).redirect('/confirmation');
   } catch (err) {
     console.error(err.toString());
 
