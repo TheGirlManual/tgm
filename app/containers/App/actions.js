@@ -4,7 +4,8 @@
  *
  */
 
-import { SHOW_MODAL, HIDE_MODAL, TOGGLE_MODAL } from './constants';
+import { toast } from 'react-toastify';
+import { SHOW_MODAL, HIDE_MODAL, TOGGLE_MODAL, NOTIFY } from './constants';
 
 export function showModal() {
   return {
@@ -21,5 +22,13 @@ export function hideModal() {
 export function toggleModal() {
   return {
     type: TOGGLE_MODAL,
+  };
+}
+
+export function notify(message, options) {
+  toast(message, options);
+
+  return {
+    type: NOTIFY,
   };
 }

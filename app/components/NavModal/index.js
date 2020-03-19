@@ -31,9 +31,6 @@ const modalStyle = theme => ({
     left: 0,
     right: 0,
     bottom: 0,
-    minHeight: '700px',
-    marginLeft: 'calc(-50%)',
-    marginBottom: 'calc(-70%)',
     position: 'fixed',
     border: 'none',
     backgroundColor: theme.colors.secondary,
@@ -41,7 +38,8 @@ const modalStyle = theme => ({
 });
 
 function NavModal({ modalIsOpen, hideModal }) {
-  const style = modalStyle(useTheme());
+  const theme = useTheme();
+  const style = modalStyle(theme);
 
   const [home, ...rest] = navItems;
 
@@ -58,13 +56,7 @@ function NavModal({ modalIsOpen, hideModal }) {
         justifyContent="center"
         alignItems="center"
         textAlign="center"
-        px={3}
         m="auto"
-        sx={{
-          width: '100vw',
-          height: 'calc(50%)',
-          fontSize: 12,
-        }}
       >
         <NavItem
           {...home}

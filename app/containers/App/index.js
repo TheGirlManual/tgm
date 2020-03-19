@@ -29,6 +29,7 @@ import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
 import Footer from 'components/Footer';
 import FloatingButton from 'components/FloatingButton';
+
 import { useInjectReducer } from 'utils/injectReducer';
 
 import { showModal, hideModal } from './actions';
@@ -52,19 +53,14 @@ const ModalOverlayStyles = css`
 
 const ModalContentStyles = css`
   .ReactModal__Content {
-    width: 200vw;
-    height: 80vh;
+    width: 100vw;
     transition: all 150ms ease-in-out;
   }
 
   .ReactModal__Content--after-open {
-    width: 200vw;
-    height: 90vh;
   }
 
   .ReactModal__Content--before-close {
-    width: 200vw;
-    height: 80vh;
   }
 `;
 

@@ -34,6 +34,11 @@ import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 import 'file-loader?name=.htaccess!./.htaccess';
 /* eslint-enable import/no-unresolved, import/extensions */
 
+// Import Toast and styling
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
+import { css } from 'emotion';
 import { ThemeProvider } from 'emotion-theming';
 import theme from './theme';
 
@@ -54,6 +59,15 @@ const render = messages => {
         <ConnectedRouter history={history}>
           <ThemeProvider theme={theme}>
             <App />
+            <ToastContainer
+              toastClassName={css({
+                backgroundColor: theme.colors.secondary,
+                color: theme.colors.primary,
+              })}
+              progressClassName={css({
+                background: theme.colors.secondaryDark,
+              })}
+            />
           </ThemeProvider>
         </ConnectedRouter>
       </LanguageProvider>

@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Link, Image, Button, Text, Flex, Heading } from 'rebass';
+import { Link, Image, Text, Flex, Heading } from 'rebass';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import { css, Global } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
@@ -38,9 +38,6 @@ export function DonatePage() {
         <Text mt={2}>
           <FormattedHTMLMessage {...messages.donateText} />
         </Text>
-        <Button mt={3} mx="auto" width={0.4} maxWidth={400}>
-          <FormattedHTMLMessage {...messages.donateCta} />
-        </Button>
         <Link href="https://www.patreon.com/bePatron?u=31577164">
           <Image
             mt={3}

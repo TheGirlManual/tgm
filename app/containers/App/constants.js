@@ -12,3 +12,4 @@
 export const SHOW_MODAL = 'app/App/SHOW_MODAL';
 export const HIDE_MODAL = 'app/App/HIDE_MODAL';
 export const TOGGLE_MODAL = 'app/App/TOGGLE_MODAL';
+export const NOTIFY = 'app/App/NOTIFY';
