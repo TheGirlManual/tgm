@@ -5,7 +5,7 @@
  */
 import produce from 'immer';
 
-import { SHOW_MODAL, HIDE_MODAL, TOGGLE_MODAL, NOTIFY } from './constants';
+import { SHOW_MODAL, HIDE_MODAL, TOGGLE_MODAL } from './constants';
 
 export const initialState = {
   modalIsOpen: false,
@@ -23,8 +23,6 @@ const appReducer = (state = initialState, action) =>
         break;
       case TOGGLE_MODAL:
         draft.modalIsOpen = !draft.modalIsOpen;
-        break;
-      case NOTIFY:
         break;
     }
   });
