@@ -9,5 +9,7 @@
   },
   "plugins": ["promise"],
   "extends": "eslint:recommended",
-  "rules": {}
+  "rules": {
+    "no-console": "off"
+  }
 }
