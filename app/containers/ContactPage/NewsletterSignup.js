@@ -14,10 +14,10 @@ import messages from './messages';
 
 function NewsletterSignup({ handleRequestSub }) {
   const handleSubmit = event => {
-    event.preventDefault();
     const data = new FormData(event.target);
 
     handleRequestSub(data.get('email'));
+    event.preventDefault();
   };
 
   return (
@@ -46,6 +46,7 @@ function NewsletterSignup({ handleRequestSub }) {
           type="email"
           id="email"
           name="email"
+          required
         />
       </Box>
       <Button type="submit" width={1} mt={3} py={3}>
