@@ -1,6 +1,8 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
 import rsf from 'firestore';
+import firebase from 'firebase';
 import { makeSelectEpisode } from 'containers/EpisodesPage/selectors';
+import { cloneDeep } from 'lodash';
 import { makeSelectContentId } from './selectors';
 import { GET_EPISODE, GET_EPISODE_TRANSCRIPT } from './constants';
 import { gotEpisode, gotTranscript } from './actions';
@@ -23,14 +25,20 @@ export function* getTranscriptData() {
     yield put(gotEpisode(episodeData));
   }
 
-  const snapshot = yield call(
-    rsf.firestore.getDocument,
-    `the-girl-manual/${episodeData.transcriptId}`,
+  const collection = yield call(
+    rsf.firestore.getCollection,
+    firebase
+      .firestore()
+      .collection('the-girl-manual')
+      .where('contentId', '==', cloneDeep(episodeData.id))
+      .limit(1),
   );
 
-  const transcriptData = snapshot.data() || {};
+  if (!collection.empty) {
+    const transcriptData = collection.docs[0].data();
 
-  yield put(gotTranscript(transcriptData));
+    yield put(gotTranscript(transcriptData));
+  }
 }
 
 export function* getEpisodeData() {
