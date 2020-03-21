@@ -1,6 +1,6 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects';
-import rsf from 'firestore';
-import firebase from 'firebase';
+import rsf from 'utils/firebase';
+import firebase from 'firebase/app';
 import { makeSelectEpisode } from 'containers/EpisodesPage/selectors';
 import { cloneDeep } from 'lodash';
 import { makeSelectContentId } from './selectors';

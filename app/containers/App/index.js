@@ -25,6 +25,7 @@ import EpisodesPage from 'containers/EpisodesPage/Loadable';
 import EpisodeDetailPage from 'containers/EpisodeDetailPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import ConfirmationPage from 'containers/ConfirmationPage/Loadable';
+import UploadPage from 'containers/UploadPage/Loadable';
 import Nav from 'components/Nav';
 import NavModal from 'components/NavModal';
 import Footer from 'components/Footer';
@@ -108,6 +109,7 @@ function App(props) {
             component={EpisodeDetailPage}
           />
           <Route exact path="/confirmation" component={ConfirmationPage} />
+          <Route exact path="/admin" component={UploadPage} />
           <Route component={NotFoundPage} />
         </Switch>
       </Flex>
