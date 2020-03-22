@@ -16,6 +16,7 @@ import {
 export const initialState = {
   transcriptData: {},
   episodeData: {},
+  loading: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -24,11 +25,14 @@ const episodeDetailPageReducer = (state = initialState, action) =>
     switch (action.type) {
       case GET_EPISODE_TRANSCRIPT:
         draft.contentId = action.contentId;
+        draft.loading = true;
         break;
       case GET_EPISODE_TRANSCRIPT_SUCCESS:
         draft.transcriptData = action.transcriptData;
+        draft.loading = false;
         break;
       case GET_EPISODE_TRANSCRIPT_ERROR:
+        draft.loading = false;
         break;
       case GET_EPISODE:
         draft.contentId = action.contentId;

@@ -51,19 +51,21 @@ function SpotifyPlayer({ type, spotifyId }) {
             loading={!playerLoaded}
           />
         </Box>
-        <iframe
-          title="spotify-player"
-          src={spotifyUrlBuilder(type, spotifyId, true)}
-          width="100%"
-          scrolling="no"
-          frameBorder="0"
-          allow="encrypted-media"
-          onLoad={() => setLoaded(true)}
-          style={{
-            transition: 'opacity 1s ease',
-            ...style,
-          }}
-        />
+        {spotifyId && (
+          <iframe
+            title="spotify-player"
+            src={spotifyUrlBuilder(type, spotifyId, true)}
+            width="100%"
+            scrolling="no"
+            frameBorder="0"
+            allow="encrypted-media"
+            onLoad={() => setLoaded(true)}
+            style={{
+              transition: 'opacity 1s ease',
+              ...style,
+            }}
+          />
+        )}
       </Flex>
     </Flex>
   );

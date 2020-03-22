@@ -41,7 +41,7 @@ export function EpisodeItem({ episode }) {
       p={4}
     >
       <Box
-        as={episode.transcriptId ? RouterLink : 'span'}
+        as={episode.type === 'episode' ? RouterLink : 'span'}
         to={`${location.pathname}/${episode.id}/${episode.slug}`}
         sx={{ textDecoration: 'inherit', color: 'inherit' }}
       >

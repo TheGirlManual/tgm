@@ -11,7 +11,7 @@ import {
 } from './constants';
 
 export const initialState = {
-  episodes: [],
+  episodes: {},
 };
 
 /* eslint-disable default-case, no-param-reassign */

@@ -21,9 +21,9 @@ export function* getTranscriptData() {
     );
 
     episodeData = snapshot.data();
-
-    yield put(gotEpisode(episodeData));
   }
+
+  yield put(gotEpisode(episodeData));
 
   const collection = yield call(
     rsf.firestore.getCollection,
