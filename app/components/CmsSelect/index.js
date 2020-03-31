@@ -13,9 +13,8 @@ import { camelCase } from 'lodash';
 import { Controller } from 'react-hook-form';
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'Fernanda Zamora', label: 'Fernanda Zamora' },
+  { value: 'Essi Kiiski', label: 'Essi Kiiski' },
 ];
 
 function CmsSelect({ control, name, ...props }) {
@@ -28,7 +27,7 @@ function CmsSelect({ control, name, ...props }) {
         as={Select}
         control={control}
         id={id}
-        name={name}
+        name={id}
         options={options}
         {...props}
       />

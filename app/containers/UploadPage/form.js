@@ -21,18 +21,18 @@ export const fields = {
   },
   episode: {
     type: 'number',
-    label: 'Episode Number',
+    label: 'Episode',
     placeholder: 0,
     required: true,
   },
   season: {
     type: 'number',
-    label: 'Season Number',
+    label: 'Season',
     placeholder: 0,
     required: true,
   },
   releaseDate: {
-    type: 'string',
+    type: 'date',
     label: 'Release Date',
     required: true,
   },
@@ -46,7 +46,6 @@ export const fields = {
     type: 'string',
     label: 'Spotify ID',
     placeholder: '7jwdjqGaFHQeQoly9ByCzP',
-    required: true,
   },
   type: {
     type: 'constant',

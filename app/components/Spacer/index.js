@@ -9,7 +9,12 @@ import { Box } from 'rebass';
 import PropTypes from 'prop-types';
 
 function Spacer({ horizontal, size }) {
-  return <Box {...{ [horizontal ? 'px' : 'py']: size }} />;
+  return (
+    <Box
+      display={horizontal ? 'inline' : 'block'}
+      {...{ [horizontal ? 'px' : 'py']: size }}
+    />
+  );
 }
 
 Spacer.propTypes = {
