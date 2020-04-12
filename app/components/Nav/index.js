@@ -26,14 +26,14 @@ function PageTitle() {
       px={[0, 3]}
     >
       <Image
-        display={['block', 'none', 'block']}
+        display={['block', 'none', null, 'block']}
         src={logo}
         alt="the-girl-manual-logo"
         minHeight={20}
         sx={{ objectPosition: '0% 50%', objectFit: 'contain' }}
       />
       <Image
-        display={['none', 'block', 'none']}
+        display={['none', 'block', null, 'none']}
         src={logoStacked}
         alt="the-girl-manual-logo"
         minHeight={20}
@@ -62,11 +62,11 @@ function Nav() {
         position: 'sticky',
       }}
     >
-      <Box height="100%" flex={1} mr="auto">
+      <Box height="100%" flex="1" mr="auto">
         <PageTitle />
       </Box>
 
-      <Box flex={3} display={['none', 'inline-block']} textAlign="center">
+      <Box flex="3" display={['none', 'inline-block']} textAlign="center">
         {navItems.map(values => (
           <NavItem
             key={values.to}
@@ -76,10 +76,10 @@ function Nav() {
         ))}
       </Box>
 
-      <Box flex={1} mx={3} alignItems="center" justifyContent="center">
+      <Box flex="1" mx={3} alignItems="center" justifyContent="center">
         <LocalePickerWrapper />
       </Box>
-      <Box fontSize={5} mx={3} alignItems="center" justifyContent="center">
+      <Box fontSize={5} alignItems="center" justifyContent="center">
         <a href="https://open.spotify.com/show/7jwdjqGaFHQeQoly9ByCzP">
           <FontAwesomeIcon color="#1db954" icon={Spotify} />
         </a>

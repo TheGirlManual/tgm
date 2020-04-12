@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
-import { Link, Box, Heading, Text } from 'rebass';
+import { Link, Card, Box, Heading, Text } from 'rebass';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify as Spotify } from '@fortawesome/free-brands-svg-icons';
@@ -24,15 +24,16 @@ export function EpisodeItem({ episode }) {
     ? date
     : moment(episode.releaseDate || 'error')
   ).format('DD/MM/YY');
-  const episodeLabel = episode.episode ? `Ep. ${episode.episode}` : `Ep`;
-  const seasonLabel = episode.season ? `Season ${episode.season}` : ``;
-  const headingPrefix = `${seasonLabel} ${episodeLabel}`;
+  const episodeLabel = episode.episode ? `E${episode.episode}` : ``;
+  const seasonLabel = episode.season ? `S${episode.season}` : ``;
+
+  const headingPrefix = `${seasonLabel}${episodeLabel}`;
   const headingLabel = `${headingPrefix}: ${episode.title || ''}`;
   const authorsLabel = authors ? `by ${authors}` : `by TGM`;
 
   return (
-    <Box
-      sx={{ position: 'relative', border: '2px solid #666' }}
+    <Card
+      sx={{ position: 'relative', borderRadius: 10 }}
       fontSize={[4, 5]}
       m={3}
       p={4}
@@ -68,7 +69,7 @@ export function EpisodeItem({ episode }) {
       >
         <FontAwesomeIcon color="#1db954" icon={Spotify} />
       </Link>
-    </Box>
+    </Card>
   );
 }
 

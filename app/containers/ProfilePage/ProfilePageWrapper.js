@@ -6,11 +6,10 @@ function ProfilePageWrapper({ children }) {
   return (
     <Flex
       height="auto"
-      width={1}
       justifyContent="space-evenly"
       alignItems="center"
       flexWrap="wrap"
-      px={4}
+      px={[4, null, null, '25%']}
     >
       {children}
     </Flex>

@@ -9,15 +9,17 @@ import PropTypes from 'prop-types';
 import { Card, Image, Heading, Text, Box, Flex } from 'rebass';
 import { FormattedMessage } from 'react-intl';
 
-export function ProfileCard({ name, title, location, bio, photo }) {
+const radius = 10;
+
+export function ProfileCard({ name, title, location, bio }) {
   return (
     <Flex
       as={Card}
+      sx={{ borderRadius: radius }}
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
       height="auto"
-      minHeight="80vh"
       width="auto"
       p={0}
       m="auto"
@@ -26,29 +28,33 @@ export function ProfileCard({ name, title, location, bio, photo }) {
       <Box
         sx={{
           border: 'solid 2px primary',
+          borderRadius: 10,
         }}
         p={3}
         width={1}
-        flex="1"
         bg="primary"
       >
-        <Heading color="black" sx={{ fontSize: ['9vw', '7vw'] }}>
+        <Heading color="black" sx={{ fontSize: ['9vw', '4vw'] }}>
           {name}
         </Heading>
-        <Heading color="#444" sx={{ fontSize: ['4vw', '3vw'] }}>
+        <Heading color="#444" sx={{ fontSize: ['4vw', '2vw'] }}>
           <FormattedMessage {...title} />
         </Heading>
-        <Heading color="#555" sx={{ fontSize: ['4vw', '3vw'] }}>
+        <Heading color="#555" sx={{ fontSize: ['4vw', '2vw'] }}>
           <FormattedMessage {...location} />
         </Heading>
       </Box>
+
       <Flex
         width={1}
         height="auto"
         minHeight="50%"
         bg="secondary"
         alignItems="flex-end"
-        sx={{ position: 'relative' }}
+        sx={{
+          borderRadius: `0px 0px ${radius}px ${radius}px`,
+          position: 'relative',
+        }}
         mt={3}
         p={3}
       >
@@ -57,7 +63,7 @@ export function ProfileCard({ name, title, location, bio, photo }) {
           mb={3}
           ml={3}
           color="primary"
-          width={[0.7, 0.7]}
+          width={1}
           fontSize={['4.5vw', '2.7vw', '1.8vw']}
           lineHeight={[1.6, 1.8]}
         >
@@ -73,7 +79,7 @@ export function ProfileCard({ name, title, location, bio, photo }) {
             maxHeight: '80vh',
             width: 'auto',
           }}
-          src={photo}
+          src=""
         />
       </Flex>
     </Flex>

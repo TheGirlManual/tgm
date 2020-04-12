@@ -53,9 +53,7 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
   const side = front ? 'front' : 'back';
 
   const headingProps = front ? {} : { sx: { fontFamily: 'sans-serif' } };
-  const middleTextProps = front
-    ? { as: 'em', sx: { fontFamily: 'serif' } }
-    : {};
+  const middleTextProps = front ? { as: 'p', sx: { fontFamily: 'serif' } } : {};
 
   const middleTextContent = front ? title : type;
   const bottomTextContent = front ? powers : loves;
@@ -94,9 +92,9 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
         flexDirection="column"
         justifyContent="center"
         p={4}
-        height={['60%', '100%']}
+        height={['auto', '100%']}
       >
-        <Heading fontSize={6} mb={2} {...headingProps}>
+        <Heading fontSize={[5, 6]} mb={2} {...headingProps}>
           {name}
         </Heading>
 
@@ -135,8 +133,8 @@ function Profile(props) {
           cursor: 'pointer',
           perspective: 4000,
         }}
-        height={['70vh', 400]}
-        minHeight={[600, 400]}
+        minHeight={[450, 400]}
+        maxHeight={[450, null, null]}
         width={1}
         maxWidth={900}
         className={`card${flipped ? ' flipped' : ''}`}
