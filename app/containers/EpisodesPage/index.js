@@ -29,7 +29,13 @@ export function EpisodesPage({ dispatch, episodes }) {
   }, [dispatch]);
 
   return (
-    <Flex mx="auto" width="90vw" justifyContent="center" flexDirection="column">
+    <Flex
+      mx="auto"
+      width={1}
+      px={[null, 3, '20%']}
+      justifyContent="center"
+      flexDirection="column"
+    >
       {values(episodes).map(episode => (
         <EpisodeItem key={episode.id} episode={episode} />
       ))}
