@@ -72,7 +72,7 @@ export function EpisodeDetailPage({
       textAlign={['left', 'justify']}
       lineHeight="1.4"
     >
-      <Box css={PostStyles(theme)}>
+      <Box css={PostStyles(theme)} width={1}>
         <Box mx="auto" my={4} width={0.8}>
           <SpotifyPlayer type={episode.type} spotifyId={episode.spotifyId} />
         </Box>

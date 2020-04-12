@@ -10,11 +10,10 @@ import { Box } from 'rebass';
 import ContentLoader from 'react-content-loader';
 
 const ArticleLoader = ({ loading }) => (
-  <Box display={loading ? 'block' : 'none'}>
+  <Box display={loading ? 'inline' : 'none'}>
     <ContentLoader
       speed={2}
-      width="auto"
-      height={400}
+      style={{ width: '100%' }}
       viewBox="0 0 600 400"
       backgroundColor="#f3f3f3"
       foregroundColor="#ecebeb"

@@ -1,12 +1,6 @@
 const admin = require('firebase-admin');
-const functions = require('firebase-functions');
-const sgMail = require('@sendgrid/mail');
-const client = require('@sendgrid/client');
 const yup = require('yup');
 const { v4 } = require('uuid');
-
-sgMail.setApiKey(functions.config().sendgrid.key);
-client.setApiKey(functions.config().sendgrid.key);
 
 const firestore = admin.firestore();
 
