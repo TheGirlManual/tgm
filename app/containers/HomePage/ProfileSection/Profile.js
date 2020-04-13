@@ -79,7 +79,7 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
         <FontAwesomeIcon icon={CornerIcon} />
       </Box>
       <Image
-        flex="1 0 200px"
+        flex="2"
         sx={{ objectFit: 'cover' }}
         src={image[side]}
         width="100%"
@@ -87,6 +87,7 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
       />
 
       <Flex
+        flex="3"
         className="text"
         flexDirection="column"
         justifyContent="center"
