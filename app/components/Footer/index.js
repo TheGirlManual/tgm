@@ -94,6 +94,11 @@ function Footer() {
         />
         <FormattedMessage {...messages.footerMessage} />
       </Text>
+      <Text as="b" sx={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
+        <a href="https://www.gdprprivacynotice.com/live.php?token=JNtHXlJlDcWkwl7QlwFL1yEa98z7hKnp">
+          Privacy Policy
+        </a>
+      </Text>
     </Flex>
   );
 }
