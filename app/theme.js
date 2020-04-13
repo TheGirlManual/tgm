@@ -13,7 +13,7 @@ const themeColors = {
 };
 
 const fonts = {
-  serif: 'Cormorant',
+  serif: 'Cormorant Garamond',
   'sans-serif': 'Roboto',
 };
 
@@ -23,6 +23,11 @@ const theme = {
     heading: fonts.serif,
     body: fonts['sans-serif'],
     ...fonts,
+  },
+  fontWeights: {
+    body: 400,
+    heading: 400,
+    bold: 500,
   },
   colors: {
     ...themeColors,

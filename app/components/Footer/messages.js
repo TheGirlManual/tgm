@@ -15,7 +15,6 @@ export default defineMessages({
   },
   footerMessage: {
     id: `${scope}.footerMessage`,
-    defaultMessage:
-      '2020 Interactive Coolture - The Girl Manual. All rights reserved.',
+    defaultMessage: '2020 Interactive Coolture Ltd. - The Girl Manual.',
   },
 });

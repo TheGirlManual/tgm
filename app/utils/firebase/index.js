@@ -1,11 +1,12 @@
 import firebase from 'firebase/app';
 import '@firebase/firestore';
 import '@firebase/auth';
+import '@firebase/analytics';
 import ReduxSagaFirebase from 'redux-saga-firebase';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDKV2y6L8hZbe7lJ9bNRTKGCVgeI08S4b0',
-  authDomain: 'the-girl-manual.firebaseapp.com',
+  authDomain: 'interactive-coolture.firebaseapp.com',
   databaseURL: 'https://interactive-coolture.firebaseio.com',
   projectId: 'interactive-coolture',
   storageBucket: 'interactive-coolture.appspot.com',
@@ -15,6 +16,7 @@ const firebaseConfig = {
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 const rsf = new ReduxSagaFirebase(firebaseApp);
 

@@ -27,7 +27,7 @@ import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
 const MadeWithLove = () => (
-  <Flex alignItems="center" color="secondary" sx={{ fontSize: 10 }}>
+  <Flex alignItems="center" color="secondary" sx={{ fontSize: 13 }}>
     <Text mx={1}>Made with</Text>
     <FontAwesomeIcon icon={Love} />
     <Text mx={1}>by</Text>
@@ -68,7 +68,7 @@ function Footer() {
         maxWidth={400}
         minWidth={300}
         justifyContent="space-around"
-        sx={{ fontSize: 32 }}
+        sx={{ fontSize: 29 }}
       >
         <a href="https://twitter.com/Girlmanualpod">
           <FontAwesomeIcon color="#1da1f2" icon={Twitter} />
@@ -86,15 +86,21 @@ function Footer() {
           <FontAwesomeIcon color="#1db954" icon={Spotify} />
         </a>
       </Flex>
-      <Text as="b" sx={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
+      <Text
+        as="b"
+        sx={{
+          fontSize: '0.7rem',
+          textAlign: 'center',
+          fontFamily: 'sans-serif',
+        }}
+      >
         <FontAwesomeIcon
           style={{ marginRight: '0.5em' }}
           color="black"
           icon={Copyright}
         />
         <FormattedMessage {...messages.footerMessage} />
-      </Text>
-      <Text as="b" sx={{ textAlign: 'center', fontFamily: 'sans-serif' }}>
+        <br />
         <a href="https://www.gdprprivacynotice.com/live.php?token=JNtHXlJlDcWkwl7QlwFL1yEa98z7hKnp">
           Privacy Policy
         </a>
