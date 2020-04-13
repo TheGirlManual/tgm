@@ -136,7 +136,7 @@ function Profile(props) {
         minHeight={[450, 400]}
         maxHeight={[450, null, null]}
         width={1}
-        maxWidth={900}
+        maxWidth={600}
         className={`card${flipped ? ' flipped' : ''}`}
         onClick={() => setFlip(!flipped)}
         my={3}

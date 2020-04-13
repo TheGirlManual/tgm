@@ -35,7 +35,7 @@ export default function ProfileSection() {
         <FormattedMessage {...messages.hostsHeadline} />
       </Heading>
 
-      <Box width={[1, 0.8]}>
+      <Box width={[1, 1, 0.5]} p={2}>
         <Profile
           name="Fernanda Zamora"
           title={messages.fernandaTitle}
@@ -46,11 +46,7 @@ export default function ProfileSection() {
         />
       </Box>
 
-      <Box width={[0, 0.2]} />
-
-      <Box width={[0, 0.2]} />
-
-      <Box width={[1, 0.8]}>
+      <Box width={[1, 1, 0.5]} p={2}>
         <Profile
           name="Essi Kiiski"
           title={messages.essiTitle}
