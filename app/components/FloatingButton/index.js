@@ -28,7 +28,7 @@ function FloatingButton({ showModal }) {
         borderStyle: 'solid',
         position: 'fixed',
         bottom: 25,
-        left: 25,
+        right: 25,
         zIndex: 9999,
         fontSize: 22,
       }}

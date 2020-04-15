@@ -9,6 +9,15 @@ import { defineMessages } from 'react-intl';
 export const scope = 'app.containers.ContactPage';
 
 export default defineMessages({
+  helpUs: {
+    id: `${scope}.helpUs.header`,
+    defaultMessage: 'Help us write The Girl Manual',
+  },
+  helpUsText: {
+    id: `${scope}.helpUs.text`,
+    defaultMessage:
+      'If you have notes, feedback, jokes, or experiences you want to share with us, send us an email to <a href="mailto:contact@thegirlmanual.com">contact@thegirlmanual.com</a> or tweet us <a href="https://twitter.com/intent/tweet?screen_name=girlmanualpod">@girlmanualpod</a> We can’t wait to hear your stories!',
+  },
   subHeader: {
     id: `${scope}.sub.header`,
     defaultMessage: 'Subscribe to our newsletter',

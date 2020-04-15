@@ -7,9 +7,9 @@ function ProfilePageWrapper({ children }) {
     <Flex
       height="auto"
       justifyContent="space-evenly"
-      alignItems="center"
+      alignItems="flex-start"
       flexWrap="wrap"
-      px={[4, null, null, '25%']}
+      px={[4]}
     >
       {children}
     </Flex>

@@ -31,11 +31,17 @@ const fer = {
 export default function ProfileSection() {
   return (
     <ProfileSectionWrapper>
-      <Heading mb={2} textAlign="center" fontSize={[4, 5]}>
+      <Heading
+        width={1}
+        mb={2}
+        textAlign="center"
+        fontSize={[4, 5]}
+        fontWeight="400"
+      >
         <FormattedMessage {...messages.hostsHeadline} />
       </Heading>
 
-      <Box width={[1, 1, 0.5]} p={2}>
+      <Box width={[1, null, 0.5]} p={2}>
         <Profile
           name="Fernanda Zamora"
           title={messages.fernandaTitle}
@@ -46,7 +52,7 @@ export default function ProfileSection() {
         />
       </Box>
 
-      <Box width={[1, 1, 0.5]} p={2}>
+      <Box width={[1, null, 0.5]} p={2}>
         <Profile
           name="Essi Kiiski"
           title={messages.essiTitle}

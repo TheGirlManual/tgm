@@ -33,7 +33,14 @@ export function EpisodeItem({ episode }) {
 
   return (
     <Card
-      sx={{ position: 'relative', borderRadius: 10 }}
+      sx={{
+        position: 'relative',
+        borderRadius: 10,
+        transition: 'all 0.3s ease',
+        ':hover': {
+          transform: 'translateX(5px)',
+        },
+      }}
       fontSize={[4, 5]}
       m={3}
       p={4}
@@ -59,8 +66,8 @@ export function EpisodeItem({ episode }) {
       <Link
         sx={{
           position: 'absolute',
-          top: 0,
-          right: 0,
+          top: 2,
+          right: 2,
           transition: 'all 0.3s ease',
           ':hover': { transform: 'scale(1.1)' },
         }}

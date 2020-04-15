@@ -11,7 +11,7 @@ export default function IntroSection() {
         px={3}
         sx={{ textAlign: 'center' }}
         fontSize={[5, 7]}
-        variant="primary"
+        fontWeight="400"
       >
         <FormattedMessage {...messages.headline} />
       </Heading>

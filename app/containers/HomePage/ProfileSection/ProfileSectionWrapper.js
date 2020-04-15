@@ -7,10 +7,10 @@ function ProfileSectionWrapper({ children }) {
     <Flex
       height="auto"
       width={1}
-      justifyContent="space-evenly"
+      justifyContent="space-around"
       alignItems="center"
       flexWrap="wrap"
-      mt={5}
+      mt={4}
       px={4}
     >
       {children}

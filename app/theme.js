@@ -25,9 +25,11 @@ const theme = {
     ...fonts,
   },
   fontWeights: {
-    body: 400,
-    heading: 400,
-    bold: 500,
+    body: 300,
+    serif: 300,
+    'sans-serif': 300,
+    heading: 500,
+    bold: 700,
   },
   colors: {
     ...themeColors,

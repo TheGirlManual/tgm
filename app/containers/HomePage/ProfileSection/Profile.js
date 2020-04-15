@@ -6,13 +6,11 @@ import { Heading, Text, Box, Flex, Image } from 'rebass';
 import { FormattedMessage } from 'react-intl';
 import { css } from '@emotion/core';
 
-const c = css`
+const CardConditionalStyle = css`
   .front {
     font-size: 1.618rem;
-    font-weight: 600;
     color: #fff;
     overflow: hidden;
-    font-family: serif;
   }
   .card.flipped > .front {
     transform: rotateY(180deg);
@@ -24,9 +22,7 @@ const c = css`
     box-shadow: inset 0px 0px 0px 3px #ce1a5d;
     transform: rotateY(-180deg);
     font-size: 1.618rem;
-    font-weight: 600;
     overflow: hidden;
-    font-family: sans-serif;
   }
   .card.flipped > .back {
     transform: rotateY(0deg);
@@ -52,7 +48,9 @@ const cardFaceStyle = {
 function CardFace({ front, name, title, powers, type, loves, image }) {
   const side = front ? 'front' : 'back';
 
-  const headingProps = front ? {} : { sx: { fontFamily: 'sans-serif' } };
+  const headingProps = front
+    ? { sx: { fontWeight: 'bolder' } }
+    : { sx: { fontFamily: 'sans-serif', fontWeight: 400 } };
   const middleTextProps = front ? { as: 'p', sx: { fontFamily: 'serif' } } : {};
 
   const middleTextContent = front ? title : type;
@@ -79,7 +77,7 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
         <FontAwesomeIcon icon={CornerIcon} />
       </Box>
       <Image
-        flex="2"
+        flex="3"
         sx={{ objectFit: 'cover' }}
         src={image[side]}
         width="100%"
@@ -126,7 +124,7 @@ function Profile(props) {
   const [flipped, setFlip] = useState(false);
 
   return (
-    <Box width={1} css={c}>
+    <Box width={1} css={CardConditionalStyle}>
       <Flex
         sx={{
           position: 'relative',

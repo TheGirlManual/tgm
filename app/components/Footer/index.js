@@ -101,9 +101,13 @@ function Footer() {
         />
         <FormattedMessage {...messages.footerMessage} />
         <br />
-        <a href="https://www.gdprprivacynotice.com/live.php?token=JNtHXlJlDcWkwl7QlwFL1yEa98z7hKnp">
+        <Box
+          as="a"
+          color="secondary"
+          href="https://www.gdprprivacynotice.com/live.php?token=JNtHXlJlDcWkwl7QlwFL1yEa98z7hKnp"
+        >
           Privacy Policy
-        </a>
+        </Box>
       </Text>
     </Flex>
   );

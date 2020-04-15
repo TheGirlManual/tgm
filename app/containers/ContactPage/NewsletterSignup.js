@@ -49,10 +49,10 @@ function NewsletterSignup({ handleRequestSub }) {
           required
         />
       </Box>
-      <Button type="submit" width={1} mt={3} py={3}>
+      <Button type="submit" fontSize="0.9em" width={1} mt={3} py={3}>
         <FormattedMessage {...messages.subButton} />
       </Button>
-      <Text as="small" mt={4}>
+      <Text fontSize="0.5em" mt={4}>
         <FormattedMessage {...messages.subDisclaimer} />
       </Text>
     </Flex>

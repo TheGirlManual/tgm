@@ -20,27 +20,26 @@ export function ProfileCard({ name, title, location, bio }) {
       alignItems="center"
       flexDirection="column"
       height="auto"
-      width="auto"
+      width={[1, 1, 0.45]}
       p={0}
-      m="auto"
-      mt={3}
+      m={3}
     >
       <Box
         sx={{
           border: 'solid 2px primary',
           borderRadius: 10,
         }}
-        p={3}
+        p={[3, 3, 4]}
         width={1}
         bg="primary"
       >
         <Heading color="black" sx={{ fontSize: ['9vw', '4vw'] }}>
           {name}
         </Heading>
-        <Heading color="#444" sx={{ fontSize: ['4vw', '2vw'] }}>
+        <Heading color="#444" sx={{ fontSize: ['5vw', '3vw', '2vw'] }}>
           <FormattedMessage {...title} />
         </Heading>
-        <Heading color="#555" sx={{ fontSize: ['4vw', '2vw'] }}>
+        <Heading color="#555" sx={{ fontSize: ['5vw', '3vw', '2vw'] }}>
           <FormattedMessage {...location} />
         </Heading>
       </Box>

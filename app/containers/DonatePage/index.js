@@ -24,18 +24,11 @@ export function DonatePage() {
           }
         `}
       />
-      <Flex flexDirection="column" textAlign="center" lineHeight={1.8} m="auto">
-        <Heading>
-          <FormattedMessage {...messages.helpUs} />
-        </Heading>
-        <Text mt={2}>
-          <FormattedHTMLMessage {...messages.helpUsText} />
-        </Text>
-
-        <Heading sx={{ fontStyle: 'bold' }} mt={4}>
+      <Flex flexDirection="column" textAlign="center" lineHeight={1.5} m="auto">
+        <Heading color="secondary" fontSize={[5, 6]}>
           <FormattedMessage {...messages.donate} />
         </Heading>
-        <Text mt={2}>
+        <Text mt={2} fontSize={[2, 3]}>
           <FormattedHTMLMessage {...messages.donateText} />
         </Text>
         <Link href="https://www.patreon.com/bePatron?u=31577164">
