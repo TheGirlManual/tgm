@@ -7,6 +7,7 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Box, Button, Heading, Text, Flex, Image } from 'rebass';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import AboutPageWrapper from './AboutPageWrapper';
 import messages from './messages';
 
@@ -43,6 +44,7 @@ function Quote() {
   return (
     <Flex flexDirection="column" width={[null, 1, 0.4]} p={3}>
       <Image
+        as={LazyLoadImage}
         height={300}
         width={700}
         mx="auto"
@@ -50,6 +52,7 @@ function Quote() {
           objectFit: 'cover',
           objectPosition: 'top',
         }}
+        alt="https://images.squarespace-cdn.com/content/v1/5e4f0d241148c71dde86343e/1583383978098-JPGTVPHL8W1DQUUV4LH8/ke17ZwdGBToddI8pDm48kK23xSGZCwT9PKUVTmqpRf17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1URIqpXCo5scLrcwx9kXsnW8yi9ywV9DuGeOC297H9CUShSY6exqoyBvGMtufB_NDkg/Essi+and+Fer?format=100w"
         src="https://images.squarespace-cdn.com/content/v1/5e4f0d241148c71dde86343e/1583383978098-JPGTVPHL8W1DQUUV4LH8/ke17ZwdGBToddI8pDm48kK23xSGZCwT9PKUVTmqpRf17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1URIqpXCo5scLrcwx9kXsnW8yi9ywV9DuGeOC297H9CUShSY6exqoyBvGMtufB_NDkg/Essi+and+Fer?format=750w"
       />
       <Box

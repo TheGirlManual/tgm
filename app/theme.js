@@ -14,7 +14,7 @@ const themeColors = {
 
 const fonts = {
   serif: 'Cormorant Garamond',
-  'sans-serif': 'Roboto',
+  'sans-serif': 'Raleway',
 };
 
 const theme = {
@@ -43,6 +43,12 @@ const theme = {
       fontFamily: 'body',
       bg: 'secondary',
       color: 'primary',
+      ':active': { bg: 'secondaryLighter' },
+    },
+    secondary: {
+      fontFamily: 'body',
+      bg: 'primary',
+      color: 'secondary',
       ':active': { bg: 'secondaryLighter' },
     },
   },

@@ -33,7 +33,7 @@ export function ContactPage({ subRequest, contactRequest, handleRequestSub }) {
       <Flex mb={4} width={[1, 1, 1, 0.5]}>
         <NewsletterSignup {...subRequest} handleRequestSub={handleRequestSub} />
       </Flex>
-      <Flex width={[1, 1, 1, 0.5]} maxWidth={600}>
+      <Flex width={[1, 1, 1, 0.5]}>
         <ContactForm {...contactRequest} />
       </Flex>
     </ContactPageWrapper>

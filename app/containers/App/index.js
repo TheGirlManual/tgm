@@ -37,6 +37,27 @@ import { showModal, hideModal } from './actions';
 import { makeSelectModalState } from './selectors';
 import reducer from './reducer';
 
+const cookiesStyle = {
+  banner: {
+    display: 'flex',
+    backgroundColor: 'black',
+    height: 'auto',
+  },
+  message: {
+    display: 'block',
+    textAlign: 'left',
+    lineHeight: 1,
+    padding: '20px',
+    width: '80%',
+  },
+  button: {
+    display: 'inline',
+    backgroundColor: 'white',
+    color: 'black',
+    border: 'none',
+  },
+};
+
 const ModalOverlayStyles = css`
   .ReactModal__Overlay {
     opacity: 0;
@@ -77,15 +98,8 @@ function App(props) {
       sx={{ fontFamily: 'body' }}
     >
       <CookieBanner
-        styles={{
-          banner: {
-            backgroundColor: 'black',
-          },
-          button: {
-            display: 'none',
-          },
-        }}
-        message="We need to use cookies, so if you stay, you consent. Thanks!"
+        styles={cookiesStyle}
+        message="We need to use cookies, so if you stay, you consent. Scrolling hides this message!"
         cookie="user-has-accepted-cookies"
       />
       <Global styles={ModalOverlayStyles} />

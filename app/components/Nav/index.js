@@ -62,11 +62,11 @@ function Nav() {
         position: 'sticky',
       }}
     >
-      <Box height="100%" flex="1" mr="auto">
+      <Box minWidth={150} height="100%" flex="1" mr="auto">
         <PageTitle />
       </Box>
 
-      <Box flex="3" display={['none', 'inline-block']} textAlign="center">
+      <Box ml="auto" display={['none', 'inline-block']} textAlign="center">
         {navItems.map(values => (
           <NavItem
             key={values.to}
@@ -76,7 +76,7 @@ function Nav() {
         ))}
       </Box>
 
-      <Box flex="1" mx={3} alignItems="center" justifyContent="center">
+      <Box mx={3} px={2} alignItems="center" justifyContent="center">
         <LocalePickerWrapper />
       </Box>
       <Box fontSize={5} alignItems="center" justifyContent="center">

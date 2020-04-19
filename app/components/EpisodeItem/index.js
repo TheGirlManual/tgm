@@ -11,6 +11,8 @@ import { Link, Card, Box, Heading, Text } from 'rebass';
 import moment from 'moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpotify as Spotify } from '@fortawesome/free-brands-svg-icons';
+import { faArrowRight as Arrow } from '@fortawesome/free-solid-svg-icons';
+import { isMobile } from 'react-device-detect';
 
 import { spotifyUrlBuilder } from 'components/SpotifyPlayer';
 
@@ -37,8 +39,10 @@ export function EpisodeItem({ episode }) {
         position: 'relative',
         borderRadius: 10,
         transition: 'all 0.3s ease',
-        ':hover': {
+        ':hover': !isMobile && {
           transform: 'translateX(5px)',
+          backgroundColor: '#f3f3f3',
+          boxShadow: '#0000002b -2px 2px 15px 2px',
         },
       }}
       fontSize={[4, 5]}
@@ -69,13 +73,33 @@ export function EpisodeItem({ episode }) {
           top: 2,
           right: 2,
           transition: 'all 0.3s ease',
-          ':hover': { transform: 'scale(1.1)' },
+          ':hover': isMobile && { transform: 'scale(1.1)' },
         }}
         p={2}
         href={spotifyUrlBuilder(episode.type, episode.spotifyId)}
       >
         <FontAwesomeIcon color="#1db954" icon={Spotify} />
       </Link>
+      {episode.type === 'episode' && (
+        <Box
+          as={episode.type === 'episode' ? RouterLink : 'span'}
+          to={`${location.pathname}/${episode.id}/${episode.slug}`}
+          sx={{
+            textDecoration: 'inherit',
+            color: 'inherit',
+            position: 'absolute',
+            bottom: 2,
+            right: 2,
+            transition: 'all 0.3s ease',
+            ':hover': { transform: 'translateX(4px)' },
+          }}
+          p={2}
+          fontSize="0.8em"
+          color="secondary"
+        >
+          <FontAwesomeIcon icon={Arrow} />
+        </Box>
+      )}
     </Card>
   );
 }

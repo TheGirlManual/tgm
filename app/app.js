@@ -19,7 +19,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import ScrollToTop from 'react-router-scroll-top';
 import history from 'utils/history';
+
 import 'sanitize.css/sanitize.css';
 
 // Import root app
@@ -46,6 +48,15 @@ import configureStore from './configureStore';
 
 // Import i18n messages
 import { translationMessages } from './i18n';
+const toastClasses = {
+  toastClassName: css({
+    backgroundColor: theme.colors.secondary,
+    color: theme.colors.primary,
+  }),
+  progressClassName: css({
+    background: theme.colors.secondaryDark,
+  }),
+};
 
 // Create redux store with history
 const initialState = {};
@@ -57,18 +68,12 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <ThemeProvider theme={theme}>
-            <App />
-            <ToastContainer
-              toastClassName={css({
-                backgroundColor: theme.colors.secondary,
-                color: theme.colors.primary,
-              })}
-              progressClassName={css({
-                background: theme.colors.secondaryDark,
-              })}
-            />
-          </ThemeProvider>
+          <ScrollToTop>
+            <ThemeProvider theme={theme}>
+              <App />
+              <ToastContainer {...toastClasses} />
+            </ThemeProvider>
+          </ScrollToTop>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

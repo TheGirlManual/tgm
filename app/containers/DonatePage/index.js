@@ -25,7 +25,7 @@ export function DonatePage() {
         `}
       />
       <Flex flexDirection="column" textAlign="center" lineHeight={1.5} m="auto">
-        <Heading color="secondary" fontSize={[5, 6]}>
+        <Heading color="secondary" fontSize={[6, 6]}>
           <FormattedMessage {...messages.donate} />
         </Heading>
         <Text mt={2} fontSize={[2, 3]}>
@@ -36,6 +36,7 @@ export function DonatePage() {
             mt={3}
             mx="auto"
             width={0.4}
+            minWidth={200}
             maxWidth={400}
             src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png"
           />

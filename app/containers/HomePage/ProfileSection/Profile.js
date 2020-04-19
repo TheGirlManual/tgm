@@ -1,10 +1,26 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMouse as CornerIcon } from '@fortawesome/free-solid-svg-icons';
-import { Heading, Text, Box, Flex, Image } from 'rebass';
+import {
+  faMouse as Mouse,
+  faHandPointUp as Hand,
+} from '@fortawesome/free-solid-svg-icons';
+import { Heading, Text, Box, Flex } from 'rebass';
 import { FormattedMessage } from 'react-intl';
-import { css } from '@emotion/core';
+import { css, keyframes } from '@emotion/core';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { isMobile } from 'react-device-detect';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+
+const nudge = keyframes`
+  from, 75%, to {
+    transform: scale(1);
+  }
+  
+  85% {
+    transform: scale(1.2);
+  }
+`;
 
 const CardConditionalStyle = css`
   .front {
@@ -73,16 +89,28 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
           bottom: [0, 'unset'],
           right: 0,
         }}
+        css={css`
+          animation: ${nudge} 2s linear infinite;
+        `}
       >
-        <FontAwesomeIcon icon={CornerIcon} />
+        <FontAwesomeIcon icon={isMobile ? Hand : Mouse} />
       </Box>
-      <Image
+      <Box
         flex="3"
         sx={{ objectFit: 'cover' }}
-        src={image[side]}
         width="100%"
         height={['40%', '100%']}
-      />
+      >
+        <LazyLoadImage
+          style={{ objectFit: 'cover' }}
+          src={image[side][0]}
+          placeholderSrc={image[side][1]}
+          alt={image[side][1]}
+          width="100%"
+          height="100%"
+          effect="blur"
+        />
+      </Box>
 
       <Flex
         flex="3"
@@ -92,11 +120,11 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
         p={4}
         height={['auto', '100%']}
       >
-        <Heading fontSize={[5, 6]} mb={2} {...headingProps}>
+        <Heading fontSize={[5, 6]} mb={2} lineHeight="1" {...headingProps}>
           {name}
         </Heading>
 
-        <Text {...middleTextProps}>
+        <Text lineHeight="1" {...middleTextProps}>
           <FormattedMessage {...middleTextContent} />
         </Text>
 

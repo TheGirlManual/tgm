@@ -9,22 +9,18 @@ import messages from '../messages';
 const essi = {
   front: imagePathForFile({
     path: ['profile-photos', 'kiiski-essi-neutral'],
-    token: 'b4843854-ad1b-4ea8-a0fd-14d9eb0ad429',
   }),
   back: imagePathForFile({
     path: ['profile-photos', 'kiiski-essi-smile'],
-    token: 'f64e1aeb-a7ad-4480-8d28-016334d24f77',
   }),
 };
 
 const fer = {
   front: imagePathForFile({
     path: ['profile-photos', 'zamora-fernanda-neutral'],
-    token: '37512215-27d1-4056-9e81-3090652b5ca8',
   }),
   back: imagePathForFile({
     path: ['profile-photos', 'zamora-fernanda-smile'],
-    token: 'ce56fe1c-620d-4db0-b1c7-2c4c6b6fa85e',
   }),
 };
 

@@ -8,10 +8,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card, Image, Heading, Text, Box, Flex } from 'rebass';
 import { FormattedMessage } from 'react-intl';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const radius = 10;
 
-export function ProfileCard({ name, title, location, bio }) {
+export function ProfileCard({ name, title, location, bio, photo }) {
+  const [base, preview] = photo;
+
   return (
     <Flex
       as={Card}
@@ -20,29 +24,63 @@ export function ProfileCard({ name, title, location, bio }) {
       alignItems="center"
       flexDirection="column"
       height="auto"
-      width={[1, 1, 0.45]}
+      width={[1, 1, 0.4, 0.35]}
       p={0}
       m={3}
     >
-      <Box
+      <Flex
         sx={{
           border: 'solid 2px primary',
           borderRadius: 10,
         }}
-        p={[3, 3, 4]}
+        justifyContent="space-between"
+        p={3}
         width={1}
         bg="primary"
       >
-        <Heading color="black" sx={{ fontSize: ['9vw', '4vw'] }}>
-          {name}
-        </Heading>
-        <Heading color="#444" sx={{ fontSize: ['5vw', '3vw', '2vw'] }}>
-          <FormattedMessage {...title} />
-        </Heading>
-        <Heading color="#555" sx={{ fontSize: ['5vw', '3vw', '2vw'] }}>
-          <FormattedMessage {...location} />
-        </Heading>
-      </Box>
+        <Box width={0.8}>
+          <Heading
+            lineHeight="1"
+            color="black"
+            sx={{ fontSize: ['9vw', '4vw'] }}
+            mb={1}
+          >
+            {name}
+          </Heading>
+
+          <Heading
+            lineHeight="1"
+            color="#444"
+            sx={{ fontSize: ['5vw', '3vw', '2vw'] }}
+            mb={1}
+          >
+            <FormattedMessage {...title} />
+          </Heading>
+
+          <Heading
+            lineHeight="1"
+            color="#666"
+            sx={{ fontSize: ['4.5vw', '2.5vw', '1.5vw'] }}
+            mb={1}
+          >
+            <FormattedMessage {...location} />
+          </Heading>
+        </Box>
+
+        <Box p={2} ml="auto" maxWidth={[100, 100, 200]}>
+          <Box
+            as={LazyLoadImage}
+            effect="blur"
+            sx={{
+              width: '100%',
+              height: 'auto',
+              borderRadius: '50%',
+            }}
+            src={base}
+            placeholderSrc={preview}
+          />
+        </Box>
+      </Flex>
 
       <Flex
         width={1}
@@ -90,7 +128,7 @@ ProfileCard.propTypes = {
   title: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
   bio: PropTypes.object.isRequired,
-  photo: PropTypes.string.isRequired,
+  photo: PropTypes.array.isRequired,
 };
 
 export default ProfileCard;

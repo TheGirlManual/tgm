@@ -6,6 +6,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box } from 'rebass';
 import { Select } from '@rebass/forms';
 import { injectIntl, intlShape } from 'react-intl';
 
@@ -20,15 +21,33 @@ Option.propTypes = {
 
 function Picker({ id, name, value, onChange, values, messages, intl }) {
   return (
-    <Select id={id} name={name} value={value} onChange={onChange}>
-      {values.map(item => (
-        <Option
-          key={item}
-          value={item}
-          message={messages[item] ? intl.formatMessage(messages[item]) : item}
-        />
-      ))}
-    </Select>
+    <Box
+      sx={{
+        color: 'secondary',
+      }}
+    >
+      <Select
+        sx={{
+          border: 'none',
+          borderRadius: 0,
+          borderBottom: 'solid 2px',
+          borderColor: 'secondary',
+          color: 'black',
+        }}
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+      >
+        {values.map(item => (
+          <Option
+            key={item}
+            value={item}
+            message={messages[item] ? intl.formatMessage(messages[item]) : item}
+          />
+        ))}
+      </Select>
+    </Box>
   );
 }
 

@@ -6,8 +6,8 @@ function ContactPageWrapper({ children }) {
   return (
     <Flex
       height="auto"
-      width="90vw"
-      justifyContent="space-evenly"
+      width="80vw"
+      justifyContent="space-between"
       alignItems="flex-start"
       flexWrap="wrap"
       m="auto"

@@ -22,12 +22,14 @@ function ContactForm() {
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
+      textAlign="center"
       flexWrap="wrap"
       mx="auto"
       px={2}
       flex="1"
       fontSize={[3, 3]}
       minWidth="20vw"
+      maxWidth="600px"
     >
       <Global
         styles={css`
@@ -36,10 +38,10 @@ function ContactForm() {
           }
         `}
       />
-      <Heading color="secondary" fontSize={[5, 6]}>
+      <Heading color="secondary" fontSize={[6, 6]}>
         <FormattedMessage {...messages.helpUs} />
       </Heading>
-      <Text mt={2} textAlign="center">
+      <Text mt={2} fontSize={[2, 3]} textAlign="center">
         <FormattedHTMLMessage {...messages.helpUsText} />
       </Text>
 
