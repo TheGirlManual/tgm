@@ -1,12 +1,6 @@
 const admin = require('firebase-admin');
-const functions = require('firebase-functions');
-const sgMail = require('@sendgrid/mail');
-const client = require('@sendgrid/client');
 const yup = require('yup');
 const { v4 } = require('uuid');
-
-sgMail.setApiKey(functions.config().sendgrid.key);
-client.setApiKey(functions.config().sendgrid.key);
 
 const firestore = admin.firestore();
 
@@ -29,7 +23,7 @@ const contentSchema = yup.object().shape({
   episode: yup.number().positive().integer().required(),
   season: yup.number().positive().integer().required(),
   id: contentIdSchema.required(),
-  releaseDate: yup.mixed().transform(function(value) { return (admin.firestore.Timestamp.fromMillis(value)); } ).required(),
+  releaseDate: yup.number().required(),
   slug: yup.string().required(),
   spotifyId: yup.string(),
   title: yup.string().required(),

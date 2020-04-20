@@ -11,6 +11,12 @@ const selectUploadPageDomain = state => state.uploadPage || initialState;
  * Other specific selectors
  */
 
+const makeSelectOperation = () =>
+  createSelector(
+    selectUploadPageDomain,
+    substate => substate.operation,
+  );
+
 /**
  * Default selector used by UploadPage
  */
@@ -22,4 +28,4 @@ const makeSelectUploadPage = () =>
   );
 
 export default makeSelectUploadPage;
-export { selectUploadPageDomain };
+export { makeSelectOperation, selectUploadPageDomain };

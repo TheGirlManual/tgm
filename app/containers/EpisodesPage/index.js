@@ -45,7 +45,7 @@ export function EpisodesPage({ dispatch, episodes }) {
 
 EpisodesPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  episodes: PropTypes.array.isRequired,
+  episodes: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({

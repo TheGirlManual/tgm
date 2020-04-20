@@ -26,7 +26,7 @@ import { makeSchema, makeResolver } from 'utils/form';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectUploadPage from './selectors';
-import { signIn, signInStatus } from './actions';
+import { addDocument, signIn, signOut, signInStatus } from './actions';
 import { fields } from './form';
 import reducer from './reducer';
 import saga from './saga';
@@ -41,6 +41,34 @@ const typeToField = {
 
 const resolver = makeResolver(makeSchema(fields));
 
+function Form({ formFields, hookForm, onSubmit }) {
+  const formComponents = values(formFields).map(({ type, label, ...reqs }) => {
+    const Component = typeToField[type];
+
+    return (
+      <>
+        <Component
+          key={label}
+          name={label}
+          control={hookForm.control}
+          {...reqs}
+        />
+        <Spacer key={`${label}_spacer`} size={2} />
+      </>
+    );
+  });
+
+  const form = (
+    <Box as="form" onSubmit={onSubmit} width="100%">
+      {formComponents}
+      <Spacer size={2} />
+      <Button submit>Upload</Button>
+    </Box>
+  );
+
+  return form;
+}
+
 export function UploadPage({ dispatch, uploadPage }) {
   const theme = useTheme();
 
@@ -51,13 +79,15 @@ export function UploadPage({ dispatch, uploadPage }) {
     dispatch(signInStatus());
   }, [dispatch]);
 
-  const { control, handleSubmit, formState, watch } = useForm({
+  // if (uploadPage.login.token) dispatch(addDocument({ d: 1 }));
+
+  const hookForm = useForm({
     validationResolver: resolver,
   });
 
   const [, setEpisodePreview] = useState({});
 
-  const buttonAction = uploadPage.login.success ? console.log : signIn;
+  const buttonAction = uploadPage.login.success ? signOut : signIn;
   const buttonLabel = uploadPage.login.success ? 'Sign Out' : 'Sign In';
 
   const actionButton = (
@@ -66,23 +96,30 @@ export function UploadPage({ dispatch, uploadPage }) {
     </Button>
   );
 
-  const formComponents = values(fields).map(({ type, label, ...reqs }) => {
-    const Component = typeToField[type];
+  const content = (
+    <Flex justifyContent="center" minWidth={300} flex="1" p={3}>
+      <Form
+        formFields={fields}
+        hookForm={hookForm}
+        onSubmit={hookForm.handleSubmit(console.log)}
+      />
+    </Flex>
+  );
 
-    return (
-      <>
-        <Component key={label} name={label} control={control} {...reqs} />
-        <Spacer key={`${label}_spacer`} size={2} />
-      </>
-    );
-  });
+  const preview = (
+    <Flex justifyContent="center" flex="2" p={3}>
+      <EpisodeItem episode={hookForm.watch()} />
+    </Flex>
+  );
 
-  const form = (
-    <Box as="form" onSubmit={handleSubmit(setEpisodePreview)} width="100%">
-      {formComponents}
-      <Spacer size={2} />
-      <Button disabled={!formState.isValid}>Upload</Button>
-    </Box>
+  const loader = (
+    <Flex justifyContent="center" p={3}>
+      <RingLoader
+        size={150}
+        color={theme.colors.secondary}
+        loading={uploadPage.loading}
+      />
+    </Flex>
   );
 
   return (
@@ -91,20 +128,17 @@ export function UploadPage({ dispatch, uploadPage }) {
       alignItems="center"
       flexWrap="wrap"
       width="90vw"
-      p={2}
+      p={3}
       mx="auto"
     >
-      {!uploadPage.loading && <Box width="100%">{actionButton}</Box>}
-      <Flex justifyContent="center" minWidth={300} flex="1" p={3}>
-        <RingLoader
-          color={theme.colors.secondary}
-          loading={uploadPage.loading}
-        />
-        {form}
-      </Flex>
-      <Flex justifyContent="center" flex="2" p={3}>
-        <EpisodeItem episode={watch()} />
-      </Flex>
+      {!uploadPage.loading && (
+        <Flex width="100%" mb="auto">
+          {actionButton}
+        </Flex>
+      )}
+      {uploadPage.loading && loader}
+      {uploadPage.login.success && content}
+      {uploadPage.login.success && preview}
     </Flex>
   );
 }

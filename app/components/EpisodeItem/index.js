@@ -16,8 +16,7 @@ import { isMobile } from 'react-device-detect';
 
 import { spotifyUrlBuilder } from 'components/SpotifyPlayer';
 
-export function EpisodeItem({ episode }) {
-  const location = useLocation();
+const makeLabels = episode => {
   const authors =
     episode.author && episode.author.map(v => v.label || v).join(', ');
   const date = moment.unix(episode.releaseDate);
@@ -31,7 +30,19 @@ export function EpisodeItem({ episode }) {
 
   const headingPrefix = `${seasonLabel}${episodeLabel}`;
   const headingLabel = `${headingPrefix}: ${episode.title || ''}`;
-  const authorsLabel = authors ? `by ${authors}` : `by TGM`;
+
+  return {
+    date: dateLabel,
+    episode: episodeLabel,
+    season: seasonLabel,
+    authors: authors ? `by ${authors}` : `by TGM`,
+    heading: headingLabel,
+  };
+};
+
+export function EpisodeItem({ episode }) {
+  const location = useLocation();
+  const labels = makeLabels(episode);
 
   return (
     <Card
@@ -55,13 +66,13 @@ export function EpisodeItem({ episode }) {
         sx={{ textDecoration: 'inherit', color: 'inherit' }}
       >
         <Text fontSize="0.5em" color="#666">
-          {dateLabel}
+          {labels.date}
         </Text>
         <Heading fontSize="1.5em" color="secondary">
-          {headingLabel}
+          {labels.heading}
         </Heading>
         <Text fontSize="0.5em" ml={3} mt={1} color="#666">
-          {authorsLabel}
+          {labels.authors}
         </Text>
         <Text fontSize="0.6em" mt={3}>
           {episode.description}

@@ -72,8 +72,13 @@ function SpotifyPlayer({ type, spotifyId }) {
 }
 
 SpotifyPlayer.propTypes = {
-  type: PropTypes.string.isRequired,
-  spotifyId: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  spotifyId: PropTypes.string,
+};
+
+SpotifyPlayer.defaultProps = {
+  type: 'show',
+  spotifyId: '7jwdjqGaFHQeQoly9ByCzP',
 };
 
 export default SpotifyPlayer;

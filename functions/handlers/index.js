@@ -1,6 +1,5 @@
 module.exports = {
+  api: require('./api'),
   sendConfirmation: require('./sendConfirmation'),
   acceptConfirmation: require('./acceptConfirmation'),
-  uploadEpisode: require('./uploadEpisode'),
-  uploadTranscript: require('./uploadTranscript'),
 };

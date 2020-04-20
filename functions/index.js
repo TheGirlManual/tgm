@@ -3,9 +3,8 @@ const functions = require('firebase-functions');
 
 admin.initializeApp();
 
-const {sendConfirmation, acceptConfirmation, uploadEpisode, uploadTranscript} = require('./handlers');
+const {sendConfirmation, acceptConfirmation, api} = require('./handlers');
 
+exports.api = functions.https.onRequest(api);
 exports.handleSendConfirmation = functions.https.onRequest(sendConfirmation);
 exports.handleAcceptConfirmation = functions.https.onRequest(acceptConfirmation);
-exports.handleUploadEpisode = functions.https.onRequest(uploadEpisode);
-exports.handleUploadTranscript = functions.https.onRequest(uploadTranscript);
