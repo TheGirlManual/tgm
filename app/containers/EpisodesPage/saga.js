@@ -12,7 +12,9 @@ export function* getEpisodes() {
     firebase
       .firestore()
       .collection(collection)
-      .where('type', 'in', ['episode', 'trailer']),
+      .where('type', 'in', ['episode', 'trailer'])
+      .orderBy('episode', 'desc')
+      .orderBy('season', 'desc'),
   );
 
   let items = {};
@@ -20,6 +22,8 @@ export function* getEpisodes() {
   snapshot.forEach(item => {
     items = { ...items, [item.id]: item.data() };
   });
+
+  console.log(items);
 
   yield put(gotEpisodes(items));
 }
