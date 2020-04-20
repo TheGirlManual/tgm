@@ -9,12 +9,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-import { Flex } from 'rebass';
 import { values } from 'lodash';
 import EpisodeItem from 'components/EpisodeItem';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
+import EpisodesPageWrapper from './EpisodesPageWrapper';
 import { getEpisodes } from './actions';
 import makeSelectEpisodesPage, { makeSelectEpisodes } from './selectors';
 import reducer from './reducer';
@@ -29,17 +29,11 @@ export function EpisodesPage({ dispatch, episodes }) {
   }, [dispatch]);
 
   return (
-    <Flex
-      mx="auto"
-      width={1}
-      px={[null, 3, '20%']}
-      justifyContent="center"
-      flexDirection="column"
-    >
+    <EpisodesPageWrapper>
       {values(episodes).map(episode => (
         <EpisodeItem key={episode.id} episode={episode} />
       ))}
-    </Flex>
+    </EpisodesPageWrapper>
   );
 }
 

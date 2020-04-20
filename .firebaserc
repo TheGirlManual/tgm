@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "interactive-coolture"
+    "default": "interactive-coolture",
+    "prod": "interactive-coolture"
   }
 }

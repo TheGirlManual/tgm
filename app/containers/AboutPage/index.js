@@ -23,7 +23,6 @@ function Mission() {
       <Heading px={3} my={3} fontSize={[6, 6, 6, 7]} color="secondary">
         <FormattedMessage {...messages.title} />
       </Heading>
-
       <Text
         sx={{
           lineHeight: 1.6,
@@ -33,7 +32,16 @@ function Mission() {
       >
         <FormattedMessage {...messages.mission} />
       </Text>
-      <Button width={0.4} height={50} my={3}>
+      <Button
+        as="a"
+        href="https://open.spotify.com/show/7jwdjqGaFHQeQoly9ByCzP"
+        sx={{ textDecoration: 'none', textAlign: 'center' }}
+        mt={4}
+        fontSize={[3, 4]}
+        width={0.45}
+        maxWidth={200}
+        p={3}
+      >
         Listen now
       </Button>
     </Flex>
@@ -52,7 +60,7 @@ function Quote() {
           objectFit: 'cover',
           objectPosition: 'top',
         }}
-        alt="https://images.squarespace-cdn.com/content/v1/5e4f0d241148c71dde86343e/1583383978098-JPGTVPHL8W1DQUUV4LH8/ke17ZwdGBToddI8pDm48kK23xSGZCwT9PKUVTmqpRf17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1URIqpXCo5scLrcwx9kXsnW8yi9ywV9DuGeOC297H9CUShSY6exqoyBvGMtufB_NDkg/Essi+and+Fer?format=100w"
+        placeholderSrc="https://images.squarespace-cdn.com/content/v1/5e4f0d241148c71dde86343e/1583383978098-JPGTVPHL8W1DQUUV4LH8/ke17ZwdGBToddI8pDm48kK23xSGZCwT9PKUVTmqpRf17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1URIqpXCo5scLrcwx9kXsnW8yi9ywV9DuGeOC297H9CUShSY6exqoyBvGMtufB_NDkg/Essi+and+Fer?format=100w"
         src="https://images.squarespace-cdn.com/content/v1/5e4f0d241148c71dde86343e/1583383978098-JPGTVPHL8W1DQUUV4LH8/ke17ZwdGBToddI8pDm48kK23xSGZCwT9PKUVTmqpRf17gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1URIqpXCo5scLrcwx9kXsnW8yi9ywV9DuGeOC297H9CUShSY6exqoyBvGMtufB_NDkg/Essi+and+Fer?format=750w"
       />
       <Box
@@ -74,7 +82,8 @@ function Quote() {
         <Text
           width={1}
           px={4}
-          fontSize={[2, 3]}
+          fontSize={[3, 4]}
+          fontFamily="serif"
           sx={{
             position: 'relative',
             textAlign: 'left',

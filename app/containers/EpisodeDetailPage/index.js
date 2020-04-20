@@ -8,16 +8,19 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Flex, Box } from 'rebass';
+import { Box } from 'rebass';
 import { css } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import ReactMarkdown from 'react-markdown';
+import isEmpty from 'lodash.isempty';
 import SpotifyPlayer from 'components/SpotifyPlayer';
+import HeadTags from 'components/HeadTags';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
+import EpisodeDetailPageWrapper from './EpisodeDetailPageWrapper';
 import ArticleLoader from './ArticleLoader';
 import makeSelectEpisodeDetailPage, {
   makeSelectEpisodeData,
@@ -58,30 +61,33 @@ export function EpisodeDetailPage({
   const theme = useTheme();
   const { contentId } = useParams();
 
+  const headTags = {
+    title: isEmpty(episode)
+      ? `Episode`
+      : `S${episode.season}E${episode.episode} - ${episode.title}`,
+    description: isEmpty(episode)
+      ? `The Girl Manual's best content`
+      : episode.description,
+  };
+
   useEffect(() => {
     dispatch(getTranscript(contentId));
   }, [dispatch]);
 
   return (
-    <Flex
-      sx={{ width: '80vh' }}
-      mx="auto"
-      px={3}
-      justifyContent="center"
-      alignItems="center"
-      textAlign={['left', 'justify']}
-      lineHeight="1.4"
-    >
+    <EpisodeDetailPageWrapper>
+      <HeadTags {...headTags} />
       <Box css={PostStyles(theme)} width={1}>
         <Box mx="auto" my={4} width={0.8}>
           <SpotifyPlayer type={episode.type} spotifyId={episode.spotifyId} />
         </Box>
+
         <ArticleLoader loading={episodeDetailPage.loading} />
         {!episodeDetailPage.loading && (
           <ReactMarkdown className="transcript" source={transcript.body} />
         )}
       </Box>
-    </Flex>
+    </EpisodeDetailPageWrapper>
   );
 }
 

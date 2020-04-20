@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from 'rebass';
+import HeadTags from 'components/HeadTags';
 
 function ProfilePageWrapper({ children }) {
   return (
@@ -11,6 +12,10 @@ function ProfilePageWrapper({ children }) {
       flexWrap="wrap"
       px={[4]}
     >
+      <HeadTags
+        title="Meet Us"
+        description="We are Essi and Fernanda. Nice to meet you!"
+      />
       {children}
     </Flex>
   );

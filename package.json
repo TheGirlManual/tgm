@@ -98,6 +98,7 @@
     "ip": "1.1.5",
     "locale-emoji": "^0.3.0",
     "lodash-es": "^4.17.15",
+    "lodash.isempty": "^4.4.0",
     "minimist": "^1.2.5",
     "moment": "^2.24.0",
     "polished": "^3.4.4",

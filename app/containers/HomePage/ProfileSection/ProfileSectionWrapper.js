@@ -10,8 +10,9 @@ function ProfileSectionWrapper({ children }) {
       justifyContent="space-around"
       alignItems="center"
       flexWrap="wrap"
+      mx="auto"
       mt={4}
-      px={4}
+      px={2}
     >
       {children}
     </Flex>
