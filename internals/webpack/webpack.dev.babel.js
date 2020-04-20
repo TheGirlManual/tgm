@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = require('./webpack.base.babel')({
   mode: 'development',
@@ -42,6 +43,9 @@ module.exports = require('./webpack.base.babel')({
       failOnError: false, // show a warning when there is a circular dependency
     }),
     new BundleAnalyzerPlugin(),
+    new Dotenv({
+      path: '.env.dev', // load this now instead of the ones in '.env'
+    }),
   ],
 
   // Emit a source map for easier debugging

@@ -7,6 +7,7 @@ const { HashedModuleIdsPlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
@@ -114,7 +115,6 @@ module.exports = require('./webpack.base.babel')({
       threshold: 10240,
       minRatio: 0.8,
     }),
-
     new WebpackPwaManifest({
       name: 'The Girl Manual Podcast',
       short_name: 'The Girl Manual',
@@ -135,14 +135,15 @@ module.exports = require('./webpack.base.babel')({
         },
       ],
     }),
-
     new HashedModuleIdsPlugin({
       hashFunction: 'sha256',
       hashDigest: 'hex',
       hashDigestLength: 20,
     }),
-
     new BundleAnalyzerPlugin({ analyzerMode: 'static', analyzerPort: 8889 }),
+    new Dotenv({
+      path: '.env.prod', // load this now instead of the ones in '.env'
+    }),
   ],
 
   performance: {

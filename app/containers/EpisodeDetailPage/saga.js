@@ -7,6 +7,8 @@ import { makeSelectContentId } from './selectors';
 import { GET_EPISODE, GET_EPISODE_TRANSCRIPT } from './constants';
 import { gotEpisode, gotTranscript } from './actions';
 
+const collection = process.env.DB_COLLECTION;
+
 export function* getTranscriptData() {
   let episodeData;
 
@@ -17,7 +19,7 @@ export function* getTranscriptData() {
   if (!episodeData) {
     const snapshot = yield call(
       rsf.firestore.getDocument,
-      `the-girl-manual/${contentId}`,
+      `${collection}/${contentId}`,
     );
 
     episodeData = snapshot.data();
@@ -25,17 +27,17 @@ export function* getTranscriptData() {
 
   yield put(gotEpisode(episodeData));
 
-  const collection = yield call(
+  const transcript = yield call(
     rsf.firestore.getCollection,
     firebase
       .firestore()
-      .collection('the-girl-manual')
-      .where('contentId', '==', cloneDeep(episodeData.id))
+      .collection(collection)
+      .where('relatedContent.episodeId', '==', cloneDeep(episodeData.id))
       .limit(1),
   );
 
-  if (!collection.empty) {
-    const transcriptData = collection.docs[0].data();
+  if (!transcript.empty) {
+    const transcriptData = transcript.docs[0].data();
 
     yield put(gotTranscript(transcriptData));
   }
@@ -46,7 +48,7 @@ export function* getEpisodeData() {
 
   const snapshot = yield call(
     rsf.firestore.getDocument,
-    `the-girl-manual/${contentId}`,
+    `${collection}/${contentId}`,
   );
 
   const episodeData = snapshot.data() || {};

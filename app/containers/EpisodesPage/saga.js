@@ -4,12 +4,14 @@ import firebase from 'firebase/app';
 import { GET_EPISODES } from './constants';
 import { gotEpisodes } from './actions';
 
+const collection = process.env.DB_COLLECTION;
+
 export function* getEpisodes() {
   const snapshot = yield call(
     rsf.firestore.getCollection,
     firebase
       .firestore()
-      .collection('the-girl-manual')
+      .collection(collection)
       .where('type', 'in', ['episode', 'trailer']),
   );
 
