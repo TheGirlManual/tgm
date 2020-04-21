@@ -84,7 +84,10 @@ export function EpisodeDetailPage({
 
         <ArticleLoader loading={episodeDetailPage.loading} />
         {!episodeDetailPage.loading && (
-          <ReactMarkdown className="transcript" source={transcript.body} />
+          <>
+            <h1>{episode.title}</h1>
+            <ReactMarkdown className="transcript" source={transcript.body} />
+          </>
         )}
       </Box>
     </EpisodeDetailPageWrapper>

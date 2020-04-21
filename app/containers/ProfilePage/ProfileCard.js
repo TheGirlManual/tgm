@@ -69,16 +69,20 @@ export function ProfileCard({ name, title, location, bio, photo }) {
 
         <Box p={2} ml="auto" maxWidth={[100, 100, 200]}>
           <Box
-            as={LazyLoadImage}
-            effect="blur"
             sx={{
               width: '100%',
               height: 'auto',
-              borderRadius: '50%',
             }}
-            src={base}
-            placeholderSrc={preview}
-          />
+          >
+            <LazyLoadImage
+              style={{ borderRadius: '50%' }}
+              effect="blur"
+              width="100%"
+              height="100%"
+              src={base}
+              placeholderSrc={preview}
+            />
+          </Box>
         </Box>
       </Flex>
 
