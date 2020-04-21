@@ -7,7 +7,7 @@ import ReduxSagaFirebase from 'redux-saga-firebase';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDKV2y6L8hZbe7lJ9bNRTKGCVgeI08S4b0',
-  authDomain: 'the-girl-manual.firebaseapp.com',
+  authDomain: 'interactive-coolture.firebaseapp.com',
   databaseURL: 'https://interactive-coolture.firebaseio.com',
   projectId: 'interactive-coolture',
   storageBucket: 'interactive-coolture.appspot.com',
