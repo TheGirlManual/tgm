@@ -64,7 +64,7 @@ const store = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 const render = messages => {
-  ReactDOM.render(
+  const AppNode = (
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
@@ -76,9 +76,10 @@ const render = messages => {
           </ScrollToTop>
         </ConnectedRouter>
       </LanguageProvider>
-    </Provider>,
-    MOUNT_NODE,
+    </Provider>
   );
+
+  ReactDOM.render(AppNode, MOUNT_NODE);
 };
 
 if (module.hot) {

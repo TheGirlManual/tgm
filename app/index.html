@@ -27,6 +27,67 @@
     }
   </style>
 
+  <style>
+    .full-page-loader {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    .full-page-loader > img {
+      z-index: 2;
+      max-width: 500px;
+      width: 80vw;
+      padding: 20px;
+    }
+
+    .full-page-loader > .loader-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+  </style>
+  <style id="move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2" data-anikit="">
+    @keyframes move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2
+      {
+      0% {
+        transform: translate(0px,0px) rotate(0deg) scale(1,1) skewX(0deg) skewY(0deg);
+        opacity: 1;
+      }
+      40% {
+        transform: translate(102.4px,0px) rotate(0deg) scale(1,1) skewX(0deg) skewY(0deg);
+        opacity: 1;
+      }
+      49.99999% {
+        transform: translate(127.99997px,0px) rotate(0deg) scale(1,1) skewX(0deg) skewY(0deg);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(-128px,0px) rotate(0deg) scale(1,1) skewX(0deg) skewY(0deg);
+        opacity: 0;
+      }
+      50.00001% {
+        transform: translate(-127.99997px,0px) rotate(0deg) scale(1,1) skewX(0deg) skewY(0deg);
+        opacity: 0;
+      }
+      60% {
+        transform: translate(-102.4px,0px) rotate(0deg) scale(1,1) skewX(0deg) skewY(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(0px,0px) rotate(0deg) scale(1,1) skewX(0deg) skewY(0deg);
+        opacity: 1;
+      }
+    }
+  </style>
+
   <script data-ad-client="ca-pub-2494120052882720" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js"></script>
 </head>
@@ -37,8 +98,28 @@
     <strong>JavaScript has been disabled on your browser</strong>, please
     <strong>enable JS</strong> to make this app work.</noscript>
 
+
   <!-- The app hooks into this div -->
-  <div id="app"></div>
+  <div id="app">
+    <div class="full-page-loader">
+      <img
+        class="loader-image"
+        src="https://firebasestorage.googleapis.com/v0/b/interactive-coolture.appspot.com/o/assets%2Fimg%2Flogo%2Flogo.png?alt=media"
+        />
+      <div class="loader-background">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:auto;background:#ffffff;display:block;z-index:1;position:relative" width="100vw" height="100vh" preserveAspectRatio="xMidYMid">
+          <defs>
+          <pattern id="pid-0.3531869235174414" x="0" y="0" width="76.80000000000001" height="76.80000000000001" patternUnits="userSpaceOnUse">
+          <g transform="scale(0.30000000000000004)">
+          <g data-idx="0" data-dup="" dx="-384" dy="-128" style="transform-origin: -192px 64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,-128)"><ellipse fill="#F8AFB4" cx="192" cy="192" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="0" data-dup="" dx="-128" dy="-128" style="transform-origin: 64px 64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,-128)"><ellipse fill="#F8AFB4" cx="192" cy="192" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="0" data-dup="" dx="128" dy="-128" style="transform-origin: 320px 64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,-128)"><ellipse fill="#F8AFB4" cx="192" cy="192" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="1" data-dup="" dx="-384" dy="-128" style="transform-origin: -192px -64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,-128)"><ellipse fill="#FFFFFF" cx="192" cy="64" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="1" data-dup="" dx="-128" dy="-128" style="transform-origin: 64px -64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,-128)"><ellipse fill="#FFFFFF" cx="192" cy="64" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="1" data-dup="" dx="128" dy="-128" style="transform-origin: 320px -64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,-128)"><ellipse fill="#FFFFFF" cx="192" cy="64" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="2" data-dup="" dx="-384" dy="-128" style="transform-origin: -320px -64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,-128)"><ellipse fill="#F8AFB4" cx="64" cy="64" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="2" data-dup="" dx="-128" dy="-128" style="transform-origin: -64px -64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,-128)"><ellipse fill="#F8AFB4" cx="64" cy="64" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="2" data-dup="" dx="128" dy="-128" style="transform-origin: 192px -64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,-128)"><ellipse fill="#F8AFB4" cx="64" cy="64" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="3" data-dup="" dx="-384" dy="-128" style="transform-origin: -320px 64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,-128)"><ellipse fill="#FFFFFF" cx="64" cy="192" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="3" data-dup="" dx="-128" dy="-128" style="transform-origin: -64px 64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,-128)"><ellipse fill="#FFFFFF" cx="64" cy="192" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="3" data-dup="" dx="128" dy="-128" style="transform-origin: 192px 64px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,-128)"><ellipse fill="#FFFFFF" cx="64" cy="192" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="0" data-dup="" dx="-384" dy="128" style="transform-origin: -192px 320px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,128)"><ellipse fill="#F8AFB4" cx="192" cy="192" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="0" data-dup="" dx="-128" dy="128" style="transform-origin: 64px 320px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,128)"><ellipse fill="#F8AFB4" cx="192" cy="192" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="0" data-dup="" dx="128" dy="128" style="transform-origin: 320px 320px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,128)"><ellipse fill="#F8AFB4" cx="192" cy="192" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="1" data-dup="" dx="-384" dy="128" style="transform-origin: -192px 192px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,128)"><ellipse fill="#FFFFFF" cx="192" cy="64" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="1" data-dup="" dx="-128" dy="128" style="transform-origin: 64px 192px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,128)"><ellipse fill="#FFFFFF" cx="192" cy="64" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="1" data-dup="" dx="128" dy="128" style="transform-origin: 320px 192px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,128)"><ellipse fill="#FFFFFF" cx="192" cy="64" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="2" data-dup="" dx="-384" dy="128" style="transform-origin: -320px 192px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,128)"><ellipse fill="#F8AFB4" cx="64" cy="64" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="2" data-dup="" dx="-128" dy="128" style="transform-origin: -64px 192px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,128)"><ellipse fill="#F8AFB4" cx="64" cy="64" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="2" data-dup="" dx="128" dy="128" style="transform-origin: 192px 192px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,128)"><ellipse fill="#F8AFB4" cx="64" cy="64" rx="19.021" ry="32" data-fill="c1" style="fill: rgb(208, 0, 90, 0.1));"></ellipse></g></g><g data-idx="3" data-dup="" dx="-384" dy="128" style="transform-origin: -320px 320px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-384,128)"><ellipse fill="#FFFFFF" cx="64" cy="192" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="3" data-dup="" dx="-128" dy="128" style="transform-origin: -64px 320px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(-128,128)"><ellipse fill="#FFFFFF" cx="64" cy="192" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g><g data-idx="3" data-dup="" dx="128" dy="128" style="transform-origin: 192px 320px; animation: 4.16667s linear 0s infinite normal forwards running move-fade-ltr-3151703d-845b-42a7-afda-3c252f87eed2;"><g transform="translate(128,128)"><ellipse fill="#FFFFFF" cx="64" cy="192" rx="19.021" ry="32" data-fill="c2" style="fill: rgb(247, 247, 247);"></ellipse></g></g></g>
+          </pattern>
+          </defs>
+          <rect x="0" y="0" width="100vw" height="100vh" fill="url(#pid-0.3531869235174414)"></rect>
+        </svg>
+      </div>
+    </div>
+
+  </div>
   <!-- A lot of magic happens in this file. HtmlWebpackPlugin automatically injects all assets (e.g. bundle.js, main.css) with the correct HTML tags, which is why they are missing in this file. Don't add any assets here! (Check out webpack.dev.babel.js and webpack.prod.babel.js if you want to know more) -->
 </body>
 
