@@ -19,6 +19,17 @@ const firebaseConfig = {
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 firebase.performance();
+firebase
+  .firestore()
+  .enablePersistence()
+  .catch(error => {
+    // eslint-disable-next-line no-console
+    console.warn(
+      `Could not enable Firestore persistence. Something went wrong: ${
+        error.code
+      }`,
+    );
+  });
 
 const rsf = new ReduxSagaFirebase(firebaseApp);
 

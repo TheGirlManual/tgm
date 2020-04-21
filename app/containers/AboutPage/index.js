@@ -20,7 +20,7 @@ function Mission() {
       width={[null, 1, 0.4]}
       p={3}
     >
-      <Heading px={3} my={3} fontSize={[6, 6, 6, 7]} color="secondary">
+      <Heading as="h1" px={3} my={3} fontSize={[6, 6, 6, 7]} color="secondary">
         <FormattedMessage {...messages.title} />
       </Heading>
       <Text

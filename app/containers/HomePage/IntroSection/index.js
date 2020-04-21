@@ -9,6 +9,7 @@ export default function IntroSection() {
   return (
     <IntroSectionWrapper>
       <Heading
+        as="h1"
         px={3}
         sx={{ color: isMobile && 'primary', textAlign: 'center' }}
         fontSize={[5, 7]}

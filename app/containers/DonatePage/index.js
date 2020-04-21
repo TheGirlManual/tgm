@@ -25,7 +25,7 @@ export function DonatePage() {
         `}
       />
       <Flex flexDirection="column" textAlign="center" lineHeight={1.5} m="auto">
-        <Heading color="secondary" fontSize={[6, 6]}>
+        <Heading as="h1" color="secondary" fontSize={[6, 6]}>
           <FormattedMessage {...messages.donate} />
         </Heading>
         <Text mt={2} fontSize={[2, 3]}>
