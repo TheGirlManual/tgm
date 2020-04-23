@@ -16,20 +16,34 @@ import { isMobile } from 'react-device-detect';
 
 import { spotifyUrlBuilder } from 'components/SpotifyPlayer';
 
+const typesWithDetail = ['episode', 'bonus-episode'];
+
+const buildPrefix = episode => {
+  const episodeChar = episode.type === 'episode' ? 'E' : 'B';
+
+  const episodeLabel = episode.episode
+    ? `${episodeChar}${episode.episode}`
+    : ``;
+  const seasonLabel = episode.season ? `S${episode.season}` : ``;
+
+  const prefix = seasonLabel + episodeLabel;
+
+  const headingLabel = episode.title ? `${prefix}: ${episode.title}` : prefix;
+
+  return [episodeLabel, seasonLabel, headingLabel];
+};
+
 const makeLabels = episode => {
   const authors =
     episode.author && episode.author.map(v => v.label || v).join(', ');
   const date = moment.unix(episode.releaseDate);
 
+  const [episodeLabel, seasonLabel, headingLabel] = buildPrefix(episode);
+
   const dateLabel = (date.isValid()
     ? date
     : moment(episode.releaseDate || 'error')
   ).format('DD/MM/YY');
-  const episodeLabel = episode.episode ? `E${episode.episode}` : ``;
-  const seasonLabel = episode.season ? `S${episode.season}` : ``;
-
-  const headingPrefix = `${seasonLabel}${episodeLabel}`;
-  const headingLabel = `${headingPrefix}: ${episode.title || ''}`;
 
   return {
     date: dateLabel,
@@ -61,7 +75,7 @@ export function EpisodeItem({ episode }) {
       p={4}
     >
       <Box
-        as={episode.type === 'episode' ? RouterLink : 'span'}
+        as={typesWithDetail.includes(episode.type) ? RouterLink : 'span'}
         to={`${location.pathname}/${episode.id}/${episode.slug}`}
         sx={{ textDecoration: 'inherit', color: 'inherit' }}
       >
@@ -91,9 +105,9 @@ export function EpisodeItem({ episode }) {
       >
         <FontAwesomeIcon color="#1db954" icon={Spotify} />
       </Link>
-      {episode.type === 'episode' && (
+      {typesWithDetail.includes(episode.type) && (
         <Box
-          as={episode.type === 'episode' ? RouterLink : 'span'}
+          as={RouterLink}
           to={`${location.pathname}/${episode.id}/${episode.slug}`}
           sx={{
             textDecoration: 'inherit',

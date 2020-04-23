@@ -70,16 +70,22 @@ function Footer() {
         justifyContent="space-around"
         sx={{ fontSize: 29 }}
       >
-        <a href="https://twitter.com/Girlmanualpod">
+        <a className="sm-link" href="https://twitter.com/Girlmanualpod">
           <FontAwesomeIcon color="#1da1f2" icon={Twitter} />
         </a>
-        <a href="https://www.instagram.com/thegirlmanualpodcast">
+        <a
+          className="sm-link"
+          href="https://www.instagram.com/thegirlmanualpodcast"
+        >
           <FontAwesomeIcon color="#c13584" icon={IG} />
         </a>
-        <a href="https://facebook.com/">
+        <a className="sm-link" href="https://facebook.com/thegirlmanual">
           <FontAwesomeIcon color="#3b5998" icon={FB} />
         </a>
-        <a href="https://www.patreon.com/bePatron?u=31577164">
+        <a
+          className="sm-link"
+          href="https://www.patreon.com/bePatron?u=31577164"
+        >
           <FontAwesomeIcon color="#f96854" icon={Patreon} />
         </a>
         <a href="https://open.spotify.com/show/7jwdjqGaFHQeQoly9ByCzP">

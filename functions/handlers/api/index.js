@@ -12,7 +12,9 @@ const collection = 'the-girl-manual';
 
 const initTransactionData = (req, res, next) => {
   res.locals.batch = firestore.batch();
-  res.locals.relatedContent = {};
+  res.locals.injected = {
+    relatedContent: {}
+  };
 
   next();
 }
@@ -39,6 +41,29 @@ const validate = (data, schema, partial) =>
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (error, req, res, next) => {
   res.json({ message: error.message });
+}
+
+const setPlacement = () => (req, res, next) => {
+  const {episode, season, afterEpisode, contentType} = res.locals.lastDoc;
+  let placement = '';
+
+  placement += `S${season}`;
+
+  switch(contentType) {
+    case 'episode':
+      placement += `E${episode}`;
+      break;
+    case 'bonus-episode':
+      placement += `E${afterEpisode}B${episode}`;
+      break;
+    case 'trailer':
+      placement += '';
+      break;
+  }
+
+  res.locals.injected.placement = placement;
+
+  next();
 }
 
 const setRelatedContent = (prop, as) => (req, res, next) => {
@@ -72,13 +97,13 @@ const updateDocument = (type) => async (req, res, next) => {
 const addDocument = (type) => async (req, res, next) => {
   const data = req.body[type];
   const common = req.body.common || {};
-  const relatedContent = res.locals.relatedContent;
+  const injected = res.locals.injected;
   const batch = res.locals.batch;
 
   data.id = `tgm:${type}:${v4()}`;
   data.type = type;
 
-  const doc = await validate(merge({}, data, common, {relatedContent: relatedContent}), schemas[type]);
+  const doc = await validate(merge({}, data, common, injected), schemas[type]);
 
   res.locals.lastDoc = doc;
 
@@ -94,10 +119,20 @@ const addEpisodeWithTranscript = () => [
   clearRelatedContent(),
 ];
 
+const addBonusEpisodeWithTranscript = () => [
+  addDocument('bonus-episode'),
+  setRelatedContent('id', 'episodeId'),
+  addDocument('transcript'),
+  clearRelatedContent(),
+];
+
 app.use(initTransactionData);
 
 app.post('/episode', ...addEpisodeWithTranscript());
+app.post('/bonus-episode', ...addBonusEpisodeWithTranscript());
+
 app.put('/episode/:id', updateDocument('episode'));
+app.put('/bonus-episode/:id', updateDocument('bonus-episode'));
 app.put('/transcript/:id', updateDocument('transcript'));
 
 app.use(commitBatch);

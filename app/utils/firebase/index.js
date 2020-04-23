@@ -7,7 +7,7 @@ import ReduxSagaFirebase from 'redux-saga-firebase';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDKV2y6L8hZbe7lJ9bNRTKGCVgeI08S4b0',
-  authDomain: 'interactive-coolture.firebaseapp.com',
+  authDomain: 'www.thegirlmanual.com',
   databaseURL: 'https://interactive-coolture.firebaseio.com',
   projectId: 'interactive-coolture',
   storageBucket: 'interactive-coolture.appspot.com',
@@ -16,9 +16,9 @@ const firebaseConfig = {
   measurementId: 'G-0HWK701LM3',
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-firebase.performance();
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics();
+const performance = firebase.performance();
 firebase
   .firestore()
   .enablePersistence()
@@ -31,6 +31,12 @@ firebase
     );
   });
 
-const rsf = new ReduxSagaFirebase(firebaseApp);
+const rsf = new ReduxSagaFirebase(app);
 
+const logEvent = args => {
+  analytics.logEvent(...args);
+  return true;
+};
+
+export { app, analytics, performance, logEvent };
 export default rsf;
