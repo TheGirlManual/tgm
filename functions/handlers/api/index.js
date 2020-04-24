@@ -35,21 +35,23 @@ const update = (collection, doc, batch) => batch.update(getDocRef(collection, do
 
 const validatePartial = (data, schema) => validate(data, schema, true);
 
-const validate = (data, schema, partial) =>
-  schema.validate(data, {abortEarly: false, stripUnknown: true, context: {partial: !!partial}});
+const validate = (data, schema, partial = false) =>
+  schema.validateAsync(data, {abortEarly: false, stripUnknown: true, allowUnknown: false, context: {partial: !!partial}});
 
 // eslint-disable-next-line no-unused-vars
 const errorHandler = (error, req, res, next) => {
-  res.json({ message: error.message });
+  res.json({ message: error });
 }
 
-const setPlacement = () => (req, res, next) => {
-  const {episode, season, afterEpisode, contentType} = res.locals.lastDoc;
+const setPlacement = (type) => (req, res, next) => {
+  const data = req.body[type];
+  const common = req.body.common;
+  const {episode, season, afterEpisode} = merge({}, data, common);
   let placement = '';
 
   placement += `S${season}`;
 
-  switch(contentType) {
+  switch(type) {
     case 'episode':
       placement += `E${episode}`;
       break;
@@ -59,6 +61,9 @@ const setPlacement = () => (req, res, next) => {
     case 'trailer':
       placement += '';
       break;
+    default:
+      placement = null;
+      break;
   }
 
   res.locals.injected.placement = placement;
@@ -66,8 +71,8 @@ const setPlacement = () => (req, res, next) => {
   next();
 }
 
-const setRelatedContent = (prop, as) => (req, res, next) => {
-  merge(res.locals.relatedContent, {[as]: res.locals.lastDoc[prop]});
+const setRelatedContentFromLastDoc = (prop, as) => (req, res, next) => {
+  merge(res.locals.injected.relatedContent, {[as]: res.locals.lastDoc[prop]});
 
   next();
 }
@@ -79,13 +84,15 @@ const clearRelatedContent = () => (req, res, next) => {
 }
 
 const updateDocument = (type) => async (req, res, next) => {
-  const id = req.params.id;
-  const data = req.body;
+  const data = req.body[type];
+  const common = req.body.common || {};
+  const injected = res.locals.injected;
   const batch = res.locals.batch;
 
-  data.id = id;
+  data.id = req.params.id;
 
-  const doc = await validatePartial(merge({}, data), schemas[type]);
+  const syntheticDoc = merge({}, data, common, injected);
+  const doc = await validatePartial(syntheticDoc, schemas[type]);
 
   res.locals.lastDoc = doc;
 
@@ -103,7 +110,8 @@ const addDocument = (type) => async (req, res, next) => {
   data.id = `tgm:${type}:${v4()}`;
   data.type = type;
 
-  const doc = await validate(merge({}, data, common, injected), schemas[type]);
+  const syntheticDoc = merge({}, data, common, injected);
+  const doc = await validate(syntheticDoc, schemas[type]);
 
   res.locals.lastDoc = doc;
 
@@ -112,24 +120,18 @@ const addDocument = (type) => async (req, res, next) => {
   next();
 }
 
-const addEpisodeWithTranscript = () => [
-  addDocument('episode'),
-  setRelatedContent('id', 'episodeId'),
+const addTypeWithTranscript = type => [
+  setPlacement(type),
+  addDocument(type),
+  setRelatedContentFromLastDoc('id', 'episodeId'),
   addDocument('transcript'),
   clearRelatedContent(),
-];
-
-const addBonusEpisodeWithTranscript = () => [
-  addDocument('bonus-episode'),
-  setRelatedContent('id', 'episodeId'),
-  addDocument('transcript'),
-  clearRelatedContent(),
-];
+]
 
 app.use(initTransactionData);
 
-app.post('/episode', ...addEpisodeWithTranscript());
-app.post('/bonus-episode', ...addBonusEpisodeWithTranscript());
+app.post('/episode', ...addTypeWithTranscript('episode'));
+app.post('/bonus-episode', ...addTypeWithTranscript('bonus-episode'));
 
 app.put('/episode/:id', updateDocument('episode'));
 app.put('/bonus-episode/:id', updateDocument('bonus-episode'));

@@ -13,6 +13,7 @@
     "node": "8"
   },
   "dependencies": {
+    "@hapi/joi": "^16.1.8",
     "@sendgrid/client": "^6.5.3",
     "@sendgrid/mail": "^6.5.4",
     "express": "^4.17.1",

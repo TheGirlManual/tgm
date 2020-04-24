@@ -1,57 +1,54 @@
-const yup = require('yup');
-const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+const Joi = require('@hapi/joi');
 
 const types = ['episode', 'bonus-episode', 'trailer', 'transcript'];
 
-const contentIdSchema = yup.mixed().test({
-    name: 'contentId',
-    test: function(value) {
-      if(!value) return false;
+const regexComponents = {
+  scope: 'tgm',
+  contentType: '(' + types.join('|') + ')',
+  uuid: '[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}',
+}
 
-      const [scope, type, uuid] = value.split(':');
-      return scope === 'tgm' && types.includes(type) && uuidRegex.test(uuid);
-    },
-    message: '${path} needs to be a valid uuid',
-  });
+const idRegex = new RegExp(`^${regexComponents.scope}:${regexComponents.contentType}:${regexComponents.uuid}$`, 'm');
 
-const episode = yup.object().shape({
-  author: yup.array().of(yup.string()).min(1).required(),
-  description: yup.string().required(),
-  episode: yup.number().positive().integer().required(),
-  season: yup.number().positive().integer().required(),
-  id: contentIdSchema.required(),
-  releaseDate: yup.number().required(),
-  slug: yup.string().required(),
-  spotifyId: yup.string(),
-  title: yup.string().required(),
-  type: yup.mixed().oneOf(types).required(),
+const episode = Joi.object({
+  author: Joi.array().items(Joi.string()).min(1),
+  description: Joi.string(),
+  episode: Joi.number().positive().integer(),
+  season: Joi.number().positive().integer(),
+  id: Joi.string().regex(idRegex),
+  releaseDate: Joi.date().timestamp('unix'),
+  slug: Joi.string().regex(/^[a-z0-9-]+$/m),
+  spotifyId: Joi.string().regex(/[a-z0-9]+/im),
+  title: Joi.string(),
+  type: 'episode',
+  placement: Joi.string().regex(/(S[0-9]+)(E[0-9]+)?(B[0-9]+)?/),
+})
+
+const bonusEpisode = Joi.object({
+  author: Joi.array().items(Joi.string()).min(1),
+  description: Joi.string(),
+  episode: Joi.number().positive().integer(),
+  season: Joi.number().positive().integer(),
+  id: Joi.string().regex(idRegex),
+  releaseDate: Joi.number(),
+  slug: Joi.string(),
+  spotifyId: Joi.string(),
+  title: Joi.string(),
+  type: 'bonus-episode',
+  afterEpisode: Joi.number().positive().integer(),
+  placement: Joi.string().regex(/(S[0-9]+)(E[0-9]+)?(B[0-9]+)?/),
 });
 
-const bonusEpisode = yup.object().shape({
-  author: yup.array().of(yup.string()).min(1).required(),
-  description: yup.string().required(),
-  episode: yup.number().positive().integer().required(),
-  season: yup.number().positive().integer().required(),
-  id: contentIdSchema.required(),
-  releaseDate: yup.number().required(),
-  slug: yup.string().required(),
-  spotifyId: yup.string(),
-  title: yup.string().required(),
-  type: yup.mixed().oneOf(types).required(),
-  afterEpisode: yup.number().positive().integer().required(),
-  placement: yup.number().positive().integer().required(),
-});
-
-const transcript = yup.object().shape({
-  episode: yup.number().positive().integer().required(),
-  season: yup.number().positive().integer().required(),
-  id: contentIdSchema.required(),
-  relatedContent: yup.object().shape({
-    episodeId: contentIdSchema.required(),
+const transcript = Joi.object({
+  episode: Joi.number().positive().integer(),
+  season: Joi.number().positive().integer(),
+  id: Joi.string().regex(idRegex),
+  relatedContent: Joi.object({
+    episodeId: Joi.string().regex(idRegex),
   }),
-  body: yup.string().required(),
-  language: yup.string().default('en').required(),
-  type: yup.mixed().oneOf(types).required(),
+  body: Joi.string(),
+  language: Joi.string().default('en'),
+  type: Joi.string().valid(...types),
 });
 
 module.exports = {
