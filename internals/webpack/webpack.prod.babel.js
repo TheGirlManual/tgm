@@ -142,7 +142,7 @@ module.exports = require('./webpack.base.babel')({
     }),
     new BundleAnalyzerPlugin({ analyzerMode: 'static', analyzerPort: 8889 }),
     new Dotenv({
-      path: '.env.prod', // load this now instead of the ones in '.env'
+      path: `.env.${process.env.NODE_ENV}`, // load this now instead of the ones in '.env'
     }),
   ],
 

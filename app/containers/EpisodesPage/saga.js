@@ -13,8 +13,7 @@ export function* getEpisodes() {
       .firestore()
       .collection(collection)
       .where('type', 'in', ['episode', 'bonus-episode', 'trailer'])
-      .orderBy('episode', 'desc')
-      .orderBy('season', 'desc'),
+      .orderBy('placement', 'desc'),
   );
 
   let items = {};

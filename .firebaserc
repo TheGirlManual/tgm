@@ -2,5 +2,17 @@
   "projects": {
     "default": "interactive-coolture",
     "prod": "interactive-coolture"
+  },
+  "targets": {
+    "interactive-coolture": {
+      "hosting": {
+        "prod": [
+          "the-girl-manual"
+        ],
+        "staging": [
+          "the-girl-manual-staging"
+        ]
+      }
+    }
   }
 }
