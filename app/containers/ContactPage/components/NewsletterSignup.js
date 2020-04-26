@@ -9,8 +9,7 @@ import PropTypes from 'prop-types';
 import { Button, Text, Flex, Heading, Box } from 'rebass';
 import { Input } from '@rebass/forms';
 import { FormattedMessage } from 'react-intl';
-
-import messages from './messages';
+import messages from '../messages';
 
 function NewsletterSignup({ handleRequestSub }) {
   const handleSubmit = event => {

@@ -5,20 +5,28 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Flex, Text, Heading, Box } from 'rebass';
 import { Label, Input, Textarea } from '@rebass/forms';
 import { FormattedMessage, FormattedHTMLMessage } from 'react-intl';
 import { css, Global } from '@emotion/core';
 import { useTheme } from 'emotion-theming';
-import messages from './messages';
+import messages from '../messages';
 
-function ContactForm() {
+function ContactForm({ handleMessage }) {
   const theme = useTheme();
+
+  const handleSubmit = event => {
+    const data = new FormData(event.target);
+
+    handleMessage(data);
+    event.preventDefault();
+  };
 
   return (
     <Flex
       as="form"
-      onSubmit={e => e.preventDefault()}
+      onSubmit={handleSubmit}
       justifyContent="center"
       alignItems="center"
       flexDirection="column"
@@ -77,5 +85,9 @@ function ContactForm() {
     </Flex>
   );
 }
+
+ContactForm.propTypes = {
+  handleMessage: PropTypes.func.isRequired,
+};
 
 export default ContactForm;

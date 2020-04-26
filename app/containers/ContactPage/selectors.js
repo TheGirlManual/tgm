@@ -17,6 +17,12 @@ const makeSelectEmail = () =>
     substate => substate.email,
   );
 
+const makeSelectData = () =>
+  createSelector(
+    selectContactPageDomain,
+    substate => substate.data,
+  );
+
 const makeSelectSubRequest = () =>
   createSelector(
     selectContactPageDomain,
@@ -44,5 +50,6 @@ export {
   makeSelectSubRequest,
   makeSelectContactRequest,
   makeSelectEmail,
+  makeSelectData,
   selectContactPageDomain,
 };
