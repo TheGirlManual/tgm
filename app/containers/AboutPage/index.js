@@ -72,47 +72,7 @@ function Quote() {
           fontSize: 4,
         }}
       >
-        <Box
-          sx={{
-            width: 90,
-            height: 60,
-            float: 'left',
-            shapeOutside: 'circle(50% at 50%)',
-          }}
-        />
-        <Text
-          width={1}
-          px={4}
-          fontSize={[3, 4]}
-          fontFamily="serif"
-          sx={{
-            position: 'relative',
-            textAlign: 'left',
-            ':before': {
-              content: '"’’"',
-              position: 'absolute',
-              left: 10,
-              top: -70,
-              width: 100,
-              height: 100,
-              pointerEvents: 'none',
-              fontSize: '11rem',
-              textAlign: 'left',
-              fontFamily: 'Arial',
-              letterSpacing: '-16px',
-              fontStyle: 'normal',
-              fontWeight: 'bold',
-              color: 'secondary',
-            },
-          }}
-        >
-          The enemy of feminism isn’t men. It’s patriarchy, and patriarchy is
-          not men. It is a system, and women can support the system of
-          patriarchy just as men can support the fight for gender equality.
-        </Text>
-        <Text mt={3} fontSize={[2, 3]} width={1} color="#555" textAlign="right">
-          — Justine Musk
-        </Text>
+        <FormattedMessage {...messages.motivation} />
       </Box>
     </Flex>
   );
