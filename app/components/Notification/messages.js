@@ -5,7 +5,12 @@
  */
 
 import { defineMessages } from 'react-intl';
-import { PROCESSING_REQUEST, EMAIL_CHECK, EMAIL_ERROR } from './constants';
+import {
+  MESSAGE_SENT,
+  PROCESSING_REQUEST,
+  EMAIL_CHECK,
+  EMAIL_ERROR,
+} from './constants';
 
 export const scope = 'app.components.Notification';
 
@@ -21,5 +26,9 @@ export default defineMessages({
   [EMAIL_ERROR]: {
     id: `${scope}.emailSendError`,
     defaultMessage: 'Something went wrong :(',
+  },
+  [MESSAGE_SENT]: {
+    id: `${scope}.messageSent`,
+    defaultMessage: 'Thank you for your message!',
   },
 });
