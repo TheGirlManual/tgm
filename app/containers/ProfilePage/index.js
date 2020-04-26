@@ -5,7 +5,9 @@
  */
 
 import React from 'react';
+import { Box } from 'rebass';
 import { imagePathForFile } from 'utils/image';
+import InstagramEmbed from 'react-instagram-embed';
 import ProfileCard from './ProfileCard';
 import ProfilePageWrapper from './ProfilePageWrapper';
 import messages from '../HomePage/messages';
@@ -33,6 +35,15 @@ export function ProfilePage() {
     <ProfilePageWrapper>
       <ProfileCard {...fer} />
       <ProfileCard {...essi} />
+      <Box p={3}>
+        <InstagramEmbed
+          url="https://www.instagram.com/p/B_ZwOZiow_B"
+          hideCaption={false}
+          containerTagName="div"
+          protocol=""
+          injectScript
+        />
+      </Box>
     </ProfilePageWrapper>
   );
 }
