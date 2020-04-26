@@ -36,7 +36,7 @@ function NewsletterSignup({ handleRequestSub }) {
       <Heading as="h1" color="secondary" fontSize={[6, 6]}>
         <FormattedMessage {...messages.subHeader} />
       </Heading>
-      <Text mt={3} width={1}>
+      <Text mt={2} width={1} fontSize={[2, 3]} textAlign="center" color="#666">
         <FormattedMessage {...messages.subMessage} />
       </Text>
       <Box mt={4} width={1}>
