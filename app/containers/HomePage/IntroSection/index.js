@@ -36,8 +36,9 @@ function PlatformIcon({ icon, index, expand, href }) {
       sx={{
         display: 'flex',
         position: 'absolute',
-        top: expand ? `${index + 1}00%` : 0,
-        right: 0,
+        top: expand ? `calc(${index + 1}00% + 5px)` : 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
         zIndex: 2,
         borderRadius: '25%',
         opacity: expand ? 1 : 0,
@@ -45,13 +46,13 @@ function PlatformIcon({ icon, index, expand, href }) {
         justifyContent: 'center',
         alignItems: 'center',
       }}
-      mt={1}
-      p={expand ? 10 : 0}
-      bg="white"
-      width={expand ? '100%' : 0}
-      height={expand ? 55 : 0}
+      bg="primary"
+      width={expand ? 50 : 0}
+      height={expand ? 50 : 0}
     >
       <Image
+        m={1}
+        p={2}
         height="auto"
         width="100%"
         sx={{ display: expand ? 'block' : 'none', zIndex: 2 }}
@@ -75,7 +76,8 @@ function PlatformDropdown({ setShowPlatforms, showPlatforms }) {
     <Flex
       onClick={() => setShowPlatforms(!showPlatforms)}
       width={60}
-      bg="secondary"
+      bg={isMobile ? 'primary' : 'secondary'}
+      color={isMobile ? 'secondary' : 'primary'}
       justifyContent="center"
       alignItems="center"
       sx={{
@@ -87,7 +89,7 @@ function PlatformDropdown({ setShowPlatforms, showPlatforms }) {
         boxShadow: showPlatforms ? '0 0 0 2000px rgba(0, 0, 0, 0.6)' : 'none',
       }}
     >
-      <FontAwesomeIcon style={{ zIndex: 4 }} color="white" icon={Plus} />
+      <FontAwesomeIcon style={{ zIndex: 4 }} icon={Plus} />
       {platformData.map((data, index) => (
         <PlatformIcon
           icon={data[0]}
