@@ -23,7 +23,7 @@ const platformData = [
     'https://podcasts.apple.com/mx/podcast/the-girl-manual/id1502453646',
   ],
   [Breaker, 'https://www.breaker.audio/the-girl-manual'],
-  [Castbox, 'https://castbox.fm/channel/id2702074?country=es'],
+  [Castbox, 'https://castbox.fm/channel/id2702074'],
   [PocketCasts, 'https://pca.st/3qwwjld3'],
   [RadioPublic, 'https://radiopublic.com/the-girl-manual-WDN9e9'],
 ];
