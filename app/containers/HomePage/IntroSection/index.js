@@ -4,7 +4,8 @@ import { FormattedMessage } from 'react-intl';
 import { Flex, Box, Image, Button, Heading } from 'rebass';
 import { isMobile } from 'react-device-detect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus as Plus } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown as Show } from '@fortawesome/free-solid-svg-icons';
+import { faSpotify as Spotify } from '@fortawesome/free-brands-svg-icons';
 import onClickOutside from 'react-onclickoutside';
 
 import Overcast from 'images/overcast.png';
@@ -89,7 +90,7 @@ function PlatformDropdown({ setShowPlatforms, showPlatforms }) {
         boxShadow: showPlatforms ? '0 0 0 2000px rgba(0, 0, 0, 0.6)' : 'none',
       }}
     >
-      <FontAwesomeIcon style={{ zIndex: 4 }} icon={Plus} />
+      <FontAwesomeIcon style={{ zIndex: 4 }} icon={Show} />
       {platformData.map((data, index) => (
         <PlatformIcon
           icon={data[0]}
@@ -151,9 +152,17 @@ export default function IntroSection() {
             borderRadius: '5px 0px 0px 5px',
           }}
         >
+          <FontAwesomeIcon
+            style={{ marginRight: '0.5em', zIndex: 4 }}
+            icon={Spotify}
+          />
           <FormattedMessage {...messages.listenCta} />
         </Button>
-        <DismissablePlatformDropdown {...{ showPlatforms, setShowPlatforms }} />
+
+        <DismissablePlatformDropdown
+          eventTypes={['click', 'touchend']}
+          {...{ showPlatforms, setShowPlatforms }}
+        />
       </Flex>
     </IntroSectionWrapper>
   );

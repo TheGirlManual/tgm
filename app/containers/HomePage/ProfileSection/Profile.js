@@ -9,6 +9,7 @@ import { Heading, Text, Box, Flex } from 'rebass';
 import { FormattedMessage } from 'react-intl';
 import { css, keyframes } from '@emotion/core';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useSpring, animated } from 'react-spring';
 import { isMobile } from 'react-device-detect';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -28,20 +29,13 @@ const CardConditionalStyle = css`
     color: #fff;
     overflow: hidden;
   }
-  .card.flipped > .front {
-    transform: rotateY(180deg);
-  }
 
   .back {
     background: #fff;
     color: #ce1a5d;
     box-shadow: inset 0px 0px 0px 3px #ce1a5d;
-    transform: rotateY(-180deg);
     font-size: 1.618rem;
     overflow: hidden;
-  }
-  .card.flipped > .back {
-    transform: rotateY(0deg);
   }
 `;
 
@@ -56,28 +50,45 @@ const cardFaceStyle = {
   textAlign: 'center',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backfaceVisibility: 'hidden',
-  transformStyle: 'preserve-3d',
-  transition: 'ease-in 400ms',
 };
 
-function CardFace({ front, name, title, powers, type, loves, image }) {
+function CardFace({ front, name, title, powers, type, loves, image, spring }) {
   const side = front ? 'front' : 'back';
 
+  // prettier-ignore
   const headingProps = front
-    ? { sx: { fontWeight: 'bolder' } }
-    : { sx: { fontFamily: 'sans-serif', fontWeight: 400 } };
+    ? {
+      sx: { textAlign: 'center', position: 'relative', fontWeight: 'bolder' },
+    } : {
+      sx: {
+        textAlign: 'center',
+        position: 'relative',
+        fontFamily: 'sans-serif',
+        fontWeight: 400,
+      },
+    };
   const middleTextProps = front ? { as: 'p', sx: { fontFamily: 'serif' } } : {};
-
   const middleTextContent = front ? title : type;
   const bottomTextContent = front ? powers : loves;
 
+  // prettier-ignore
+  const animation = front
+    ? {
+      opacity: spring.opacity.interpolate(o => 1 - o),
+      transform: spring.transform,
+    } : {
+      opacity: spring.opacity,
+      transform: spring.transform.interpolate(t => `${t} rotateY(180deg)`),
+    };
+
   return (
     <Flex
+      as={animated.div}
       flexDirection={['column', 'row']}
       bg="secondary"
       className={side}
       sx={cardFaceStyle}
+      style={animation}
     >
       <Box
         m={3}
@@ -120,8 +131,16 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
         p={4}
         height={['auto', '100%']}
       >
-        <Heading fontSize={[5, 6]} mb={2} lineHeight="1" {...headingProps}>
-          {name}
+        <Heading
+          flex={2}
+          fontSize={[5, 6]}
+          mb={2}
+          lineHeight="1"
+          {...headingProps}
+        >
+          <Box width={1} sx={{ position: 'absolute', bottom: 0 }}>
+            {name}
+          </Box>
         </Heading>
 
         <Text lineHeight="1" {...middleTextProps}>
@@ -130,7 +149,7 @@ function CardFace({ front, name, title, powers, type, loves, image }) {
 
         <br />
 
-        <Text as="small" sx={{ fontFamily: 'sans-serif' }}>
+        <Text flex={2} as="small" sx={{ fontFamily: 'sans-serif' }}>
           <FormattedMessage {...bottomTextContent} />
         </Text>
       </Flex>
@@ -145,11 +164,17 @@ CardFace.propTypes = {
   powers: PropTypes.object.isRequired,
   type: PropTypes.object.isRequired,
   loves: PropTypes.object.isRequired,
+  spring: PropTypes.object.isRequired,
   image: PropTypes.object.isRequired,
 };
 
 function Profile(props) {
   const [flipped, setFlip] = useState(false);
+  const spring = useSpring({
+    opacity: flipped ? 1 : 0,
+    transform: `perspective(2000px) rotateY(${flipped ? 180 : 0}deg)`,
+    config: { mass: 4, tension: 1500, friction: 100 },
+  });
 
   return (
     <Box width={1} css={CardConditionalStyle}>
@@ -168,8 +193,8 @@ function Profile(props) {
         my={3}
         mx="auto"
       >
-        <CardFace {...props} front />
-        <CardFace {...props} />
+        <CardFace {...props} spring={spring} front />
+        <CardFace {...props} spring={spring} />
       </Flex>
     </Box>
   );

@@ -42,7 +42,7 @@ export function ProfileCard({ name, title, location, bio, photo }) {
           <Heading
             lineHeight="1"
             color="black"
-            sx={{ fontSize: ['9vw', '4vw'] }}
+            sx={{ wordSpacing: '9999rem', fontSize: ['9vw', '4vw'] }}
             mb={1}
           >
             {name}
@@ -67,7 +67,7 @@ export function ProfileCard({ name, title, location, bio, photo }) {
           </Heading>
         </Box>
 
-        <Box p={2} ml="auto" maxWidth={[100, 100, 200]}>
+        <Box p={2} ml="auto" maxWidth={[130, 140, 250]}>
           <Box
             sx={{
               width: '100%',

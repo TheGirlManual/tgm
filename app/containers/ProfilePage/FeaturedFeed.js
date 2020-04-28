@@ -10,7 +10,7 @@ import InstagramEmbed from 'react-instagram-embed';
 
 export function FeaturedFeed() {
   return (
-    <Box m={3}>
+    <Box p={3}>
       <InstagramEmbed
         url="https://www.instagram.com/p/B_ZwOZiow_B"
         hideCaption={false}
