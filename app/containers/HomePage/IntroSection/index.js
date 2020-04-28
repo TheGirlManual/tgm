@@ -76,11 +76,19 @@ PlatformIcon.propTypes = {
 
 function PlatformDropdown({ setShowPlatforms, showPlatforms }) {
   PlatformDropdown.handleClickOutside = () => setShowPlatforms(false);
+  const ref = React.useRef();
 
   return (
     <Flex
       as={animated.div}
-      onClick={() => setShowPlatforms(!showPlatforms)}
+      ref={ref}
+      onClick={() => {
+        window.scrollTo({
+          top: ref.current.offsetTop - 20,
+          behavior: 'smooth',
+        });
+        setShowPlatforms(!showPlatforms);
+      }}
       width={60}
       bg={isMobile ? 'primary' : 'secondary'}
       color={isMobile ? 'secondary' : 'primary'}
@@ -179,7 +187,7 @@ export default function IntroSection() {
         </Button>
 
         <DismissablePlatformDropdown
-          eventTypes={['click', 'touchend']}
+          eventTypes={['click', 'touchstart']}
           {...{ showPlatforms, setShowPlatforms }}
         />
       </Flex>
