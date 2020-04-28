@@ -58,10 +58,12 @@ function CardFace({ front, name, title, powers, type, loves, image, spring }) {
   // prettier-ignore
   const headingProps = front
     ? {
-      sx: { textAlign: 'center', position: 'relative', fontWeight: 'bolder' },
+      sx: {
+        position: 'relative',
+        fontWeight: 'bolder',
+      },
     } : {
       sx: {
-        textAlign: 'center',
         position: 'relative',
         fontFamily: 'sans-serif',
         fontWeight: 400,
@@ -106,6 +108,7 @@ function CardFace({ front, name, title, powers, type, loves, image, spring }) {
       >
         <FontAwesomeIcon icon={isMobile ? Hand : Mouse} />
       </Box>
+
       <Box
         flex="3"
         sx={{ objectFit: 'cover' }}
@@ -138,7 +141,10 @@ function CardFace({ front, name, title, powers, type, loves, image, spring }) {
           lineHeight="1"
           {...headingProps}
         >
-          <Box width={1} sx={{ position: 'absolute', bottom: 0 }}>
+          <Box
+            width={1}
+            sx={{ wordSpacing: '9999em', position: 'absolute', bottom: 0 }}
+          >
             {name}
           </Box>
         </Heading>
@@ -170,6 +176,7 @@ CardFace.propTypes = {
 
 function Profile(props) {
   const [flipped, setFlip] = useState(false);
+
   const spring = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(2000px) rotateY(${flipped ? 180 : 0}deg)`,

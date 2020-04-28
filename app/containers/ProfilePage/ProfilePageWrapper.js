@@ -10,7 +10,7 @@ function ProfilePageWrapper({ children }) {
       justifyContent="space-evenly"
       alignItems="flex-start"
       flexWrap="wrap"
-      px={[4]}
+      mx={[4]}
     >
       <HeadTags
         title="Meet Us"

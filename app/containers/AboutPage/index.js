@@ -20,7 +20,14 @@ function Mission() {
       width={[null, 1, 0.4]}
       p={3}
     >
-      <Heading as="h1" px={3} my={3} fontSize={[6, 6, 6, 7]} color="secondary">
+      <Heading
+        textAlign="center"
+        as="h1"
+        px={3}
+        my={3}
+        fontSize={[6, 6, 6, 7]}
+        color="secondary"
+      >
         <FormattedMessage {...messages.title} />
       </Heading>
       <Text
@@ -70,6 +77,7 @@ function Quote() {
           position: 'relative',
           lineHeight: 1.6,
           fontSize: 4,
+          textAlign: 'justify',
         }}
       >
         <FormattedMessage {...messages.motivation} />

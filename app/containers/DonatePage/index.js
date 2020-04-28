@@ -28,7 +28,7 @@ export function DonatePage() {
         <Heading as="h1" color="secondary" fontSize={[6, 6]}>
           <FormattedMessage {...messages.donate} />
         </Heading>
-        <Text mt={2} fontSize={[2, 3]}>
+        <Text mt={2} lineHeight="1.4" fontSize={[2, 3]}>
           <FormattedHTMLMessage {...messages.donateText} />
         </Text>
         <Link href="https://www.patreon.com/bePatron?u=31577164">

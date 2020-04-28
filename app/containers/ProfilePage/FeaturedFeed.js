@@ -5,12 +5,12 @@
  */
 
 import React from 'react';
-import { Box } from 'rebass';
+import { Flex } from 'rebass';
 import InstagramEmbed from 'react-instagram-embed';
 
 export function FeaturedFeed() {
   return (
-    <Box p={3}>
+    <Flex justifyContent="center" p={[0, 3]}>
       <InstagramEmbed
         url="https://www.instagram.com/p/B_ZwOZiow_B"
         hideCaption={false}
@@ -18,7 +18,7 @@ export function FeaturedFeed() {
         protocol=""
         injectScript
       />
-    </Box>
+    </Flex>
   );
 }
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import { Flex, Box, Image, Button, Heading } from 'rebass';
 import { isMobile } from 'react-device-detect';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown as Show } from '@fortawesome/free-solid-svg-icons';
 import { faSpotify as Spotify } from '@fortawesome/free-brands-svg-icons';
+import { useSpring, animated, config } from 'react-spring';
 import onClickOutside from 'react-onclickoutside';
 
 import Overcast from 'images/overcast.png';
@@ -30,35 +31,38 @@ const platformData = [
 ];
 
 function PlatformIcon({ icon, index, expand, href }) {
+  const [props, set] = useSpring(() => ({
+    top: 0,
+    opacity: 0,
+    config: config.stiff,
+  }));
+
+  set({
+    opacity: expand ? 1 : 0,
+    top: expand ? (index + 1) * 65 : 0,
+  });
+
   return (
     <Box
-      as="a"
+      as={animated.a}
       href={href}
       sx={{
         display: 'flex',
         position: 'absolute',
-        top: expand ? `calc(${index + 1}00% + 5px)` : 0,
         left: '50%',
         transform: 'translateX(-50%)',
         zIndex: 2,
         borderRadius: '25%',
-        opacity: expand ? 1 : 0,
-        transition: 'opacity 20ms, top 200ms',
         justifyContent: 'center',
         alignItems: 'center',
+        boxShadow: '0px 0px 5px 5px #ffffff33',
       }}
       bg="primary"
       width={expand ? 50 : 0}
       height={expand ? 50 : 0}
+      style={props}
     >
-      <Image
-        m={1}
-        p={2}
-        height="auto"
-        width="100%"
-        sx={{ display: expand ? 'block' : 'none', zIndex: 2 }}
-        src={icon}
-      />
+      <Image m={1} p={2} height="auto" width="100%" src={icon} />
     </Box>
   );
 }
@@ -75,6 +79,7 @@ function PlatformDropdown({ setShowPlatforms, showPlatforms }) {
 
   return (
     <Flex
+      as={animated.div}
       onClick={() => setShowPlatforms(!showPlatforms)}
       width={60}
       bg={isMobile ? 'primary' : 'secondary'}
@@ -82,12 +87,12 @@ function PlatformDropdown({ setShowPlatforms, showPlatforms }) {
       justifyContent="center"
       alignItems="center"
       sx={{
+        userSelect: 'none',
         position: 'relative',
         borderRadius: '0px 5px 5px 0px',
         borderLeft: '1px solid white',
         borderColor: 'secondaryLight',
         zIndex: 4,
-        boxShadow: showPlatforms ? '0 0 0 2000px rgba(0, 0, 0, 0.6)' : 'none',
       }}
     >
       <FontAwesomeIcon style={{ zIndex: 4 }} icon={Show} />
@@ -125,12 +130,26 @@ export default function IntroSection() {
       <Heading
         as="h1"
         px={3}
-        sx={{ color: isMobile && 'primary', textAlign: 'center' }}
+        sx={{ color: isMobile ? 'primary' : '#555', textAlign: 'center' }}
         fontSize={[5, 7]}
         fontWeight="400"
       >
-        <FormattedMessage {...messages.headline} />
+        <FormattedHTMLMessage {...messages.headline} />
       </Heading>
+
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          height: '100vh',
+          width: '100vw',
+          bg: 'black',
+          transition: 'opacity 200ms, z-index 200ms',
+          opacity: showPlatforms ? 0.6 : 0,
+          zIndex: showPlatforms ? 3 : -1,
+        }}
+      />
 
       <Flex
         mt={4}

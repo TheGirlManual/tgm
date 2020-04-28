@@ -49,7 +49,7 @@ function ContactForm({ handleMessage }) {
       <Heading color="secondary" fontSize={[6, 6]}>
         <FormattedMessage {...messages.helpUs} />
       </Heading>
-      <Text mt={2} fontSize={[2, 3]} textAlign="center">
+      <Text mt={2} lineHeight="1.4" fontSize={[2, 3]} textAlign="center">
         <FormattedHTMLMessage {...messages.helpUsText} />
       </Text>
 
