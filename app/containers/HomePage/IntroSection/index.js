@@ -39,15 +39,12 @@ export default function IntroSection() {
 
       <Flex
         mt={4}
-        width={0.6}
-        maxWidth={300}
         fontSize={[3, 4]}
         justifyContent="center"
         alignItems="stretch"
       >
         <Button
           as="a"
-          width={0.9}
           p={3}
           variant={isMobile ? 'secondary' : 'primary'}
           href="https://open.spotify.com/show/7jwdjqGaFHQeQoly9ByCzP"

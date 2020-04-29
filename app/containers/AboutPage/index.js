@@ -46,7 +46,6 @@ function Mission() {
         sx={{ textDecoration: 'none', textAlign: 'center' }}
         mt={4}
         fontSize={[3, 4]}
-        width={0.45}
         maxWidth={200}
         p={3}
       >
@@ -78,7 +77,7 @@ function Quote() {
           position: 'relative',
           lineHeight: 1.6,
           fontSize: 4,
-          textAlign: 'justify',
+          textAlign: ['left', 'justify', 'center'],
         }}
       >
         <FormattedMessage {...messages.motivation} />
