@@ -13,7 +13,7 @@ const mobileBackground = {
 const desktopBackground = {
   backgroundImage: `linear-gradient(to bottom, #ffffffcc, #ffffffcc), url(${img})`,
   backgroundSize: 'cover',
-  filter: 'hue-rotate(-2deg) saturate(1.2)',
+  filter: 'hue-rotate(310deg) saturate(1)',
 };
 
 function IntroSectionWrapper({ children }) {

@@ -9,7 +9,7 @@ import { Heading, Text, Box, Flex } from 'rebass';
 import { FormattedMessage } from 'react-intl';
 import { css, keyframes } from '@emotion/core';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { useSpring, animated } from 'react-spring';
+import { useSpring, animated, config } from 'react-spring';
 import { isMobile } from 'react-device-detect';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
@@ -180,7 +180,7 @@ function Profile(props) {
   const spring = useSpring({
     opacity: flipped ? 1 : 0,
     transform: `perspective(2000px) rotateY(${flipped ? 180 : 0}deg)`,
-    config: { mass: 4, tension: 1500, friction: 100 },
+    config: config.wobbly,
   });
 
   return (
