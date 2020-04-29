@@ -8,6 +8,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Box, Button, Heading, Text, Flex, Image } from 'rebass';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import homeMessages from 'containers/HomePage/messages';
 import AboutPageWrapper from './AboutPageWrapper';
 import messages from './messages';
 
@@ -49,7 +50,7 @@ function Mission() {
         maxWidth={200}
         p={3}
       >
-        Listen now
+        <FormattedMessage {...homeMessages.listenCta} />
       </Button>
     </Flex>
   );

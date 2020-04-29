@@ -8,6 +8,7 @@ import { useSpring, animated, config } from 'react-spring';
 import onClickOutside from 'react-onclickoutside';
 
 import Overcast from 'images/overcast.png';
+import Anchor from 'images/anchor.png';
 import ApplePodcasts from 'images/apple_podcasts.png';
 import Breaker from 'images/breaker.png';
 import Castbox from 'images/castbox.png';
@@ -15,6 +16,7 @@ import PocketCasts from 'images/pocket_casts.png';
 import RadioPublic from 'images/radiopublic.png';
 
 const platformData = [
+  [Anchor, 'https://anchor.fm/the-girl-manual', 'Anchor'],
   [
     Overcast,
     'https://overcast.fm/itunes1502453646/the-girl-manual',
@@ -39,7 +41,7 @@ function PlatformIcon({ platform, index, expand }) {
   const [props, set] = useSpring(() => ({
     top: 0,
     opacity: 0,
-    config: config.stiff,
+    config: config.slow,
   }));
 
   set({
